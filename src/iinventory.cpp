@@ -1,0 +1,1 @@
+﻿#include <gamekit/inventory/iinventory.h>
