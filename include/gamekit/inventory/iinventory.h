@@ -19,7 +19,7 @@ class IInventory
 	static_assert(std::is_base_of_v<IInventorySlot<TData>, TSlot>, "TSlot must derive from InventorySlot");
 
 protected:
-	bool Initialize_(std::optional<int> initialCapacity = std::nullopt)
+	bool BaseInitialize(std::optional<int> initialCapacity = std::nullopt)
 	{
 		auto& settings = GetSettings();
 		const int decidedInitialCapacity = initialCapacity.value_or(settings.GetInitialCapacity());
@@ -31,11 +31,14 @@ protected:
 			return false;
 		}
 
+		InitializeSlots(decidedInitialCapacity);
+
 		// inventory initialized
 		return true;
 	}
 
-	int Add_(const TData& data) { return -1; }
+protected:
+	virtual bool InitializeSlots(int initialCapacity) = 0;
 
 public:
 	virtual ~IInventory() = default;
@@ -44,10 +47,19 @@ public:
 
 	virtual const TSettings& GetSettings() const = 0;
 
-	virtual const std::vector<std::reference_wrapper<TSlot>> GetSlots() const = 0;
+	virtual const std::vector<TSlot>& GetSlots() const = 0;
 
-	virtual int Add(TData& data) = 0;
+	virtual bool Add(const TData& data, std::vector<int>& filledSlotIndices) = 0;
+
+	virtual bool Remove(int slotIndex) = 0;
+
+	virtual int FindEmptySlot() = 0;
+
+	virtual bool HasInventoryEmptySlot() = 0;
+
+	virtual bool IsSlotOccupied(int slotIndex) = 0;
+
+	virtual bool IsInventoryFull() = 0;
 };
-
 
 #endif // IINVENTORY_H

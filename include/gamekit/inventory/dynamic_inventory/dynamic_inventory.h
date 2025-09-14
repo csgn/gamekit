@@ -4,7 +4,6 @@
 
 #include <vector>
 
-
 #include "gamekit/inventory/iinventory.h"
 
 #include "dynamic_inventory_settings.h"
@@ -13,22 +12,32 @@
 class DynamicInventory final : public IInventory<IGameObject, DynamicInventorySettings, DynamicInventorySlot>
 {
 private:
-	DynamicInventorySettings& m_settings;
-	std::vector<std::reference_wrapper<DynamicInventorySlot>> m_slots;
+	DynamicInventorySettings m_settings;
+	std::vector<DynamicInventorySlot> m_slots;
+
+protected:
+	bool InitializeSlots(int initialCapacity) override;
 
 public:
-	explicit DynamicInventory(DynamicInventorySettings& settings) : m_settings(settings) {}
+	explicit DynamicInventory(DynamicInventorySettings settings) : m_settings(settings) {}
+
+	bool Initialize(std::optional<int> initialCapacity = std::nullopt) override;
 
 	const DynamicInventorySettings& GetSettings() const override { return m_settings; }
 
-	bool Initialize(const std::optional<int> initialCapacity = std::nullopt) override
-	{
-		return Initialize_(initialCapacity);
-	}
+	const std::vector<DynamicInventorySlot>& GetSlots() const override { return m_slots; }
 
-	const std::vector<std::reference_wrapper<DynamicInventorySlot>> GetSlots() const override { return m_slots; }
+	bool Add(const IGameObject& data, std::vector<int>& filledSlotIndices) override;
 
-	int Add(IGameObject& data) override { return Add_(data); }
+	bool Remove(int slotIndex) override;
+
+	int FindEmptySlot() override;
+
+	bool HasInventoryEmptySlot() override;
+
+	bool IsSlotOccupied(int slotIndex) override;
+
+	bool IsInventoryFull() override;
 };
 
 #endif // DYNAMIC_INVENTORY_H

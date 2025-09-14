@@ -7,8 +7,8 @@ TEST(InventoryTestSuite, DynamicInventory_Constructor_ShouldCreatedCorrectly_Whe
 {
 	constexpr auto max_capacity = 20;
 	constexpr auto initial_capacity = 10;
-	auto settings = DynamicInventorySettings(max_capacity, initial_capacity);
-	auto di = DynamicInventory(settings);
+	const auto settings = DynamicInventorySettings(max_capacity, initial_capacity);
+	const auto di = DynamicInventory(settings);
 
 	EXPECT_EQ(di.GetSettings().GetMaxCapacity(), max_capacity);
 	EXPECT_EQ(di.GetSettings().GetInitialCapacity(), initial_capacity);
@@ -25,7 +25,7 @@ TEST(InventoryTestSuite, DynamicInventory_Initialize_ShouldInitializeCorrectly_W
 {
 	constexpr auto max_capacity = 20;
 	constexpr auto initial_capacity = 10;
-	auto settings = DynamicInventorySettings(max_capacity, initial_capacity);
+	const auto settings = DynamicInventorySettings(max_capacity, initial_capacity);
 	auto di = DynamicInventory(settings);
 	const auto result = di.Initialize();
 
