@@ -4,14 +4,12 @@ set -e
 
 BUILD_DIR=cmake-build-debug
 
-if [ ! -d "$BUILD_DIR" ]; then
-    mkdir "$BUILD_DIR"
+if [ ! -d "${BUILD_DIR}" ]; then
+    mkdir "${BUILD_DIR}"
 fi
 
-cd "$BUILD_DIR"
+# configure
+cmake -S . -G "Unix Makefiles" -B ${BUILD_DIR}
 
-cmake ..
-
-cmake --build . -- -j$(nproc)
-
-cd ..
+# build
+cmake --build ${BUILD_DIR} -- -j$(nproc)
