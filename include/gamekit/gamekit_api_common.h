@@ -22,6 +22,10 @@
 	#endif
 #endif
 
-#define CALL_TYPE __cdecl
+#ifdef _WIN32
+	#define CALL_TYPE __cdecl
+#else
+	#define CALL_TYPE
+#endif
 
-#endif	// GAMEKIT_API_COMMON_H
+#endif // GAMEKIT_API_COMMON_H

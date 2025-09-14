@@ -17,4 +17,4 @@ GAMEKIT_API IGameObject* CALL_TYPE GamekitAPI_IGameObject_New(const char* id);
 GAMEKIT_API int CALL_TYPE GamekitAPI_IGameObject_Destroy(const IGameObject* gameObjectPtr);
 GAMEKIT_API int CALL_TYPE GamekitAPI_IGameObject_GetId(const IGameObject* gameObjectPtr, char* buffer, int bufferSize);
 
-#endif	// GAMEOBJECT_H
+#endif // GAMEOBJECT_H
