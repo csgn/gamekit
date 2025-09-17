@@ -2,14 +2,14 @@
 
 set -e
 
-BUILD_DIR=cmake-build-debug
+. ./config.sh $1
 
 if [ ! -d "${BUILD_DIR}" ]; then
     mkdir "${BUILD_DIR}"
 fi
 
 # configure
-cmake -S . -G "Unix Makefiles" -B ${BUILD_DIR}
+cmake -S . -G "Unix Makefiles" -B ${BUILD_DIR} -DCMAKE_CXX_COMPILER=/usr/bin/clang++ -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 
 # build
-cmake --build ${BUILD_DIR} -- -j$(nproc)
+cmake --build ${BUILD_DIR}
