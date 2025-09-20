@@ -8,6 +8,9 @@
 #include "gamekit/systems/inventory/iinventory_settings.h"
 #include "gamekit/systems/inventory/iinventory_slot.h"
 
+namespace gamekit::systems::inventory
+{
+
 class SimpleInventorySettings : public IInventorySettings
 {
 private:
@@ -91,5 +94,7 @@ public:
 
 	int GetOccupiedSlotCount() override { return 0; }
 };
+
+} // namespace gamekit::systems::inventory
 
 #endif // GAMEKIT_INCLUDE_GAMEKIT_SYSTEMS_INVENTORY_SIMPLE_INVENTORY_H

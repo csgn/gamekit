@@ -2,7 +2,12 @@
 #include <gtest/gtest.h>
 #include <memory>
 
-class TestInventoryData : public IGameObject
+namespace gamekit::tests
+{
+using namespace gamekit::core;
+using namespace gamekit::systems::inventory;
+
+class TestInventoryData : public core::IGameObject
 {
 private:
 	int m_id;
@@ -30,3 +35,5 @@ TEST(SimpleInventoryTest, Initialize)
 	EXPECT_EQ(20, inventory.GetSettings()->GetMaxCapacity());
 	EXPECT_EQ(10, inventory.GetSettings()->GetInitialCapacity());
 }
+
+} // namespace gamekit::tests

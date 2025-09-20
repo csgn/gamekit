@@ -1,6 +1,9 @@
 ﻿#ifndef GAMEKIT_INCLUDE_GAMEKIT_CORE_IGAMEOBJECT_H_
 #define GAMEKIT_INCLUDE_GAMEKIT_CORE_IGAMEOBJECT_H_
 
+namespace gamekit::core
+{
+
 /**
  * @brief Abstract interface representing a basic game object.
  *
@@ -18,5 +21,7 @@ public:
 	 */
 	virtual int GetID() const = 0;
 };
+
+} // namespace gamekit::core
 
 #endif // GAMEKIT_INCLUDE_GAMEKIT_CORE_IGAMEOBJECT_H_

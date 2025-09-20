@@ -10,6 +10,9 @@
 #include "gamekit/systems/inventory/iinventory_settings.h"
 #include "gamekit/systems/inventory/iinventory_slot.h"
 
+namespace gamekit::systems::inventory
+{
+
 /**
  * @brief Interface for a generic inventory system.
  *
@@ -27,7 +30,7 @@
 template<typename TData, typename TSettings, typename TSlot>
 class IInventory
 {
-	static_assert(std::is_base_of_v<IGameObject, TData>, "TData must derive from InventoryData");
+	static_assert(std::is_base_of_v<core::IGameObject, TData>, "TData must derive from InventoryData");
 	static_assert(std::is_base_of_v<IInventorySettings, TSettings>, "TSettings must derive from InventorySettings");
 	static_assert(std::is_base_of_v<IInventorySlot<TData>, TSlot>, "TSlot must derive from InventorySlot");
 
@@ -119,5 +122,7 @@ public:
 	 */
 	virtual int GetOccupiedSlotCount() = 0;
 };
+
+} // namespace gamekit::systems::inventory
 
 #endif // GAMEKIT_INCLUDE_GAMEKIT_SYSTEMS_INVENTORY_IINVENTORY_H_

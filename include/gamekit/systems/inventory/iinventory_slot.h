@@ -4,6 +4,9 @@
 #include <memory>
 #include <string>
 
+namespace gamekit::systems::inventory
+{
+
 /**
  * @brief Interface for a single inventory slot.
  *
@@ -55,5 +58,7 @@ public:
 	 */
 	virtual std::string ToString() const = 0;
 };
+
+} // namespace gamekit::systems::inventory
 
 #endif // GAMEKIT_INCLUDE_GAMEKIT_SYSTEMS_INVENTORY_IINVENTORY_SLOT_H_

@@ -1,6 +1,9 @@
 ﻿#ifndef GAMEKIT_INCLUDE_GAMEKIT_SYSTEMS_INVENTORY_IINVENTORY_SETTINGS_H_
 #define GAMEKIT_INCLUDE_GAMEKIT_SYSTEMS_INVENTORY_IINVENTORY_SETTINGS_H_
 
+namespace gamekit::systems::inventory
+{
+
 /**
  * @brief Interface for inventory configuration settings.
  *
@@ -37,5 +40,7 @@ public:
 	 */
 	virtual void SetInitialCapacity(int initial_capacity) = 0;
 };
+
+} // namespace gamekit::systems::inventory
 
 #endif // GAMEKIT_INCLUDE_GAMEKIT_SYSTEMS_INVENTORY_IINVENTORY_SETTINGS_H_
