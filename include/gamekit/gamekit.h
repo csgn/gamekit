@@ -1,7 +1,8 @@
-﻿#ifndef GAMEKIT_H
-#define GAMEKIT_H
-#pragma once
+﻿#ifndef GAMEKIT_INCLUDE_GAMEKIT_H_
+#define GAMEKIT_INCLUDE_GAMEKIT_H_
 
-#include "gamekit_api.h"
+#include "gamekit/core/core.h"
 
-#endif	// GAMEKIT_H
+#include "gamekit/systems/inventory/inventory.h"
+
+#endif // GAMEKIT_INCLUDE_GAMEKIT_H_

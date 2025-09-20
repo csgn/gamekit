@@ -1,0 +1,6 @@
+#ifndef GAMEKIT_INCLUDE_GAMEKIT_CORE_CORE_H
+#define GAMEKIT_INCLUDE_GAMEKIT_CORE_CORE_H
+
+#include "gamekit/core/igameobject.h"
+
+#endif // GAMEKIT_INCLUDE_GAMEKIT_CORE_CORE_H
