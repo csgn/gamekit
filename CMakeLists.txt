@@ -1,6 +1,14 @@
 cmake_minimum_required(VERSION 3.30)
 project(gamekit)
 
+if(EXISTS "${CMAKE_SOURCE_DIR}/.clangd.in")
+    configure_file(
+            "${CMAKE_SOURCE_DIR}/.clangd.in"
+            "${CMAKE_BINARY_DIR}/.clangd"
+            @ONLY
+    )
+endif()
+
 set(CMAKE_CXX_STANDARD 17)
 
 include(FetchContent)
@@ -15,4 +23,3 @@ include_directories(include)
 
 add_subdirectory(src gamekit)
 add_subdirectory(tests gamekit-tests)
-
