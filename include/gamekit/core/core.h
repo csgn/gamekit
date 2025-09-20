@@ -3,4 +3,9 @@
 
 #include "gamekit/core/igameobject.h"
 
+namespace gamekit::core
+{
+
+} // namespace gamekit::core
+
 #endif // GAMEKIT_INCLUDE_GAMEKIT_CORE_CORE_H
