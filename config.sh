@@ -1,7 +1,7 @@
 PROJECT_NAME=gamekit
 
-BUILD_DEBUG_DIR=cmake-build-debug
-BUILD_RELEASE_DIR=cmake-build-release
+BUILD_DEBUG_DIR=build/linux/debug
+BUILD_RELEASE_DIR=build/linux/release
 BUILD_DIR=
 
 DOCS_DIR=docs/
