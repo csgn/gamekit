@@ -48,7 +48,7 @@ public:
 	 * @brief Gets the inventory settings.
 	 * @return Constant reference to the settings object.
 	 */
-	virtual const TSettings* GetSettings() const = 0;
+	virtual const TSettings& GetSettings() const = 0;
 
 	/**
 	 * @brief Gets all inventory slots.
@@ -59,10 +59,9 @@ public:
 	/**
 	 * @brief Adds an item to the inventory.
 	 * @param data Unique pointer to the item to add.
-	 * @param filled_slot_indices Vector to store indices of filled slots.
-	 * @return True if item was added successfully.
+	 * @return Optional Vector if item was added successfully, then returns indices of filled slots.
 	 */
-	virtual bool Add(std::unique_ptr<TData> data, std::vector<int>& filled_slot_indices) = 0;
+	virtual std::optional<std::vector<int>> Add(std::unique_ptr<TData> data) = 0;
 
 	/**
 	 * @brief Removes an item from a slot.

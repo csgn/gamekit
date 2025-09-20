@@ -30,15 +30,15 @@ public:
 
 	/**
 	 * @brief Gets a pointer to the slot data.
-	 * @return Pointer to TData, nullptr if empty.
+	 * @return Reference to TData..
 	 */
-	virtual TData* GetData() = 0;
+	virtual TData& GetData() = 0;
 
 	/**
 	 * @brief Gets a const pointer to the slot data.
-	 * @return Const pointer to TData, nullptr if empty.
+	 * @return Const reference to TData.
 	 */
-	virtual const TData* GetData() const = 0;
+	virtual const TData& GetData() const = 0;
 
 	/**
 	 * @brief Sets the slot data.
