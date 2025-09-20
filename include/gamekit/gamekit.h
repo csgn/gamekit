@@ -4,6 +4,13 @@
 #include "gamekit/core/core.h"
 #include "gamekit/systems/inventory/inventory.h"
 
+/**
+ * @mainpage GameKit Library
+ *
+ * @section intro_sec Introduction
+ * This project is a C++ kit library designed to help developers
+ * quickly prototype games without rewriting core gameplay systems from scratch.
+ */
 namespace gamekit
 {
 
