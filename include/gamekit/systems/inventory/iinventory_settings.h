@@ -1,4 +1,6 @@
-﻿#ifndef GAMEKIT_INCLUDE_GAMEKIT_SYSTEMS_INVENTORY_IINVENTORY_SETTINGS_H_
+﻿// IWYU pragma: private, include "gamekit/gamekit.h"
+//
+#ifndef GAMEKIT_INCLUDE_GAMEKIT_SYSTEMS_INVENTORY_IINVENTORY_SETTINGS_H_
 #define GAMEKIT_INCLUDE_GAMEKIT_SYSTEMS_INVENTORY_IINVENTORY_SETTINGS_H_
 
 namespace gamekit::systems::inventory
@@ -18,14 +20,14 @@ public:
 	 * @brief Gets the maximum allowed inventory capacity.
 	 * @return Maximum number of slots.
 	 */
-	virtual const int GetMaxCapacity() const = 0;
+	virtual int GetMaxCapacity() const = 0;
 
 
 	/**
 	 * @brief Gets the initial inventory capacity.
 	 * @return Number of slots at initialization.
 	 */
-	virtual const int GetInitialCapacity() const = 0;
+	virtual int GetInitialCapacity() const = 0;
 
 	/**
 	 * @brief Sets the maximum allowed inventory capacity.

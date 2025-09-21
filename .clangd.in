@@ -1,2 +1,13 @@
 ﻿CompileFlags:
   CompilationDatabase: "@CMAKE_BINARY_DIR@"
+
+Index:
+  Background: Build
+  StandardLibrary: Yes
+
+Diagnostics:
+  UnusedIncludes: Strict
+  MissingIncludes: Strict
+
+Completion:
+  AllScopes: Yes

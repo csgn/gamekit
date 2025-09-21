@@ -4,7 +4,7 @@ project(gamekit)
 if(EXISTS "${CMAKE_SOURCE_DIR}/.clangd.in")
     configure_file(
             "${CMAKE_SOURCE_DIR}/.clangd.in"
-            "${CMAKE_BINARY_DIR}/.clangd"
+			"${CMAKE_SOURCE_DIR}/.clangd"
             @ONLY
     )
 endif()
@@ -18,8 +18,6 @@ FetchContent_Declare(
         GIT_TAG        v1.17.0
 )
 FetchContent_MakeAvailable(googletest)
-
-include_directories(include)
 
 add_subdirectory(src gamekit)
 add_subdirectory(tests gamekit-tests)

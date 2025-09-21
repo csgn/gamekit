@@ -1,13 +1,18 @@
+// IWYU pragma: private, include "gamekit/gamekit.h"
+//
 #ifndef GAMEKIT_INCLUDE_GAMEKIT_SYSTEMS_INVENTORY_SIMPLE_INVENTORY_H
 #define GAMEKIT_INCLUDE_GAMEKIT_SYSTEMS_INVENTORY_SIMPLE_INVENTORY_H
 
 #include <memory>
 #include <optional>
 #include <sstream>
+#include <string>
+#include <utility>
+#include <vector>
 
-#include "gamekit/systems/inventory/iinventory.h"
-#include "gamekit/systems/inventory/iinventory_settings.h"
-#include "gamekit/systems/inventory/iinventory_slot.h"
+#include "gamekit/systems/inventory/iinventory.h" // IWYU pragma: export
+#include "gamekit/systems/inventory/iinventory_settings.h" // IWYU pragma: export
+#include "gamekit/systems/inventory/iinventory_slot.h" // IWYU pragma: export
 
 namespace gamekit::systems::inventory
 {
@@ -20,8 +25,8 @@ public:
 	{
 	}
 
-	const int GetMaxCapacity() const override { return m_max_capacity; }
-	const int GetInitialCapacity() const override { return m_initial_capacity; }
+	int GetMaxCapacity() const override { return m_max_capacity; }
+	int GetInitialCapacity() const override { return m_initial_capacity; }
 	void SetMaxCapacity(int max_capacity) override { m_max_capacity = max_capacity; }
 	void SetInitialCapacity(int initial_capacity) override { m_initial_capacity = initial_capacity; }
 
@@ -37,7 +42,7 @@ class SimpleInventorySlot : public IInventorySlot<TData>
 public:
 	explicit SimpleInventorySlot(const int index) : m_index(index) {}
 
-	const int GetIndex() const override { return m_index; }
+	int GetIndex() const override { return m_index; }
 
 	TData& GetData() override { return *m_data; }
 
@@ -66,7 +71,7 @@ class SimpleInventory : public IInventory<TData, SimpleInventorySettings, Simple
 public:
 	explicit SimpleInventory(std::unique_ptr<SimpleInventorySettings> settings) : m_settings(std::move(settings)) {}
 
-	bool Initialize(std::optional<int> initial_capacity = std::nullopt) override
+	bool Initialize(std::optional<int> initial_capacity) override
 	{
 		int capacity = initial_capacity.value_or(m_settings->GetInitialCapacity());
 		m_slots.clear();
@@ -118,20 +123,11 @@ public:
 		return std::nullopt;
 	}
 
-	bool HasInventoryEmptySlot() override
-	{
-		return FindEmptySlot().has_value();
-	}
+	bool HasInventoryEmptySlot() override { return FindEmptySlot().has_value(); }
 
-	bool IsSlotOccupied(const int slot_index) override
-	{
-		return !GetSlot(slot_index).IsEmpty();
-	}
+	bool IsSlotOccupied(const int slot_index) override { return !GetSlot(slot_index).IsEmpty(); }
 
-	bool IsInventoryFull() override
-	{
-		return !HasInventoryEmptySlot();
-	}
+	bool IsInventoryFull() override { return !HasInventoryEmptySlot(); }
 
 	SimpleInventorySlot<TData>& GetSlot(int slot_index) override { return m_slots.at(slot_index); }
 

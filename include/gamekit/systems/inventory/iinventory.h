@@ -42,7 +42,7 @@ public:
 	 * @param initial_capacity Optional initial number of slots.
 	 * @return True if initialization was successful.
 	 */
-	virtual bool Initialize(std::optional<int> initial_capacity = std::nullopt) = 0;
+	virtual bool Initialize(std::optional<int> initial_capacity) = 0;
 
 	/**
 	 * @brief Gets the inventory settings.

@@ -1,6 +1,7 @@
-#include <gamekit/gamekit.h>
-#include <gtest/gtest.h>
 #include <memory>
+
+#include "gamekit/gamekit.h"
+#include "gtest/gtest.h"
 
 namespace gamekit::tests
 {
@@ -15,7 +16,7 @@ private:
 	string m_name;
 
 public:
-	explicit TestInventoryData(const int id, const string& name) : m_id(id), m_name(name) {}
+	explicit TestInventoryData(const int id, string name) : m_id(id), m_name(std::move(name)) {}
 	int GetID() const override { return m_id; }
 };
 
@@ -26,7 +27,7 @@ TEST(SimpleInventoryTest, Initialize)
 	SimpleInventory<TestInventoryData> inventory(std::move(inventory_settings));
 
 	// Act
-	const bool result = inventory.Initialize();
+	const bool result = inventory.Initialize(nullopt);
 
 	// Assert
 	ASSERT_TRUE(result);
@@ -43,7 +44,7 @@ TEST(SimpleInventoryTest, GetSettings)
 	SimpleInventory<TestInventoryData> inventory(std::move(inventory_settings));
 
 	// Act
-	const bool result = inventory.Initialize();
+	const bool result = inventory.Initialize(nullopt);
 	const SimpleInventorySettings& settings = inventory.GetSettings();
 
 	// Assert
@@ -59,7 +60,7 @@ TEST(SimpleInventoryTest, GetSlots)
 	SimpleInventory<TestInventoryData> inventory(std::move(inventory_settings));
 
 	// Act
-	const bool result = inventory.Initialize();
+	const bool result = inventory.Initialize(nullopt);
 	const vector<SimpleInventorySlot<TestInventoryData>>& slots = inventory.GetSlots();
 
 	// Assert
@@ -68,13 +69,15 @@ TEST(SimpleInventoryTest, GetSlots)
 	ASSERT_EQ(0, inventory.GetOccupiedSlotCount());
 
 	int i = 0;
-	for (const SimpleInventorySlot<TestInventoryData>& slot : slots)
+	for (const SimpleInventorySlot<TestInventoryData>& slot: slots)
 	{
 		ASSERT_TRUE(slot.IsEmpty());
 		ASSERT_EQ(i, slot.GetIndex());
 
 		stringstream ss;
-		ss << "SimpleInventorySlot(" << i << ", " << "Empty" << ")";
+		ss << "SimpleInventorySlot(" << i << ", "
+		   << "Empty"
+		   << ")";
 		ASSERT_EQ(ss.str(), slot.ToString());
 
 		i++;
@@ -88,7 +91,7 @@ TEST(SimpleInventoryTest, Add)
 	SimpleInventory<TestInventoryData> inventory(std::move(inventory_settings));
 
 	// Act
-	const bool result = inventory.Initialize();
+	const bool result = inventory.Initialize(nullopt);
 	const std::optional<std::vector<int>> filled_indices_0 = inventory.Add(make_unique<TestInventoryData>(1, "Apple"));
 	const std::optional<std::vector<int>> filled_indices_1 = inventory.Add(make_unique<TestInventoryData>(2, "Potion"));
 
@@ -117,7 +120,7 @@ TEST(SimpleInventoryTest, Remove)
 	SimpleInventory<TestInventoryData> inventory(std::move(inventory_settings));
 
 	// Act
-	const bool result = inventory.Initialize();
+	const bool result = inventory.Initialize(nullopt);
 	inventory.Add(make_unique<TestInventoryData>(1, "Apple"));
 
 	const bool remove_result = inventory.Remove(0);
@@ -137,7 +140,7 @@ TEST(SimpleInventoryTest, FindAnEmptySlot)
 	SimpleInventory<TestInventoryData> inventory(std::move(inventory_settings));
 
 	// Act
-	const bool result = inventory.Initialize();
+	const bool result = inventory.Initialize(nullopt);
 	inventory.Add(make_unique<TestInventoryData>(1, "Apple"));
 	inventory.Add(make_unique<TestInventoryData>(2, "Apple"));
 	inventory.Add(make_unique<TestInventoryData>(3, "Apple"));
@@ -158,7 +161,7 @@ TEST(SimpleInventoryTest, HasInventoryEmptySlot)
 	SimpleInventory<TestInventoryData> inventory(std::move(inventory_settings));
 
 	// Act
-	const bool result = inventory.Initialize();
+	const bool result = inventory.Initialize(nullopt);
 	inventory.Add(make_unique<TestInventoryData>(1, "Apple"));
 	inventory.Add(make_unique<TestInventoryData>(2, "Apple"));
 	inventory.Add(make_unique<TestInventoryData>(3, "Apple"));
@@ -179,7 +182,7 @@ TEST(SimpleInventoryTest, IsSlotOccupied)
 	SimpleInventory<TestInventoryData> inventory(std::move(inventory_settings));
 
 	// Act
-	const bool result = inventory.Initialize();
+	const bool result = inventory.Initialize(nullopt);
 	inventory.Add(make_unique<TestInventoryData>(1, "Apple"));
 
 	const bool is_slot0_occupied = inventory.IsSlotOccupied(0);
@@ -198,7 +201,7 @@ TEST(SimpleInventoryTest, IsInventoryFull)
 	SimpleInventory<TestInventoryData> inventory(std::move(inventory_settings));
 
 	// Act
-	const bool result = inventory.Initialize();
+	const bool result = inventory.Initialize(nullopt);
 	inventory.Add(make_unique<TestInventoryData>(1, "Apple"));
 	inventory.Add(make_unique<TestInventoryData>(2, "Apple"));
 

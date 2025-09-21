@@ -1,4 +1,6 @@
-﻿#ifndef GAMEKIT_INCLUDE_GAMEKIT_CORE_IGAMEOBJECT_H_
+﻿// IWYU pragma: private, include "gamekit/gamekit.h"
+//
+#ifndef GAMEKIT_INCLUDE_GAMEKIT_CORE_IGAMEOBJECT_H_
 #define GAMEKIT_INCLUDE_GAMEKIT_CORE_IGAMEOBJECT_H_
 
 namespace gamekit::core

@@ -1,4 +1,6 @@
-﻿#ifndef GAMEKIT_INCLUDE_GAMEKIT_SYSTEMS_INVENTORY_IINVENTORY_SLOT_H_
+﻿// IWYU pragma: private, include "gamekit/gamekit.h"
+//
+#ifndef GAMEKIT_INCLUDE_GAMEKIT_SYSTEMS_INVENTORY_IINVENTORY_SLOT_H_
 #define GAMEKIT_INCLUDE_GAMEKIT_SYSTEMS_INVENTORY_IINVENTORY_SLOT_H_
 
 #include <memory>
@@ -26,7 +28,7 @@ public:
 	 * @brief Gets the index of the slot.
 	 * @return Slot index.
 	 */
-	virtual const int GetIndex() const = 0;
+	virtual int GetIndex() const = 0;
 
 	/**
 	 * @brief Gets a pointer to the slot data.

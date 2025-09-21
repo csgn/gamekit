@@ -2,10 +2,10 @@
 
 set -e
 
-. ./config.sh $1
+. ./config.sh "$1"
 
 if [ ! -d "${BUILD_DIR}" ]; then
-    mkdir "${BUILD_DIR}"
+    mkdir -p "${BUILD_DIR}"
 fi
 
 # configure
