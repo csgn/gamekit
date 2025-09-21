@@ -98,7 +98,12 @@ public:
 		return std::vector{found_empty_slot_index.value()};
 	}
 
-	bool Remove(int slot_index) override { return false; }
+	bool Remove(const int slot_index) override
+	{
+		SimpleInventorySlot<TData>& slot = GetSlot(slot_index);
+		slot.SetData(nullptr);
+		return true;
+	}
 
 	std::optional<int> FindEmptySlot() override
 	{
@@ -113,11 +118,20 @@ public:
 		return std::nullopt;
 	}
 
-	bool HasInventoryEmptySlot() override { return false; }
+	bool HasInventoryEmptySlot() override
+	{
+		return FindEmptySlot().has_value();
+	}
 
-	bool IsSlotOccupied(int slot_index) override { return false; }
+	bool IsSlotOccupied(const int slot_index) override
+	{
+		return !GetSlot(slot_index).IsEmpty();
+	}
 
-	bool IsInventoryFull() override { return false; }
+	bool IsInventoryFull() override
+	{
+		return !HasInventoryEmptySlot();
+	}
 
 	SimpleInventorySlot<TData>& GetSlot(int slot_index) override { return m_slots.at(slot_index); }
 
@@ -141,7 +155,6 @@ private:
 	std::unique_ptr<SimpleInventorySettings> m_settings;
 	std::vector<SimpleInventorySlot<TData>> m_slots;
 };
-
 
 } // namespace gamekit::systems::inventory
 

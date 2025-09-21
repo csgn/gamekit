@@ -4,6 +4,9 @@
       <w>gameobject</w>
       <w>gsyslib</w>
       <w>igameobject</w>
+      <w>iinventory</w>
+      <w>ilogutils</w>
+      <w>ivalidator</w>
     </words>
   </dictionary>
 </component>
