@@ -1,4 +1,9 @@
 #include <memory>
+#include <optional>
+#include <sstream>
+#include <string>
+#include <utility>
+#include <vector>
 
 #include "gamekit/gamekit.h"
 #include "gtest/gtest.h"
@@ -17,7 +22,7 @@ private:
 
 public:
 	explicit TestInventoryData(const int id, string name) : m_id(id), m_name(std::move(name)) {}
-	int GetID() const override { return m_id; }
+	[[nodiscard]] int GetID() const override { return m_id; }
 };
 
 TEST(SimpleInventoryTest, Initialize)

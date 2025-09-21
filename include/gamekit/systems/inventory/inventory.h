@@ -7,6 +7,8 @@
 #include "gamekit/systems/inventory/iinventory_settings.h" // IWYU pragma: export
 #include "gamekit/systems/inventory/iinventory_slot.h" // IWYU pragma: export
 
+#include "gamekit/systems/inventory/base_inventory.h" // IWYU pragma: export
+#include "gamekit/systems/inventory/dynamic_inventory.h" // IWYU pragma: export
 #include "gamekit/systems/inventory/simple_inventory.h" // IWYU pragma: export
 
 namespace gamekit::systems
