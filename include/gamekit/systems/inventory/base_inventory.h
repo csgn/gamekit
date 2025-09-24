@@ -3,66 +3,23 @@
 #ifndef GAMEKIT_INCLUDE_GAMEKIT_SYSTEMS_INVENTORY_BASE_INVENTORY_H
 #define GAMEKIT_INCLUDE_GAMEKIT_SYSTEMS_INVENTORY_BASE_INVENTORY_H
 
+#include <cassert>
 #include <memory>
 #include <optional>
-#include <sstream>
-#include <string>
 #include <utility>
 #include <vector>
+
+#include "gamekit/copyright.h"
 
 #include "gamekit/systems/inventory/iinventory.h" // IWYU pragma: export
 #include "gamekit/systems/inventory/iinventory_settings.h" // IWYU pragma: export
 #include "gamekit/systems/inventory/iinventory_slot.h" // IWYU pragma: export
 
+#include "gamekit/systems/inventory/base_inventory_settings.h" // IWYU pragma: export
+#include "gamekit/systems/inventory/base_inventory_slot.h" // IWYU pragma: export
+
 namespace gamekit::systems::inventory
 {
-
-class BaseInventorySettings : public IInventorySettings
-{
-public:
-	explicit BaseInventorySettings(const int max_capacity, const int initial_capacity) :
-		m_max_capacity(max_capacity), m_initial_capacity(initial_capacity)
-	{
-	}
-
-	[[nodiscard]] int GetMaxCapacity() const override { return m_max_capacity; }
-	[[nodiscard]] int GetInitialCapacity() const override { return m_initial_capacity; }
-	void SetMaxCapacity(int max_capacity) override { m_max_capacity = max_capacity; }
-	void SetInitialCapacity(int initial_capacity) override { m_initial_capacity = initial_capacity; }
-
-protected:
-	int m_max_capacity;
-	int m_initial_capacity;
-};
-
-template<typename TData>
-class BaseInventorySlot : public IInventorySlot<TData>
-{
-
-public:
-	explicit BaseInventorySlot(const int index) : m_index(index) {}
-
-	[[nodiscard]] int GetIndex() const override { return m_index; }
-
-	TData& GetData() override { return *m_data; }
-
-	const TData& GetData() const override { return *m_data; }
-
-	void SetData(std::unique_ptr<TData> data) override { m_data = std::move(data); }
-
-	[[nodiscard]] bool IsEmpty() const override { return m_data == nullptr; }
-
-	[[nodiscard]] std::string ToString() const override
-	{
-		std::stringstream ss;
-		ss << "BaseInventorySlot(" << m_index << ", " << (IsEmpty() ? "Empty" : "...") << ")";
-		return ss.str();
-	}
-
-protected:
-	int m_index;
-	std::unique_ptr<TData> m_data;
-};
 
 template<typename TData, typename TSettings, typename TSlot>
 class BaseInventory : public IInventory<TData, TSettings, TSlot>
@@ -129,11 +86,19 @@ public:
 
 	bool IsInventoryFull() override { return !HasInventoryEmptySlot(); }
 
-	TSlot& GetSlot(int slot_index) override { return m_slots.at(slot_index); }
+	TSlot& GetSlot(int slot_index) override
+	{
+		assert(IsSlotIndexInBounds(slot_index));
+		return m_slots.at(slot_index);
+	}
 
-	const TSlot& GetSlot(int slot_index) const override { return m_slots.at(slot_index); }
+	const TSlot& GetSlot(int slot_index) const override
+	{
+		assert(IsSlotIndexInBounds(slot_index));
+		return m_slots.at(slot_index);
+	}
 
-	int GetCapacity() override { return m_slots.size(); }
+	[[nodiscard]] int GetCapacity() const override { return m_slots.size(); }
 
 	int GetOccupiedSlotCount() override
 	{
@@ -145,6 +110,11 @@ public:
 		}
 
 		return occupied_slot_counter;
+	}
+
+	[[nodiscard]] bool IsSlotIndexInBounds(int slot_index) const override
+	{
+		return slot_index >= 0 && slot_index < GetCapacity();
 	}
 
 private:
