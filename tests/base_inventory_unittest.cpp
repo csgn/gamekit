@@ -15,7 +15,6 @@ namespace gamekit::tests
 using namespace std;
 using namespace gamekit::core;
 using namespace gamekit::systems::inventory;
-using namespace gamekit::systems::inventory::static_inventory;
 
 class TestInventoryData final : public IGameObject
 {
@@ -28,11 +27,12 @@ public:
 	[[nodiscard]] int GetID() const override { return m_id; }
 };
 
-TEST(StaticInventoryTest, Initialize)
+TEST(BaseInventoryTest, Initialize)
 {
 	// Arrange
-	unique_ptr<StaticInventorySettings> inventory_settings = std::make_unique<StaticInventorySettings>(20, 10);
-	StaticInventory<TestInventoryData> inventory(std::move(inventory_settings));
+	unique_ptr<BaseInventorySettings> inventory_settings = std::make_unique<BaseInventorySettings>(20, 10);
+	BaseInventory<TestInventoryData, BaseInventorySettings, BaseInventorySlot<TestInventoryData>> inventory(
+			std::move(inventory_settings));
 
 	// Act
 	const bool result = inventory.Initialize(nullopt);
@@ -45,15 +45,16 @@ TEST(StaticInventoryTest, Initialize)
 	ASSERT_EQ(10, inventory.GetSettings().GetInitialCapacity());
 }
 
-TEST(StaticInventoryTest, GetSettings)
+TEST(BaseInventoryTest, GetSettings)
 {
 	// Arrange
-	unique_ptr<StaticInventorySettings> inventory_settings = std::make_unique<StaticInventorySettings>(20, 10);
-	StaticInventory<TestInventoryData> inventory(std::move(inventory_settings));
+	unique_ptr<BaseInventorySettings> inventory_settings = std::make_unique<BaseInventorySettings>(20, 10);
+	BaseInventory<TestInventoryData, BaseInventorySettings, BaseInventorySlot<TestInventoryData>> inventory(
+			std::move(inventory_settings));
 
 	// Act
 	const bool result = inventory.Initialize(nullopt);
-	const StaticInventorySettings& settings = inventory.GetSettings();
+	const BaseInventorySettings& settings = inventory.GetSettings();
 
 	// Assert
 	ASSERT_TRUE(result);
@@ -61,15 +62,16 @@ TEST(StaticInventoryTest, GetSettings)
 	ASSERT_EQ(10, settings.GetInitialCapacity());
 }
 
-TEST(StaticInventoryTest, GetSlots)
+TEST(BaseInventoryTest, GetSlots)
 {
 	// Arrange
-	unique_ptr<StaticInventorySettings> inventory_settings = std::make_unique<StaticInventorySettings>(20, 10);
-	StaticInventory<TestInventoryData> inventory(std::move(inventory_settings));
+	unique_ptr<BaseInventorySettings> inventory_settings = std::make_unique<BaseInventorySettings>(20, 10);
+	BaseInventory<TestInventoryData, BaseInventorySettings, BaseInventorySlot<TestInventoryData>> inventory(
+			std::move(inventory_settings));
 
 	// Act
 	const bool result = inventory.Initialize(nullopt);
-	const vector<StaticInventorySlot<TestInventoryData>>& slots = inventory.GetSlots();
+	const vector<BaseInventorySlot<TestInventoryData>>& slots = inventory.GetSlots();
 
 	// Assert
 	ASSERT_TRUE(result);
@@ -77,13 +79,13 @@ TEST(StaticInventoryTest, GetSlots)
 	ASSERT_EQ(0, inventory.GetOccupiedSlotCount());
 
 	int i = 0;
-	for (const StaticInventorySlot<TestInventoryData>& slot: slots)
+	for (const BaseInventorySlot<TestInventoryData>& slot: slots)
 	{
 		ASSERT_TRUE(slot.IsEmpty());
 		ASSERT_EQ(i, slot.GetIndex());
 
 		stringstream ss;
-		ss << "StaticInventorySlot(" << i << ", "
+		ss << "BaseInventorySlot(" << i << ", "
 		   << "Empty"
 		   << ")";
 		ASSERT_EQ(ss.str(), slot.ToString());
@@ -92,11 +94,12 @@ TEST(StaticInventoryTest, GetSlots)
 	}
 }
 
-TEST(StaticInventoryTest, Add)
+TEST(BaseInventoryTest, Add)
 {
 	// Arrange
-	unique_ptr<StaticInventorySettings> inventory_settings = std::make_unique<StaticInventorySettings>(20, 10);
-	StaticInventory<TestInventoryData> inventory(std::move(inventory_settings));
+	unique_ptr<BaseInventorySettings> inventory_settings = std::make_unique<BaseInventorySettings>(20, 10);
+	BaseInventory<TestInventoryData, BaseInventorySettings, BaseInventorySlot<TestInventoryData>> inventory(
+			std::move(inventory_settings));
 
 	// Act
 	const bool result = inventory.Initialize(nullopt);
@@ -111,8 +114,8 @@ TEST(StaticInventoryTest, Add)
 	ASSERT_EQ(0, filled_indices_0->at(0));
 	ASSERT_EQ(1, filled_indices_1->at(0));
 
-	const StaticInventorySlot<TestInventoryData>& slot_0 = inventory.GetSlot(0);
-	const StaticInventorySlot<TestInventoryData>& slot_1 = inventory.GetSlot(1);
+	const BaseInventorySlot<TestInventoryData>& slot_0 = inventory.GetSlot(0);
+	const BaseInventorySlot<TestInventoryData>& slot_1 = inventory.GetSlot(1);
 
 	ASSERT_FALSE(slot_0.IsEmpty());
 	ASSERT_FALSE(slot_1.IsEmpty());
@@ -121,18 +124,19 @@ TEST(StaticInventoryTest, Add)
 	ASSERT_EQ(1, slot_0.GetData().GetID());
 }
 
-TEST(StaticInventoryTest, Remove)
+TEST(BaseInventoryTest, Remove)
 {
 	// Arrange
-	unique_ptr<StaticInventorySettings> inventory_settings = std::make_unique<StaticInventorySettings>(20, 10);
-	StaticInventory<TestInventoryData> inventory(std::move(inventory_settings));
+	unique_ptr<BaseInventorySettings> inventory_settings = std::make_unique<BaseInventorySettings>(20, 10);
+	BaseInventory<TestInventoryData, BaseInventorySettings, BaseInventorySlot<TestInventoryData>> inventory(
+			std::move(inventory_settings));
 
 	// Act
 	const bool result = inventory.Initialize(nullopt);
 	inventory.Add(make_unique<TestInventoryData>(1, "Apple"));
 
 	const bool remove_result = inventory.Remove(0);
-	const StaticInventorySlot<TestInventoryData>& slot_0 = inventory.GetSlot(0);
+	const BaseInventorySlot<TestInventoryData>& slot_0 = inventory.GetSlot(0);
 
 	// Assert
 	ASSERT_TRUE(result);
@@ -141,11 +145,12 @@ TEST(StaticInventoryTest, Remove)
 	ASSERT_EQ(0, inventory.GetOccupiedSlotCount());
 }
 
-TEST(StaticInventoryTest, FindAnEmptySlot)
+TEST(BaseInventoryTest, FindAnEmptySlot)
 {
 	// Arrange
-	unique_ptr<StaticInventorySettings> inventory_settings = std::make_unique<StaticInventorySettings>(20, 10);
-	StaticInventory<TestInventoryData> inventory(std::move(inventory_settings));
+	unique_ptr<BaseInventorySettings> inventory_settings = std::make_unique<BaseInventorySettings>(20, 10);
+	BaseInventory<TestInventoryData, BaseInventorySettings, BaseInventorySlot<TestInventoryData>> inventory(
+			std::move(inventory_settings));
 
 	// Act
 	const bool result = inventory.Initialize(nullopt);
@@ -162,11 +167,12 @@ TEST(StaticInventoryTest, FindAnEmptySlot)
 	ASSERT_EQ(3, empty_slot_index.value());
 }
 
-TEST(StaticInventoryTest, HasInventoryEmptySlot)
+TEST(BaseInventoryTest, HasInventoryEmptySlot)
 {
 	// Arrange
-	unique_ptr<StaticInventorySettings> inventory_settings = std::make_unique<StaticInventorySettings>(10, 3);
-	StaticInventory<TestInventoryData> inventory(std::move(inventory_settings));
+	unique_ptr<BaseInventorySettings> inventory_settings = std::make_unique<BaseInventorySettings>(10, 3);
+	BaseInventory<TestInventoryData, BaseInventorySettings, BaseInventorySlot<TestInventoryData>> inventory(
+			std::move(inventory_settings));
 
 	// Act
 	const bool result = inventory.Initialize(nullopt);
@@ -183,11 +189,12 @@ TEST(StaticInventoryTest, HasInventoryEmptySlot)
 	ASSERT_TRUE(inventory.IsInventoryFull());
 }
 
-TEST(StaticInventoryTest, IsSlotOccupied)
+TEST(BaseInventoryTest, IsSlotOccupied)
 {
 	// Arrange
-	unique_ptr<StaticInventorySettings> inventory_settings = std::make_unique<StaticInventorySettings>(10, 3);
-	StaticInventory<TestInventoryData> inventory(std::move(inventory_settings));
+	unique_ptr<BaseInventorySettings> inventory_settings = std::make_unique<BaseInventorySettings>(10, 3);
+	BaseInventory<TestInventoryData, BaseInventorySettings, BaseInventorySlot<TestInventoryData>> inventory(
+			std::move(inventory_settings));
 
 	// Act
 	const bool result = inventory.Initialize(nullopt);
@@ -202,11 +209,12 @@ TEST(StaticInventoryTest, IsSlotOccupied)
 	ASSERT_FALSE(is_slot1_occupied);
 }
 
-TEST(StaticInventoryTest, IsInventoryFull)
+TEST(BaseInventoryTest, IsInventoryFull)
 {
 	// Arrange
-	unique_ptr<StaticInventorySettings> inventory_settings = std::make_unique<StaticInventorySettings>(10, 2);
-	StaticInventory<TestInventoryData> inventory(std::move(inventory_settings));
+	unique_ptr<BaseInventorySettings> inventory_settings = std::make_unique<BaseInventorySettings>(10, 2);
+	BaseInventory<TestInventoryData, BaseInventorySettings, BaseInventorySlot<TestInventoryData>> inventory(
+			std::move(inventory_settings));
 
 	// Act
 	const bool result = inventory.Initialize(nullopt);
@@ -220,11 +228,12 @@ TEST(StaticInventoryTest, IsInventoryFull)
 	ASSERT_TRUE(is_inventory_full);
 }
 
-TEST(StaticInventoryTest, IsSlotIndexInBounds)
+TEST(BaseInventoryTest, IsSlotIndexInBounds)
 {
 	// Arrange
-	unique_ptr<StaticInventorySettings> inventory_settings = std::make_unique<StaticInventorySettings>(10, 2);
-	StaticInventory<TestInventoryData> inventory(std::move(inventory_settings));
+	unique_ptr<BaseInventorySettings> inventory_settings = std::make_unique<BaseInventorySettings>(10, 2);
+	BaseInventory<TestInventoryData, BaseInventorySettings, BaseInventorySlot<TestInventoryData>> inventory(
+			std::move(inventory_settings));
 
 	// Act
 	const bool result = inventory.Initialize(nullopt);
