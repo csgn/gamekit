@@ -2,4 +2,6 @@
 
 set -e
 
-doxygen Doxyfile
+. ./config.sh "$1"
+
+doxygen ${BUILD_DIR}/Doxyfile
