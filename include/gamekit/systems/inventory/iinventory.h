@@ -3,8 +3,9 @@
 
 #include <memory>
 #include <optional>
-#include <type_traits>
 #include <vector>
+
+#include "gamekit/copyright.h"
 
 #include "gamekit/core/igameobject.h"
 #include "gamekit/systems/inventory/iinventory_settings.h"
@@ -113,13 +114,20 @@ public:
 	 * @brief Gets maximum number of slots.
 	 * @return Capacity of the inventory.
 	 */
-	virtual int GetCapacity() = 0;
+	[[nodiscard]] virtual int GetCapacity() const = 0;
 
 	/**
 	 * @brief Gets number of occupied slots.
 	 * @return Current size of the inventory.
 	 */
 	virtual int GetOccupiedSlotCount() = 0;
+
+	/**
+	 * @brief Checks the slot_index is in bounds.
+	 * @param slot_index Index of the slot.
+	 * @return True if the slot index is in bounds.
+	 */
+	[[nodiscard]] virtual bool IsSlotIndexInBounds(int slot_index) const = 0;
 };
 
 } // namespace gamekit::systems::inventory

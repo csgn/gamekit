@@ -3,6 +3,8 @@
 #ifndef GAMEKIT_INCLUDE_GAMEKIT_CORE_CORE_H
 #define GAMEKIT_INCLUDE_GAMEKIT_CORE_CORE_H
 
+#include "gamekit/copyright.h"
+
 #include "gamekit/core/igameobject.h" // IWYU pragma: export
 
 namespace gamekit::core
