@@ -14,10 +14,22 @@
 
 namespace gamekit::systems::inventory::static_inventory
 {
+/**
+ * @brief Static inventory class template.
+ *
+ * Represents a fixed-size inventory that cannot expand.
+ * Inherits from BaseInventory with StaticInventorySettings and StaticInventorySlot.
+ *
+ * @tparam TData Type of data stored in the inventory slots.
+ */
 template<typename TData>
 class StaticInventory : public BaseInventory<TData, StaticInventorySettings, StaticInventorySlot<TData>>
 {
 public:
+	/**
+	 * @brief Constructs a StaticInventory with given settings.
+	 * @param settings Unique pointer to StaticInventorySettings.
+	 */
 	explicit StaticInventory(std::unique_ptr<StaticInventorySettings> settings) : Base(std::move(settings)) {}
 
 private:

@@ -14,11 +14,28 @@
 namespace gamekit::systems::inventory
 {
 
+/**
+ * @brief Base inventory slot class template.
+ *
+ * Represents a single slot in an inventory. Each slot has an index and can
+ * hold data of type TData. Provides basic slot functionalities such as
+ * checking if the slot is empty and setting/getting the stored data.
+ *
+ * @tparam TData Type of data stored in the slot.
+ */
 template<typename TData>
 class BaseInventorySlot : public IInventorySlot<TData>
 {
 
 public:
+	/**
+	 * @brief Base inventory slot class template.
+	 *
+	 * Represents a single slot in an inventory. Each slot has an index and can
+	 * hold data of type TData.
+	 *
+	 * @tparam TData Type of data stored in the slot.
+	 */
 	explicit BaseInventorySlot(const int index) : m_index(index) {}
 
 	[[nodiscard]] int GetIndex() const override { return m_index; }

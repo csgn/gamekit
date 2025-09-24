@@ -12,10 +12,22 @@
 
 namespace gamekit::systems::inventory::dynamic_inventory
 {
+/**
+ * @brief Dynamic inventory slot class template.
+ *
+ * Represents a single slot in a dynamic (expandable) inventory.
+ * Inherits from BaseInventorySlot.
+ *
+ * @tparam TData Type of data stored in the slot.
+ */
 template<typename TData>
 class DynamicInventorySlot : public BaseInventorySlot<TData>
 {
 public:
+	/**
+	 * @brief Constructs a DynamicInventorySlot with a given index.
+	 * @param index The slot's index in the inventory.
+	 */
 	explicit DynamicInventorySlot(const int index) : BaseInventorySlot<TData>(index) {}
 
 	[[nodiscard]] std::string ToString() const override

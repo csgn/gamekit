@@ -14,10 +14,22 @@
 
 namespace gamekit::systems::inventory::dynamic_inventory
 {
+/**
+ * @brief Dynamic inventory class template.
+ *
+ * Represents an expandable inventory that can grow over time.
+ * Inherits from BaseInventory with DynamicInventorySettings and DynamicInventorySlot.
+ *
+ * @tparam TData Type of data stored in the inventory slots.
+ */
 template<typename TData>
 class DynamicInventory : public BaseInventory<TData, DynamicInventorySettings, DynamicInventorySlot<TData>>
 {
 public:
+	/**
+	 * @brief Constructs a DynamicInventory with given settings.
+	 * @param settings Unique pointer to DynamicInventorySettings.
+	 */
 	explicit DynamicInventory(std::unique_ptr<DynamicInventorySettings> settings) : Base(std::move(settings)) {}
 
 private:

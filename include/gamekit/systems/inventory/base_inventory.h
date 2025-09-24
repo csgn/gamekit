@@ -21,11 +21,25 @@
 namespace gamekit::systems::inventory
 {
 
+/**
+ * @brief Base template class for an inventory system.
+ *
+ * Provides standard inventory functionalities such as initialization,
+ * adding and removing items, slot queries, and capacity management.
+ *
+ * @tparam TData Type of data stored in each inventory slot.
+ * @tparam TSettings Type of inventory settings class (must inherit from IInventorySettings).
+ * @tparam TSlot Type of inventory slot class (must implement IInventorySlot<TData> interface).
+ */
 template<typename TData, typename TSettings, typename TSlot>
 class BaseInventory : public IInventory<TData, TSettings, TSlot>
 {
 
 public:
+	/**
+	 * @brief Constructs a BaseInventory with given settings.
+	 * @param settings Unique pointer to the inventory settings.
+	 */
 	explicit BaseInventory(std::unique_ptr<TSettings> settings) : m_settings(std::move(settings)) {}
 
 	bool Initialize(std::optional<int> initial_capacity) override

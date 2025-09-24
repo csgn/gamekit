@@ -9,9 +9,20 @@
 
 namespace gamekit::systems::inventory::static_inventory
 {
+/**
+ * @brief Settings for a static (fixed-size) inventory.
+ *
+ * Inherits from BaseInventorySettings and defines
+ * the maximum and initial capacity for a static inventory.
+ */
 class StaticInventorySettings : public BaseInventorySettings
 {
 public:
+	/**
+	 * @brief Constructs StaticInventorySettings with given capacities.
+	 * @param max_capacity Maximum number of slots in the inventory.
+	 * @param initial_capacity Number of slots at inventory initialization.
+	 */
 	explicit StaticInventorySettings(const int max_capacity, const int initial_capacity) :
 		BaseInventorySettings(max_capacity, initial_capacity)
 	{
