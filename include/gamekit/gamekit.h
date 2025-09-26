@@ -1,10 +1,12 @@
-﻿#ifndef GAMEKIT_INCLUDE_GAMEKIT_H_
-#define GAMEKIT_INCLUDE_GAMEKIT_H_
+﻿#ifndef GAMEKIT_INCLUDE_GAMEKIT_H
+#define GAMEKIT_INCLUDE_GAMEKIT_H
 
 #include "gamekit/copyright.h"
 
 #include "gamekit/core/core.h" // IWYU pragma: export
 #include "gamekit/systems/inventory/inventory.h" // IWYU pragma: export
+
+#include "gamekit/systems/inventory/inventory_api.h" // IWYU pragma: export
 
 /**
  * @mainpage GameKit Library
@@ -18,4 +20,4 @@ namespace gamekit
 
 } // namespace gamekit
 
-#endif // GAMEKIT_INCLUDE_GAMEKIT_H_
+#endif // GAMEKIT_INCLUDE_GAMEKIT_H

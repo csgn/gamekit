@@ -1,5 +1,8 @@
-﻿#ifndef GAMEKIT_INCLUDE_GAMEKIT_SYSTEMS_INVENTORY_IINVENTORY_H_
-#define GAMEKIT_INCLUDE_GAMEKIT_SYSTEMS_INVENTORY_IINVENTORY_H_
+﻿// IWYU pragma: private, include "gamekit/gamekit.h"
+// IWYU pragma: friend gamekit/.*
+//
+#ifndef GAMEKIT_INCLUDE_GAMEKIT_SYSTEMS_INVENTORY_IINVENTORY_H
+#define GAMEKIT_INCLUDE_GAMEKIT_SYSTEMS_INVENTORY_IINVENTORY_H
 
 #include <memory>
 #include <optional>
@@ -132,4 +135,4 @@ public:
 
 } // namespace gamekit::systems::inventory
 
-#endif // GAMEKIT_INCLUDE_GAMEKIT_SYSTEMS_INVENTORY_IINVENTORY_H_
+#endif // GAMEKIT_INCLUDE_GAMEKIT_SYSTEMS_INVENTORY_IINVENTORY_H

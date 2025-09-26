@@ -1,7 +1,8 @@
 ﻿// IWYU pragma: private, include "gamekit/gamekit.h"
+// IWYU pragma: friend gamekit/.*
 
-#ifndef GAMEKIT_INCLUDE_GAMEKIT_CORE_IGAMEOBJECT_H_
-#define GAMEKIT_INCLUDE_GAMEKIT_CORE_IGAMEOBJECT_H_
+#ifndef GAMEKIT_INCLUDE_GAMEKIT_CORE_IGAMEOBJECT_H
+#define GAMEKIT_INCLUDE_GAMEKIT_CORE_IGAMEOBJECT_H
 
 #include "gamekit/copyright.h"
 
@@ -23,9 +24,9 @@ public:
 	 * @brief Gets the unique identifier of the game object.
 	 * @return The unique ID of the object.
 	 */
-	virtual int GetID() const = 0;
+	[[nodiscard]] virtual int GetID() const = 0;
 };
 
 } // namespace gamekit::core
 
-#endif // GAMEKIT_INCLUDE_GAMEKIT_CORE_IGAMEOBJECT_H_
+#endif // GAMEKIT_INCLUDE_GAMEKIT_CORE_IGAMEOBJECT_H

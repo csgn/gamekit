@@ -1,0 +1,1 @@
+#include "gamekit/copyright.h"
