@@ -39,17 +39,38 @@ public:
 	 */
 	explicit BaseInventorySlot(const int index) : m_index(index) {}
 
-	[[nodiscard]] int GetIndex() const override { return m_index; }
+	[[nodiscard]] int
+	GetIndex() const override
+	{
+		return m_index;
+	}
 
-	TData& GetData() override { return *m_data; }
+	TData&
+	GetData() override
+	{
+		return *m_data;
+	}
 
-	const TData& GetData() const override { return *m_data; }
+	const TData&
+	GetData() const override
+	{
+		return *m_data;
+	}
 
-	void SetData(std::unique_ptr<TData> data) override { m_data = std::move(data); }
+	void
+	SetData(std::unique_ptr<TData> data) override
+	{
+		m_data = std::move(data);
+	}
 
-	[[nodiscard]] bool IsEmpty() const override { return m_data == nullptr; }
+	[[nodiscard]] bool
+	IsEmpty() const override
+	{
+		return m_data == nullptr;
+	}
 
-	[[nodiscard]] std::string ToString() const override
+	[[nodiscard]] std::string
+	ToString() const override
 	{
 		std::stringstream ss;
 		ss << "BaseInventorySlot(" << m_index << ", " << (IsEmpty() ? "Empty" : "...") << ")";

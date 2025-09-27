@@ -14,4 +14,4 @@ cmake -S . -G "Unix Makefiles" -B ${BUILD_DIR} \
 	-DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
 
 # build
-cmake --build ${BUILD_DIR}
+cmake --build ${BUILD_DIR} --target format

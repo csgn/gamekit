@@ -13,8 +13,33 @@
 namespace gamekit::systems::inventory::dynamic_inventory::api
 {
 
-GAMEKIT_API DynamicInventorySettings* CALL_TYPE GamekitAPI_DynamicInventorySettings_New(
-		int max_capacity, int initial_capacity, bool is_expandable, int slots_per_expansion, bool is_auto_expand);
+GAMEKIT_API DynamicInventorySettings* CALL_TYPE
+GamekitAPI_DynamicInventorySettings_New(int max_capacity, int initial_capacity, bool is_expandable,
+										int slots_per_expansion, bool is_auto_expand);
+
+GAMEKIT_API void CALL_TYPE
+GamekitAPI_DynamicInventorySettings_Delete(DynamicInventorySettings* dynamic_inventory_settings);
+
+GAMEKIT_API bool CALL_TYPE
+GamekitAPI_DynamicInventorySettings_GetIsExpandable(DynamicInventorySettings* dynamic_inventory_settings);
+
+GAMEKIT_API int CALL_TYPE
+GamekitAPI_DynamicInventorySettings_GetSlotsPerExpansion(DynamicInventorySettings* dynamic_inventory_settings);
+
+GAMEKIT_API bool CALL_TYPE
+GamekitAPI_DynamicInventorySettings_GetIsAutoExpand(DynamicInventorySettings* dynamic_inventory_settings);
+
+GAMEKIT_API void CALL_TYPE
+GamekitAPI_DynamicInventorySettings_SetExpandable(DynamicInventorySettings* dynamic_inventory_settings,
+												  bool is_expandable);
+
+GAMEKIT_API void CALL_TYPE
+GamekitAPI_DynamicInventorySettings_SetSlotsPerExpansion(DynamicInventorySettings* dynamic_inventory_settings,
+														 int slots_per_expansion);
+
+GAMEKIT_API void CALL_TYPE
+GamekitAPI_DynamicInventorySettings_SetAutoExpand(DynamicInventorySettings* dynamic_inventory_settings,
+												  bool is_auto_expand);
 
 } // namespace gamekit::systems::inventory::dynamic_inventory::api
 

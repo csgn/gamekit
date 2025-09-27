@@ -35,25 +35,41 @@ public:
 	 * @brief Returns the maximum allowed inventory capacity.
 	 * @return Maximum number of slots.
 	 */
-	[[nodiscard]] int GetMaxCapacity() const override { return m_max_capacity; }
+	[[nodiscard]] int
+	GetMaxCapacity() const override
+	{
+		return m_max_capacity;
+	}
 
 	/**
 	 * @brief Returns the initial inventory capacity.
 	 * @return Number of slots at initialization.
 	 */
-	[[nodiscard]] int GetInitialCapacity() const override { return m_initial_capacity; }
+	[[nodiscard]] int
+	GetInitialCapacity() const override
+	{
+		return m_initial_capacity;
+	}
 
 	/**
 	 * @brief Sets the maximum allowed inventory capacity.
 	 * @param max_capacity Maximum number of slots.
 	 */
-	void SetMaxCapacity(int max_capacity) override { m_max_capacity = max_capacity; }
+	void
+	SetMaxCapacity(int max_capacity) override
+	{
+		m_max_capacity = max_capacity;
+	}
 
 	/**
 	 * @brief Sets the initial inventory capacity.
 	 * @param initial_capacity Number of slots at initialization.
 	 */
-	void SetInitialCapacity(int initial_capacity) override { m_initial_capacity = initial_capacity; }
+	void
+	SetInitialCapacity(int initial_capacity) override
+	{
+		m_initial_capacity = initial_capacity;
+	}
 
 protected:
 	int m_max_capacity; /**< Maximum allowed number of slots in the inventory. */

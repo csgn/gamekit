@@ -24,7 +24,8 @@ public:
 	 * @brief Gets the unique identifier of the game object.
 	 * @return The unique ID of the object.
 	 */
-	[[nodiscard]] virtual int GetID() const = 0;
+	[[nodiscard]] virtual int
+	GetID() const = 0;
 };
 
 } // namespace gamekit::core

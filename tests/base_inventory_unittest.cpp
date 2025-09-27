@@ -24,7 +24,11 @@ private:
 
 public:
 	explicit TestInventoryData(const int id, string name) : m_id(id), m_name(std::move(name)) {}
-	[[nodiscard]] int GetID() const override { return m_id; }
+	[[nodiscard]] int
+	GetID() const override
+	{
+		return m_id;
+	}
 };
 
 TEST(BaseInventoryTest, Initialize)

@@ -31,37 +31,43 @@ public:
 	 * @brief Gets the index of the slot.
 	 * @return Slot index.
 	 */
-	[[nodiscard]] virtual int GetIndex() const = 0;
+	[[nodiscard]] virtual int
+	GetIndex() const = 0;
 
 	/**
 	 * @brief Gets a pointer to the slot data.
 	 * @return Reference to TData..
 	 */
-	virtual TData& GetData() = 0;
+	virtual TData&
+	GetData() = 0;
 
 	/**
 	 * @brief Gets a const pointer to the slot data.
 	 * @return Const reference to TData.
 	 */
-	virtual const TData& GetData() const = 0;
+	virtual const TData&
+	GetData() const = 0;
 
 	/**
 	 * @brief Sets the slot data.
 	 * @param data Unique pointer to the data to store.
 	 */
-	virtual void SetData(std::unique_ptr<TData> data) = 0;
+	virtual void
+	SetData(std::unique_ptr<TData> data) = 0;
 
 	/**
 	 * @brief Checks if the slot is empty.
 	 * @return True if the slot has no data.
 	 */
-	[[nodiscard]] virtual bool IsEmpty() const = 0;
+	[[nodiscard]] virtual bool
+	IsEmpty() const = 0;
 
 	/**
 	 * @brief Returns a string representation of the slot.
 	 * @return String describing the slot content.
 	 */
-	[[nodiscard]] virtual std::string ToString() const = 0;
+	[[nodiscard]] virtual std::string
+	ToString() const = 0;
 };
 
 } // namespace gamekit::systems::inventory

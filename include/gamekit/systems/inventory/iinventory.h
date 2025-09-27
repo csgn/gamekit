@@ -46,91 +46,105 @@ public:
 	 * @param initial_capacity Optional initial number of slots.
 	 * @return True if initialization was successful.
 	 */
-	virtual bool Initialize(std::optional<int> initial_capacity) = 0;
+	virtual bool
+	Initialize(std::optional<int> initial_capacity) = 0;
 
 	/**
 	 * @brief Gets the inventory settings.
 	 * @return Constant reference to the settings object.
 	 */
-	virtual const TSettings& GetSettings() const = 0;
+	virtual const TSettings&
+	GetSettings() const = 0;
 
 	/**
 	 * @brief Gets all inventory slots.
 	 * @return Constant reference to vector of slots.
 	 */
-	virtual const std::vector<TSlot>& GetSlots() const = 0;
+	virtual const std::vector<TSlot>&
+	GetSlots() const = 0;
 
 	/**
 	 * @brief Adds an item to the inventory.
 	 * @param data Unique pointer to the item to add.
 	 * @return Optional Vector if item was added successfully, then returns indices of filled slots.
 	 */
-	virtual std::optional<std::vector<int>> Add(std::unique_ptr<TData> data) = 0;
+	virtual std::optional<std::vector<int>>
+	Add(std::unique_ptr<TData> data) = 0;
 
 	/**
 	 * @brief Removes an item from a slot.
 	 * @param slot_index Index of the slot to clear.
 	 * @return True if removal succeeded.
 	 */
-	virtual bool Remove(int slot_index) = 0;
+	virtual bool
+	Remove(int slot_index) = 0;
 
 	/**
 	 * @brief Finds an empty slot.
 	 * @return Optional index of the first empty slot.
 	 */
-	virtual std::optional<int> FindEmptySlot() = 0;
+	virtual std::optional<int>
+	FindEmptySlot() = 0;
 
 	/**
 	 * @brief Checks if there is at least one empty slot.
 	 * @return True if any slot is empty.
 	 */
-	virtual bool HasInventoryEmptySlot() = 0;
+	virtual bool
+	HasInventoryEmptySlot() = 0;
 
 	/**
 	 * @brief Checks if a slot is occupied.
 	 * @param slot_index Index of the slot.
 	 * @return True if slot is occupied.
 	 */
-	virtual bool IsSlotOccupied(int slot_index) = 0;
+	virtual bool
+	IsSlotOccupied(int slot_index) = 0;
 
 	/**
 	 * @brief Checks if the inventory is full.
 	 * @return True if no empty slots are available.
 	 */
-	virtual bool IsInventoryFull() = 0;
+	virtual bool
+	IsInventoryFull() = 0;
 
 	/**
 	 * @brief Accesses a slot by index.
 	 * @param slot_index Index of the slot.
 	 * @return Reference to the slot.
 	 */
-	virtual TSlot& GetSlot(int slot_index) = 0;
+	virtual TSlot&
+	GetSlot(int slot_index) = 0;
 
 	/**
 	 * @brief Accesses a slot by index (const version).
 	 * @param slot_index Index of the slot.
 	 * @return Constant reference to the slot.
 	 */
-	virtual const TSlot& GetSlot(int slot_index) const = 0;
+	virtual const TSlot&
+	GetSlot(int slot_index) const = 0;
 
 	/**
 	 * @brief Gets maximum number of slots.
 	 * @return Capacity of the inventory.
 	 */
-	[[nodiscard]] virtual int GetCapacity() const = 0;
+	[[nodiscard]] virtual int
+	GetCapacity() const = 0;
 
 	/**
 	 * @brief Gets number of occupied slots.
 	 * @return Current size of the inventory.
 	 */
-	virtual int GetOccupiedSlotCount() = 0;
+	virtual int
+	GetOccupiedSlotCount() = 0;
 
 	/**
 	 * @brief Checks the slot_index is in bounds.
 	 * @param slot_index Index of the slot.
 	 * @return True if the slot index is in bounds.
 	 */
-	[[nodiscard]] virtual bool IsSlotIndexInBounds(int slot_index) const = 0;
+	[[nodiscard]] virtual bool
+	IsSlotIndexInBounds(int slot_index) const = 0;
 };
 
 } // namespace gamekit::systems::inventory

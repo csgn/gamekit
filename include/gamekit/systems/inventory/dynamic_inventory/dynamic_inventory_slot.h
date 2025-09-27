@@ -31,7 +31,8 @@ public:
 	 */
 	explicit DynamicInventorySlot(const int index) : BaseInventorySlot<TData>(index) {}
 
-	[[nodiscard]] std::string ToString() const override
+	[[nodiscard]] std::string
+	ToString() const override
 	{
 		std::stringstream ss;
 		ss << "DynamicInventorySlot(" << this->m_index << ", " << (this->IsEmpty() ? "Empty" : "...") << ")";

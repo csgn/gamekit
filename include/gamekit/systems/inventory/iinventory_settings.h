@@ -23,27 +23,31 @@ public:
 	 * @brief Gets the maximum allowed inventory capacity.
 	 * @return Maximum number of slots.
 	 */
-	[[nodiscard]] virtual int GetMaxCapacity() const = 0;
+	[[nodiscard]] virtual int
+	GetMaxCapacity() const = 0;
 
 
 	/**
 	 * @brief Gets the initial inventory capacity.
 	 * @return Number of slots at initialization.
 	 */
-	[[nodiscard]] virtual int GetInitialCapacity() const = 0;
+	[[nodiscard]] virtual int
+	GetInitialCapacity() const = 0;
 
 	/**
 	 * @brief Sets the maximum allowed inventory capacity.
 	 * @param max_capacity Maximum number of slots.
 	 */
-	virtual void SetMaxCapacity(int max_capacity) = 0;
+	virtual void
+	SetMaxCapacity(int max_capacity) = 0;
 
 
 	/**
 	 * @brief Sets the initial inventory capacity.
 	 * @param initial_capacity Number of slots at initialization.
 	 */
-	virtual void SetInitialCapacity(int initial_capacity) = 0;
+	virtual void
+	SetInitialCapacity(int initial_capacity) = 0;
 };
 
 } // namespace gamekit::systems::inventory
