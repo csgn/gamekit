@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['library_0',['GameKit Library',['../index.html',1,'']]]
+  ['introduction_0',['Introduction',['../index.html#intro_sec',1,'']]]
 ];

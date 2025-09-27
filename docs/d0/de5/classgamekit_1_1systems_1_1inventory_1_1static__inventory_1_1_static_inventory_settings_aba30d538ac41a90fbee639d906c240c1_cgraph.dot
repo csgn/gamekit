@@ -1,0 +1,11 @@
+digraph "gamekit::systems::inventory::static_inventory::StaticInventorySettings::StaticInventorySettings"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [id="Node000001",label="gamekit::systems::inventory\l::static_inventory::StaticInventory\lSettings::StaticInventorySettings",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Constructs StaticInventorySettings with given capacities."];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="gamekit::systems::inventory\l::BaseInventorySettings\l::BaseInventorySettings",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d9/dcf/classgamekit_1_1systems_1_1inventory_1_1_base_inventory_settings.html#abc8c0d17ac69e99ca7bbb0ee9b68f2c0",tooltip="Constructs a BaseInventorySettings instance."];
+}
