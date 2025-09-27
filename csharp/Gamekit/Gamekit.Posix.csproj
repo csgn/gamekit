@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AssemblyName>Gamekit.Posix</AssemblyName>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <DefineConstants>$(DefineConstants);PLATFORM_POSIX</DefineConstants>
+    <RootNamespace>Gamekit</RootNamespace>
+  </PropertyGroup>
+
+</Project>
