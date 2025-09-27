@@ -1,6 +1,6 @@
 @echo off
 
-call config.bat %1
+call config.bat
 
 setlocal
 

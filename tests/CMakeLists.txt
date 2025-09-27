@@ -9,6 +9,4 @@ target_link_libraries(gamekit-tests
 		gmock_main
 )
 
-enable_testing()
-include(GoogleTest)
 gtest_discover_tests(gamekit-tests)

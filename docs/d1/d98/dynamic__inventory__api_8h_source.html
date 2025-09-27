@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>GameKit: include/gamekit/core/igameobject.h Source File</title>
+<title>GameKit: include/gamekit/systems/inventory/dynamic_inventory/dynamic_inventory_api.h Source File</title>
 <link rel="icon" href="../../logo64x64.ico" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -80,39 +80,34 @@ $(function() { codefold.init(1); });
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="../../dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="../../dir_a5e97b8b86b5dc42c49bedc079869e11.html">gamekit</a></li><li class="navelem"><a class="el" href="../../dir_124f62213908ea83a81dabad350e689a.html">core</a></li>  </ul>
+<li class="navelem"><a class="el" href="../../dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="../../dir_a5e97b8b86b5dc42c49bedc079869e11.html">gamekit</a></li><li class="navelem"><a class="el" href="../../dir_9c3cccfd4e85ebbe54ef57737f63bc4b.html">systems</a></li><li class="navelem"><a class="el" href="../../dir_a8df474c10912ec33c14c38f1f023ff4.html">inventory</a></li><li class="navelem"><a class="el" href="../../dir_4c23a4caed935f156fec3ec9f4d2d3b8.html">dynamic_inventory</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="headertitle"><div class="title">igameobject.h</div></div>
+  <div class="headertitle"><div class="title">dynamic_inventory_api.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// IWYU pragma: private, include &quot;gamekit/gamekit.h&quot;</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// IWYU pragma: private, include &quot;gamekit/gamekit_api.h&quot;</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// IWYU pragma: friend gamekit/.*</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#ifndef GAMEKIT_INCLUDE_GAMEKIT_CORE_IGAMEOBJECT_H</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#define GAMEKIT_INCLUDE_GAMEKIT_CORE_IGAMEOBJECT_H</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#ifndef GAMEKIT_INCLUDE_GAMEKIT_SYSTEMS_INVENTORY_DYNAMIC_INVENTORY_DYNAMIC_INVENTORY_API_H</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#define GAMEKIT_INCLUDE_GAMEKIT_SYSTEMS_INVENTORY_DYNAMIC_INVENTORY_DYNAMIC_INVENTORY_API_H</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;gamekit/copyright.h&quot;</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">namespace </span>gamekit::core</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="../../d4/d31/classgamekit_1_1core_1_1IGameObject.html">   18</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d4/d31/classgamekit_1_1core_1_1IGameObject.html">IGameObject</a></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>{</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="../../d4/d31/classgamekit_1_1core_1_1IGameObject.html">~IGameObject</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../d4/d31/classgamekit_1_1core_1_1IGameObject.html#ae2db5821b75462f299e8e7081557f23b">   27</a></span>    [[nodiscard]] <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code hl_function" href="../../d4/d31/classgamekit_1_1core_1_1IGameObject.html#ae2db5821b75462f299e8e7081557f23b">GetID</a>() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>};</div>
-</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>} <span class="comment">// namespace gamekit::core</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#endif </span><span class="comment">// GAMEKIT_INCLUDE_GAMEKIT_CORE_IGAMEOBJECT_H</span></div>
-<div class="ttc" id="aclassgamekit_1_1core_1_1IGameObject_html"><div class="ttname"><a href="../../d4/d31/classgamekit_1_1core_1_1IGameObject.html">gamekit::core::IGameObject</a></div><div class="ttdoc">Abstract interface representing a basic game object.</div><div class="ttdef"><b>Definition</b> igameobject.h:19</div></div>
-<div class="ttc" id="aclassgamekit_1_1core_1_1IGameObject_html_ae2db5821b75462f299e8e7081557f23b"><div class="ttname"><a href="../../d4/d31/classgamekit_1_1core_1_1IGameObject.html#ae2db5821b75462f299e8e7081557f23b">gamekit::core::IGameObject::GetID</a></div><div class="ttdeci">virtual int GetID() const =0</div><div class="ttdoc">Gets the unique identifier of the game object.</div></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;gamekit/core/igameobject.h&quot;</span> <span class="comment">// IWYU pragma: export</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;gamekit/gamekit_api_common.h&quot;</span> <span class="comment">// IWYU pragma: export</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;gamekit/systems/inventory/dynamic_inventory/dynamic_inventory.h&quot;</span> <span class="comment">// IWYU pragma: export</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span>gamekit::systems::inventory::dynamic_inventory::api</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>GAMEKIT_API DynamicInventorySettings* CALL_TYPE GamekitAPI_DynamicInventorySettings_New(</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <span class="keywordtype">int</span> max_capacity, <span class="keywordtype">int</span> initial_capacity, <span class="keywordtype">bool</span> is_expandable, <span class="keywordtype">int</span> slots_per_expansion, <span class="keywordtype">bool</span> is_auto_expand);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>} <span class="comment">// namespace gamekit::systems::inventory::dynamic_inventory::api</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#endif </span><span class="comment">// GAMEKIT_INCLUDE_GAMEKIT_SYSTEMS_INVENTORY_DYNAMIC_INVENTORY_DYNAMIC_INVENTORY_API_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

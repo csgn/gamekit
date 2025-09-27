@@ -11,5 +11,3 @@ target_include_directories(gamekit-static
         PUBLIC ${PROJECT_SOURCE_DIR}/include
         PRIVATE ${PROJECT_SOURCE_DIR}/src
 )
-
-target_compile_definitions(gamekit PRIVATE GAMEKIT_EXPORTS)
