@@ -1,6 +1,35 @@
 @echo off
-
+REM --------------------------------------
+REM Project Name Definitions
+REM --------------------------------------
 set PROJECT_NAME=gamekit
+set PROJECT_NAME_ALL_CAPITALIZED=GAMEKIT
+set PROJECT_NAME_FIRST_CAPITALIZED=Gamekit
 
-set BUILD_DIR=build/windows
-set DOCS_DIR=docs/
+REM --------------------------------------
+REM Project Directories
+REM --------------------------------------
+set PROJECT_DIR=%cd%
+
+set INCLUDE_DIR=%PROJECT_DIR%\include
+set SOURCE_DIR=%PROJECT_DIR%\src
+set TESTS_DIR=%PROJECT_DIR%\tests
+set BUILD_DIR=%PROJECT_DIR%\build
+set OUTPUT_DIR=%BUILD_DIR%\%PROJECT_NAME%
+set TESTS_OUTPUT_DIR=%BUILD_DIR%\%PROJECT_NAME%-tests
+
+set TEST_EXECUTABLE_NAME=%PROJECT_NAME%-tests
+set TEST_EXECUTABLE_PATH=%TESTS_OUTPUT_DIR%\%TEST_EXECUTABLE_NAME%
+set STATIC_LIBRARY_PATH=%BUILD_DIR%\lib%PROJECT_NAME%-static.a
+set DYNAMIC_LIBRARY_PATH=%BUILD_DIR%\%PROJECT_NAME%\lib%PROJECT_NAME%.so
+
+REM --------------------------------------
+REM C# Project Directories
+REM --------------------------------------
+set CSHARP_DIR=%PROJECT_DIR%\csharp
+set CSHARP_PROJECT_DIR=%CSHARP_DIR%\%PROJECT_NAME_FIRST_CAPITALIZED%
+set CSHARP_TEST_DIR=%CSHARP_DIR%\%PROJECT_NAME_FIRST_CAPITALIZED%Tests
+set CSHARP_CSPROJ_PATH=%CSHARP_PROJECT_DIR%\%PROJECT_NAME_FIRST_CAPITALIZED%.Win64.csproj
+set CSHARP_TEST_CSPROJ_PATH=%CSHARP_TEST_DIR%\%PROJECT_NAME_FIRST_CAPITALIZED%Tests.Win64.csproj
+set CSHARP_OUTPUT_DIR=%BUILD_DIR%\%PROJECT_NAME%-csharp
+set CSHARP_TEST_OUTPUT_DIR=%BUILD_DIR%\%PROJECT_NAME%-csharp-tests

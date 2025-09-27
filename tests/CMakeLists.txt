@@ -16,7 +16,7 @@ message(STATUS "Test sources: ${TEST_SOURCES}")
 add_executable(${PROJECT_NAME}-tests ${TEST_SOURCES})
 
 target_link_libraries(${PROJECT_NAME}-tests
-        PRIVATE ${PROJECT_NAME}-static
+        PRIVATE ${PROJECT_NAME}
 		gtest
 		gmock
         gtest_main

@@ -9,9 +9,4 @@ target_include_directories(${PROJECT_NAME}
         PUBLIC ${GAMEKIT_INCLUDE_DIR}
         PRIVATE ${GAMEKIT_SOURCE_DIR}
 )
-
-add_library(${PROJECT_NAME}-static STATIC ${SOURCES})
-target_include_directories(${PROJECT_NAME}-static
-        PUBLIC ${GAMEKIT_INCLUDE_DIR}
-        PRIVATE ${GAMEKIT_SOURCE_DIR}
-)
+target_compile_definitions(${PROJECT_NAME} PRIVATE GAMEKIT_EXPORTS)

@@ -12,7 +12,7 @@ endif()
 add_custom_target(${PROJECT_NAME}-csharp ALL
     COMMAND dotnet build ${GAMEKIT_CSHARP_PROJECT} 
         -o ${CMAKE_BINARY_DIR}/${PROJECT_NAME}-csharp/bin
-    COMMAND ${CMAKE_COMMAND} -E copy
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
 		${CMAKE_BINARY_DIR}/${PROJECT_NAME}/${GAMEKIT_LIB_NAME}
         ${CMAKE_BINARY_DIR}/${PROJECT_NAME}-csharp/bin/${GAMEKIT_LIB_NAME}
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
@@ -25,6 +25,9 @@ add_custom_target(${PROJECT_NAME}-csharp ALL
 add_custom_target(${PROJECT_NAME}-csharp-tests ALL
     COMMAND dotnet build ${GAMEKIT_CSHARP_TEST_PROJECT} 
         -o ${CMAKE_BINARY_DIR}/${PROJECT_NAME}-csharp-tests/bin
+	COMMAND ${CMAKE_COMMAND} -E copy_if_different
+		${CMAKE_BINARY_DIR}/${PROJECT_NAME}/${GAMEKIT_LIB_NAME}
+		${CMAKE_BINARY_DIR}/${PROJECT_NAME}-csharp-tests/${GAMEKIT_LIB_NAME}
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
     COMMENT "Building C# tests"
 )

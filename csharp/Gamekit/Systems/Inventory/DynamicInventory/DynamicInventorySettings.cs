@@ -2,14 +2,10 @@
 
 namespace Gamekit.Systems.Inventory.DynamicInventory
 {
-    public class DynamicInventorySettings : IDisposable
+    public class DynamicInventorySettings(int maxCapacity, int initialCapacity, bool isExpandable, int slotsPerExpansion, bool isAutoExpand)
+        : IDisposable
     {
-        private IntPtr nativePtr;
-
-        public DynamicInventorySettings(int maxCapacity, int initialCapacity, bool isExpandable, int slotsPerExpansion, bool isAutoExpand)
-        {
-            nativePtr = GamekitAPI_DynamicInventorySettings_New(maxCapacity, initialCapacity, isExpandable, slotsPerExpansion, isAutoExpand);
-        }
+        private readonly IntPtr m_nativePtr = GamekitAPI_DynamicInventorySettings_New(maxCapacity, initialCapacity, isExpandable, slotsPerExpansion, isAutoExpand);
 
         ~DynamicInventorySettings()
         {
@@ -26,16 +22,16 @@ namespace Gamekit.Systems.Inventory.DynamicInventory
         {
             if (!disposing)
             {
-                if (nativePtr != IntPtr.Zero)
+                if (m_nativePtr != IntPtr.Zero)
                 {
-                    GamekitAPI_DynamicInventorySettings_Delete(nativePtr);
+                    GamekitAPI_DynamicInventorySettings_Delete(m_nativePtr);
                 }
             }
         }
 
         public int GetMaxCapacity()
         {
-            return GamekitAPI_DynamicInventorySettings_GetMaxCapacity(nativePtr);
+            return GamekitAPI_DynamicInventorySettings_GetMaxCapacity(m_nativePtr);
         }
 
         [DllImport(Platform.LibraryName, EntryPoint = "GamekitAPI_DynamicInventorySettings_New", CallingConvention = Platform.CC)]
