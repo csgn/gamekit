@@ -4,11 +4,8 @@ set -e
 
 . ./build.sh
 
-TEST_EXE="./${BUILD_DIR}/gamekit-tests/gamekit-tests"
+cd "${TESTS_OUTPUT_DIR}"
+ctest
 
-if [ ! -f "$TEST_EXE" ]; then
-    echo "Error: Test executable not found: $TEST_EXE"
-    exit 1
-fi
-
-${TEST_EXE}
+export LD_LIBRARY_PATH="${CSHARP_OUTPUT_DIR}/bin":${LD_LIBRARY_PATH}
+dotnet test ${CSHARP_TEST_CSPROJ_PATH} -o "${CSHARP_TEST_OUTPUT_DIR}"

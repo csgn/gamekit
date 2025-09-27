@@ -64,7 +64,7 @@ string(TIMESTAMP BUILD_DATE "%Y-%m-%d %H:%M:%S")
 # Generate version header
 # -------------------------------
 configure_file(
-    "${CMAKE_SOURCE_DIR}/include/gamekit/version.h.in"
+    "${GAMEKIT_INCLUDE_DIR}/${PROJECT_NAME}/version.h.in"
     "${CMAKE_BINARY_DIR}/version.h"
     @ONLY
 )

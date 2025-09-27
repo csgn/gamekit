@@ -1,13 +1,17 @@
-﻿file(GLOB_RECURSE SOURCES "*.cpp")
-
-add_library(gamekit SHARED ${SOURCES})
-target_include_directories(gamekit
-        PUBLIC ${PROJECT_SOURCE_DIR}/include
-        PRIVATE ${PROJECT_SOURCE_DIR}/src
+﻿set(SOURCES
+	gamekit.cpp
+	systems/inventory/dynamic_inventory/dynamic_inventory_api.cpp
 )
 
-add_library(gamekit-static STATIC ${SOURCES})
-target_include_directories(gamekit-static
-        PUBLIC ${PROJECT_SOURCE_DIR}/include
-        PRIVATE ${PROJECT_SOURCE_DIR}/src
+message(STATUS "Sources: ${SOURCES}")
+add_library(${PROJECT_NAME} SHARED ${SOURCES})
+target_include_directories(${PROJECT_NAME}
+        PUBLIC ${GAMEKIT_INCLUDE_DIR}
+        PRIVATE ${GAMEKIT_SOURCE_DIR}
+)
+
+add_library(${PROJECT_NAME}-static STATIC ${SOURCES})
+target_include_directories(${PROJECT_NAME}-static
+        PUBLIC ${GAMEKIT_INCLUDE_DIR}
+        PRIVATE ${GAMEKIT_SOURCE_DIR}
 )

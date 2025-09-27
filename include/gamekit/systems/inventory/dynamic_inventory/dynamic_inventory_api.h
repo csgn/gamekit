@@ -20,6 +20,12 @@ GamekitAPI_DynamicInventorySettings_New(int max_capacity, int initial_capacity, 
 GAMEKIT_API void CALL_TYPE
 GamekitAPI_DynamicInventorySettings_Delete(DynamicInventorySettings* dynamic_inventory_settings);
 
+GAMEKIT_API int CALL_TYPE
+GamekitAPI_DynamicInventorySettings_GetMaxCapacity(DynamicInventorySettings* dynamic_inventory_settings);
+
+GAMEKIT_API int CALL_TYPE
+GamekitAPI_DynamicInventorySettings_GetInitialCapacity(DynamicInventorySettings* dynamic_inventory_settings);
+
 GAMEKIT_API bool CALL_TYPE
 GamekitAPI_DynamicInventorySettings_GetIsExpandable(DynamicInventorySettings* dynamic_inventory_settings);
 
@@ -28,6 +34,14 @@ GamekitAPI_DynamicInventorySettings_GetSlotsPerExpansion(DynamicInventorySetting
 
 GAMEKIT_API bool CALL_TYPE
 GamekitAPI_DynamicInventorySettings_GetIsAutoExpand(DynamicInventorySettings* dynamic_inventory_settings);
+
+GAMEKIT_API void CALL_TYPE
+GamekitAPI_DynamicInventorySettings_SetMaxCapacity(DynamicInventorySettings* dynamic_inventory_settings,
+												   int max_capacity);
+
+GAMEKIT_API void CALL_TYPE
+GamekitAPI_DynamicInventorySettings_SetInitialCapacity(DynamicInventorySettings* dynamic_inventory_settings,
+													   int initial_capacity);
 
 GAMEKIT_API void CALL_TYPE
 GamekitAPI_DynamicInventorySettings_SetExpandable(DynamicInventorySettings* dynamic_inventory_settings,

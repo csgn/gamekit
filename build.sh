@@ -9,9 +9,9 @@ if [ ! -d "${BUILD_DIR}" ]; then
 fi
 
 # configure
-cmake -S . -G "Unix Makefiles" -B ${BUILD_DIR} \
+cmake -S . -G "Ninja" -B ${BUILD_DIR} \
 	-DCMAKE_CXX_COMPILER=/usr/bin/clang++ \
 	-DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
 
 # build
-cmake --build ${BUILD_DIR} --target format
+cmake --build ${BUILD_DIR}
