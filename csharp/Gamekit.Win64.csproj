@@ -1,12 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <AssemblyName>Gamekit.Posix</AssemblyName>
+    <AssemblyName>Gamekit.Win64</AssemblyName>
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <DefineConstants>$(DefineConstants);PLATFORM_POSIX</DefineConstants>
+    <DefineConstants>$(DefineConstants);PLATFORM_WIN64</DefineConstants>
     <RootNamespace>Gamekit</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="tests\**\*.cs" />
+  </ItemGroup>
+  
 </Project>

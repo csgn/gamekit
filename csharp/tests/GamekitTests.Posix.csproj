@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Gamekit\Gamekit.Posix.csproj" />
+    <ProjectReference Include="..\Gamekit.Posix.csproj" />
   </ItemGroup>
 
 </Project>
