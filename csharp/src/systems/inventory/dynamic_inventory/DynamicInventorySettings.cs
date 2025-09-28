@@ -42,9 +42,10 @@ namespace Gamekit.Systems.Inventory.DynamicInventory
 
         public DynamicInventorySettings() { }
 
-        public DynamicInventorySettings(int maxCapacity, int initialCapacity, bool isExpandable, int slotsPerExpansion, bool isAutoExpand)
+        protected DynamicInventorySettings(IntPtr ptr) : base(ptr) { }
+
+        public DynamicInventorySettings(int maxCapacity, int initialCapacity, bool isExpandable, int slotsPerExpansion, bool isAutoExpand) : this(GamekitAPI_DynamicInventorySettings_New(maxCapacity, initialCapacity, isExpandable, slotsPerExpansion, isAutoExpand))
         {
-            _mPtr = GamekitAPI_DynamicInventorySettings_New(maxCapacity, initialCapacity, isExpandable, slotsPerExpansion, isAutoExpand);
         }
 
         protected override void FreePtr()

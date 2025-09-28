@@ -8,8 +8,6 @@ namespace Gamekit
 		public const string LibraryName = "gamekit";
 #elif PLATFORM_POSIX
 		public const string LibraryName = "libgamekit";
-#else
-        public const string LibraryName = "NO_LIBRARY_ASSIGNED";
 #endif
 
         public const CallingConvention CC = CallingConvention.Cdecl;

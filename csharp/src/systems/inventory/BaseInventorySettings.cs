@@ -24,9 +24,10 @@ namespace Gamekit.Systems.Inventory
 
         public BaseInventorySettings() { }
 
-        public BaseInventorySettings(int maxCapacity, int initialCapacity)
+        protected BaseInventorySettings(IntPtr ptr) : base(ptr) { }
+
+        public BaseInventorySettings(int maxCapacity, int initialCapacity) : this(GamekitAPI_BaseInventorySettings_New(maxCapacity, initialCapacity))
         {
-            _mPtr = GamekitAPI_BaseInventorySettings_New(maxCapacity, initialCapacity);
         }
 
         protected override void FreePtr()
