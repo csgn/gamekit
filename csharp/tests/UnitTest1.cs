@@ -2,7 +2,6 @@
 
 namespace Gamekit.Tests
 {
-
     public class Tests
     {
         [SetUp]
