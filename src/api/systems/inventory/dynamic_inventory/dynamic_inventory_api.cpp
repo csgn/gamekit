@@ -1,8 +1,8 @@
 #include "gamekit/copyright.h"
 #include "gamekit/gamekit.h"
-#include "gamekit/gamekit_api.h"
+#include "gamekit_api/gamekit_api.h"
 
-namespace gamekit::systems::inventory::dynamic_inventory::api
+namespace gamekit_api::systems::inventory::dynamic_inventory
 {
 
 GAMEKIT_API DynamicInventorySettings* CALL_TYPE
@@ -84,4 +84,4 @@ GamekitAPI_DynamicInventorySettings_SetAutoExpand(DynamicInventorySettings* dyna
 	dynamic_inventory_settings->SetIsAutoExpand(is_auto_expand);
 }
 
-} // namespace gamekit::systems::inventory::dynamic_inventory::api
+} // namespace gamekit_api::systems::inventory::dynamic_inventory

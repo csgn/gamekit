@@ -1,5 +1,6 @@
 // IWYU pragma: private, include "gamekit/gamekit.h"
 // IWYU pragma: friend gamekit/.*
+// IWYU pragma: friend gamekit_api/.*
 
 #ifndef GAMEKIT_INCLUDE_GAMEKIT_SYSTEMS_INVENTORY_STATIC_INVENTORY_STATIC_INVENTORY_SLOT_H
 #define GAMEKIT_INCLUDE_GAMEKIT_SYSTEMS_INVENTORY_STATIC_INVENTORY_STATIC_INVENTORY_SLOT_H

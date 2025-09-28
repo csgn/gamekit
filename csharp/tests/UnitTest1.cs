@@ -1,5 +1,4 @@
-﻿using NUnit.Framework;
-using Gamekit.Systems.Inventory.DynamicInventory;
+﻿using Gamekit.Systems.Inventory.DynamicInventory;
 
 namespace Gamekit.Tests
 {
@@ -16,7 +15,7 @@ namespace Gamekit.Tests
         {
             var inventory_settings = new DynamicInventorySettings(10, 5, false, 5, false);
             var maxCapacity = inventory_settings.GetMaxCapacity();
-            Console.WriteLine(maxCapacity);
+            Assert.That(10, Is.EqualTo(maxCapacity));
         }
     }
 }

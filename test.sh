@@ -2,10 +2,31 @@
 
 set -e
 
-. ./build.sh
+. ./config.sh
 
-cd "${TESTS_OUTPUT_DIR}"
-ctest
+test_native() {
+	cd "${TESTS_OUTPUT_DIR:?}"
+	ctest
+}
 
-export LD_LIBRARY_PATH="${CSHARP_OUTPUT_DIR}/bin":"${LD_LIBRARY_PATH}"
-dotnet test "${CSHARP_TEST_CSPROJ_PATH}" -o "${CSHARP_TEST_OUTPUT_DIR}"
+test_csharp() {
+	export LD_LIBRARY_PATH="${CSHARP_OUTPUT_DIR:?}/bin":"${LD_LIBRARY_PATH}"
+	dotnet test "${CSHARP_TEST_CSPROJ_PATH:?}" -o "${CSHARP_TEST_OUTPUT_DIR:?}"
+}
+
+test_all() {
+	test_native
+	test_csharp
+}
+
+case "$1" in
+    cpp|native)
+        test_native
+        ;;
+    csharp)
+        test_csharp
+        ;;
+    *)
+        test_all
+        ;;
+esac

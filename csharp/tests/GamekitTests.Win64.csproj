@@ -17,10 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Using Include="NUnit.Framework" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Gamekit.Win64.csproj" />
   </ItemGroup>
 

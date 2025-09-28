@@ -1,6 +1,6 @@
 ﻿set(SOURCES
 	gamekit.cpp
-	systems/inventory/dynamic_inventory/dynamic_inventory_api.cpp
+	api/systems/inventory/dynamic_inventory/dynamic_inventory_api.cpp
 )
 
 message(STATUS "Sources: ${SOURCES}")

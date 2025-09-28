@@ -6,8 +6,6 @@
 #include "gamekit/core/core.h" // IWYU pragma: export
 #include "gamekit/systems/inventory/inventory.h" // IWYU pragma: export
 
-#include "gamekit/systems/inventory/inventory_api.h" // IWYU pragma: export
-
 /**
  * @mainpage GameKit Library
  *
