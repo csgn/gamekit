@@ -20,13 +20,13 @@ test_all() {
 }
 
 case "$1" in
-    cpp|native)
-        test_native
-        ;;
     csharp)
         test_csharp
         ;;
-    *)
+    all)
         test_all
+        ;;
+    cpp|native|*)
+        test_native
         ;;
 esac

@@ -1,5 +1,4 @@
 #include "gamekit/copyright.h"
-
 #include "gamekit_api/systems/inventory/base_inventory_settings_api.h"
 
 namespace gamekit_api::systems::inventory
@@ -12,34 +11,33 @@ GamekitAPI_BaseInventorySettings_New(const int max_capacity, const int initial_c
 }
 
 GAMEKIT_API void CALL_TYPE
-GamekitAPI_BaseInventorySettings_Delete(BaseInventorySettings* base_inventory_settings)
+GamekitAPI_BaseInventorySettings_Delete(IInventorySettings* inventory_settings)
 {
-	delete base_inventory_settings;
+	delete inventory_settings;
 }
 
 GAMEKIT_API int CALL_TYPE
-GamekitAPI_BaseInventorySettings_GetMaxCapacity(BaseInventorySettings* base_inventory_settings)
+GamekitAPI_BaseInventorySettings_GetMaxCapacity(IInventorySettings* inventory_settings)
 {
-	return base_inventory_settings->GetMaxCapacity();
+	return inventory_settings->GetMaxCapacity();
 }
 
 GAMEKIT_API int CALL_TYPE
-GamekitAPI_BaseInventorySettings_GetInitialCapacity(BaseInventorySettings* base_inventory_settings)
+GamekitAPI_BaseInventorySettings_GetInitialCapacity(IInventorySettings* inventory_settings)
 {
-	return base_inventory_settings->GetInitialCapacity();
+	return inventory_settings->GetInitialCapacity();
 }
 
 GAMEKIT_API void CALL_TYPE
-GamekitAPI_BaseInventorySettings_SetMaxCapacity(BaseInventorySettings* base_inventory_settings, int max_capacity)
+GamekitAPI_BaseInventorySettings_SetMaxCapacity(IInventorySettings* inventory_settings, int max_capacity)
 {
-	base_inventory_settings->SetMaxCapacity(max_capacity);
+	inventory_settings->SetMaxCapacity(max_capacity);
 }
 
 GAMEKIT_API void CALL_TYPE
-GamekitAPI_BaseInventorySettings_SetInitialCapacity(BaseInventorySettings* base_inventory_settings,
-													int initial_capacity)
+GamekitAPI_BaseInventorySettings_SetInitialCapacity(IInventorySettings* inventory_settings, int initial_capacity)
 {
-	base_inventory_settings->SetInitialCapacity(initial_capacity);
+	inventory_settings->SetInitialCapacity(initial_capacity);
 }
 
 } // namespace gamekit_api::systems::inventory

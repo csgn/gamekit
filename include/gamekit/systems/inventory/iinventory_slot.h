@@ -9,6 +9,7 @@
 #include <string>
 
 #include "gamekit/copyright.h"
+#include "gamekit/core/core.h"
 
 namespace gamekit::systems::inventory
 {
@@ -16,13 +17,9 @@ namespace gamekit::systems::inventory
 /**
  * @brief Interface for a single inventory slot.
  *
- * Represents a container for inventory data of type TData.
+ * Represents a container for inventory data of IKitObject.
  *
- * @tparam TData Type of data stored in the slot. Typically derives from @ref IGameObject.
- *
- * @see IGameObject
  */
-template<typename TData>
 class IInventorySlot
 {
 public:
@@ -39,14 +36,14 @@ public:
 	 * @brief Gets a pointer to the slot data.
 	 * @return Reference to TData..
 	 */
-	virtual TData&
+	virtual core::IKitObject&
 	GetData() = 0;
 
 	/**
 	 * @brief Gets a const pointer to the slot data.
 	 * @return Const reference to TData.
 	 */
-	virtual const TData&
+	[[nodiscard]] virtual const core::IKitObject&
 	GetData() const = 0;
 
 	/**
@@ -54,7 +51,7 @@ public:
 	 * @param data Unique pointer to the data to store.
 	 */
 	virtual void
-	SetData(std::unique_ptr<TData> data) = 0;
+	SetData(std::unique_ptr<core::IKitObject> data) = 0;
 
 	/**
 	 * @brief Checks if the slot is empty.

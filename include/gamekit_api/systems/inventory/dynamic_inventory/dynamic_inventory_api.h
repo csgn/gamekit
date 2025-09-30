@@ -5,20 +5,24 @@
 #ifndef GAMEKIT_INCLUDE_GAMEKIT_API_SYSTEMS_INVENTORY_DYNAMIC_INVENTORY_DYNAMIC_INVENTORY_API_H
 #define GAMEKIT_INCLUDE_GAMEKIT_API_SYSTEMS_INVENTORY_DYNAMIC_INVENTORY_DYNAMIC_INVENTORY_API_H
 
-
 #include "gamekit/copyright.h"
-
-#include "gamekit/core/igameobject.h" // IWYU pragma: export
+#include "gamekit/core/ikitobject.h" // IWYU pragma: export
+#include "gamekit/systems/inventory/iinventory.h" // IWYU pragma: export
+#include "gamekit/systems/inventory/iinventory_settings.h" // IWYU pragma: export
 #include "gamekit/systems/inventory/dynamic_inventory/dynamic_inventory.h" // IWYU pragma: export
 
 #include "gamekit_api/gamekit_api_common.h" // IWYU pragma: export
-#include "gamekit_api/systems/inventory/dynamic_inventory/dynamic_inventory_settings_api.h" // IWYU pragma: export
-#include "gamekit_api/systems/inventory/dynamic_inventory/dynamic_inventory_slot_api.h" // IWYU pragma: export
 
+using gamekit::systems::inventory::IInventory;
+using gamekit::systems::inventory::IInventorySettings;
 using gamekit::systems::inventory::dynamic_inventory::DynamicInventory;
 
 namespace gamekit_api::systems::inventory::dynamic_inventory
 {
+
+GAMEKIT_API IInventory* CALL_TYPE
+GamekitAPI_DynamicInventory_New(IInventorySettings* settings);
+
 }
 
 #endif // GAMEKIT_INCLUDE_GAMEKIT_API_SYSTEMS_INVENTORY_DYNAMIC_INVENTORY_DYNAMIC_INVENTORY_API_H

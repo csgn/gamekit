@@ -102,199 +102,211 @@ $(function() { codefold.init(1); });
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;gamekit/copyright.h&quot;</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;gamekit/systems/inventory/iinventory.h&quot;</span> <span class="comment">// IWYU pragma: export</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;gamekit/systems/inventory/iinventory_settings.h&quot;</span> <span class="comment">// IWYU pragma: export</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;gamekit/systems/inventory/iinventory_slot.h&quot;</span> <span class="comment">// IWYU pragma: export</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;gamekit/systems/inventory/base_inventory_settings.h&quot;</span> <span class="comment">// IWYU pragma: export</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &quot;gamekit/systems/inventory/base_inventory_slot.h&quot;</span> <span class="comment">// IWYU pragma: export</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">namespace </span>gamekit::systems::inventory</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>{</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> TData, <span class="keyword">typename</span> TSettings, <span class="keyword">typename</span> TSlot&gt;</div>
-<div class="foldopen" id="foldopen00037" data-start="{" data-end="};">
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html">   37</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html">BaseInventory</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d2/dd2/classgamekit_1_1systems_1_1inventory_1_1IInventory.html">IInventory</a>&lt;TData, TSettings, TSlot&gt;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>{</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#ab440b3877eac40135af69f7816ff263c">   45</a></span>    <span class="keyword">explicit</span> <a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#ab440b3877eac40135af69f7816ff263c">BaseInventory</a>(std::unique_ptr&lt;TSettings&gt; settings) : m_settings(std::move(settings)) {}</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">bool</span></div>
-<div class="foldopen" id="foldopen00048" data-start="{" data-end="}">
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a881c9a4886cf9a9716e4bb846f8f561e">   48</a></span>    <a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a881c9a4886cf9a9716e4bb846f8f561e">Initialize</a>(std::optional&lt;int&gt; initial_capacity)<span class="keyword"> override</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="keywordtype">int</span> capacity = initial_capacity.value_or(m_settings-&gt;GetInitialCapacity());</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        m_slots.clear();</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; capacity; i++)</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        {</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            m_slots.emplace_back(i);</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        }</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;gamekit/core/core.h&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;gamekit/systems/inventory/iinventory.h&quot;</span> <span class="comment">// IWYU pragma: export</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;gamekit/systems/inventory/iinventory_settings.h&quot;</span> <span class="comment">// IWYU pragma: export</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;gamekit/systems/inventory/iinventory_slot.h&quot;</span> <span class="comment">// IWYU pragma: export</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;gamekit/systems/inventory/base_inventory_settings.h&quot;</span> <span class="comment">// IWYU pragma: export</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;gamekit/systems/inventory/base_inventory_slot.h&quot;</span> <span class="comment">// IWYU pragma: export</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">namespace </span>gamekit::systems::inventory</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>{</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="foldopen" id="foldopen00034" data-start="{" data-end="};">
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html">   34</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html">BaseInventory</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d2/dd2/classgamekit_1_1systems_1_1inventory_1_1IInventory.html">IInventory</a></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>{</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a1b3aaa6a8dfff9f26d3497c2792c3a01">   42</a></span>    <span class="keyword">explicit</span> <a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a1b3aaa6a8dfff9f26d3497c2792c3a01">BaseInventory</a>(std::unique_ptr&lt;IInventorySettings&gt; settings) : m_settings(std::move(settings)) {}</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordtype">bool</span></div>
+<div class="foldopen" id="foldopen00045" data-start="{" data-end="}">
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a17c0ad3dec6a8c6d33e80d921ead5d26">   45</a></span>    <a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a17c0ad3dec6a8c6d33e80d921ead5d26">Initialize</a>(std::optional&lt;int&gt; initial_capacity)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keywordtype">int</span> capacity = initial_capacity.value_or(m_settings-&gt;GetInitialCapacity());</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        m_slots.clear();</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; capacity; i++)</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            m_slots.emplace_back(std::make_unique&lt;BaseInventorySlot&gt;(i));</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        }</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    }</div>
+</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    }</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    [[nodiscard]] <span class="keyword">const</span> <a class="code hl_class" href="../../df/d94/classgamekit_1_1systems_1_1inventory_1_1IInventorySettings.html">IInventorySettings</a>&amp;</div>
+<div class="foldopen" id="foldopen00059" data-start="{" data-end="}">
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a4a2f90b699a833c2116c4fc9dc38a505">   59</a></span>    <a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a4a2f90b699a833c2116c4fc9dc38a505">GetSettings</a>()<span class="keyword"> const override</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="keywordflow">return</span> *m_settings;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    }</div>
 </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    [[nodiscard]] <span class="keyword">const</span> TSettings&amp;</div>
-<div class="foldopen" id="foldopen00062" data-start="{" data-end="}">
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#acb447b91394e17ad8bee8f8cc25ff771">   62</a></span>    <a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#acb447b91394e17ad8bee8f8cc25ff771">GetSettings</a>()<span class="keyword"> const override</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <span class="keywordflow">return</span> *m_settings;</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    }</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    [[nodiscard]] std::vector&lt;IInventorySlot*&gt;</div>
+<div class="foldopen" id="foldopen00065" data-start="{" data-end="}">
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a1f9e8d4c158b2a0569d876d4fc288736">   65</a></span>    <a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a1f9e8d4c158b2a0569d876d4fc288736">GetSlots</a>()<span class="keyword"> const override</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        std::vector&lt;IInventorySlot*&gt; slots;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        slots.reserve(m_slots.size());</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> std::unique_ptr&lt;IInventorySlot&gt;&amp; slot: m_slots)</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        {</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            slots.push_back(slot.get());</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        }</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="keywordflow">return</span> slots;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    }</div>
 </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keyword">const</span> std::vector&lt;TSlot&gt;&amp;</div>
-<div class="foldopen" id="foldopen00068" data-start="{" data-end="}">
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a0457dc512b9b69138b5bfbdd8fbd28a6">   68</a></span>    <a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a0457dc512b9b69138b5bfbdd8fbd28a6">GetSlots</a>()<span class="keyword"> const override</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <span class="keywordflow">return</span> m_slots;</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    }</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    std::optional&lt;std::vector&lt;int&gt;&gt;</div>
+<div class="foldopen" id="foldopen00078" data-start="{" data-end="}">
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a68be092372885df97f89ee74f678ffe0">   78</a></span>    <a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a68be092372885df97f89ee74f678ffe0">Add</a>(std::unique_ptr&lt;core::IKitObject&gt; data)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keyword">const</span> std::optional&lt;int&gt; found_empty_slot_index = <a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a8eee385d21c978e181e6635ea74cd53e">FindEmptySlot</a>();</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="keywordflow">if</span> (!found_empty_slot_index.has_value())</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        {</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            <span class="comment">// LOG: there is no empty slot found.</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            <span class="keywordflow">return</span> std::nullopt;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        }</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <a class="code hl_class" href="../../d7/d30/classgamekit_1_1systems_1_1inventory_1_1IInventorySlot.html">IInventorySlot</a>&amp; empty_slot = <a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a2da962da91975e3a6172d486dcca50ea">GetSlot</a>(found_empty_slot_index.value());</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        empty_slot.<a class="code hl_function" href="../../d7/d30/classgamekit_1_1systems_1_1inventory_1_1IInventorySlot.html#afe6b780056dc1999c09d44b0b0401a2b">SetData</a>(std::move(data));</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <span class="keywordflow">return</span> std::vector{found_empty_slot_index.value()};</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    }</div>
 </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    std::optional&lt;std::vector&lt;int&gt;&gt;</div>
-<div class="foldopen" id="foldopen00074" data-start="{" data-end="}">
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a154f2e5b1705da49ac44658521552fb8">   74</a></span>    <a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a154f2e5b1705da49ac44658521552fb8">Add</a>(std::unique_ptr&lt;TData&gt; data)<span class="keyword"> override</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="keyword">const</span> std::optional&lt;int&gt; found_empty_slot_index = <a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a3162caa2f136cb805871c502fd9a6110">FindEmptySlot</a>();</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <span class="keywordflow">if</span> (!found_empty_slot_index.has_value())</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        {</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            <span class="comment">// LOG: there is no empty slot found.</span></div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            <span class="keywordflow">return</span> std::nullopt;</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        }</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        TSlot&amp; empty_slot = <a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#af1736dd8a9844c5e4e77afd8d5fb17e7">GetSlot</a>(found_empty_slot_index.value());</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        empty_slot.SetData(std::move(data));</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <span class="keywordflow">return</span> std::vector{found_empty_slot_index.value()};</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    }</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keywordtype">bool</span></div>
+<div class="foldopen" id="foldopen00094" data-start="{" data-end="}">
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#ac5be887b66341de42a219fc90e252f92">   94</a></span>    <a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#ac5be887b66341de42a219fc90e252f92">Remove</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> slot_index)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <a class="code hl_class" href="../../d7/d30/classgamekit_1_1systems_1_1inventory_1_1IInventorySlot.html">IInventorySlot</a>&amp; slot = <a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a2da962da91975e3a6172d486dcca50ea">GetSlot</a>(slot_index);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        slot.<a class="code hl_function" href="../../d7/d30/classgamekit_1_1systems_1_1inventory_1_1IInventorySlot.html#afe6b780056dc1999c09d44b0b0401a2b">SetData</a>(<span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    }</div>
 </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordtype">bool</span></div>
-<div class="foldopen" id="foldopen00090" data-start="{" data-end="}">
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a2b31dba6fdab22638aa1411daabb8085">   90</a></span>    <a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a2b31dba6fdab22638aa1411daabb8085">Remove</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> slot_index)<span class="keyword"> override</span></div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        TSlot&amp; slot = <a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#af1736dd8a9844c5e4e77afd8d5fb17e7">GetSlot</a>(slot_index);</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        slot.SetData(<span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    }</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    std::optional&lt;int&gt;</div>
+<div class="foldopen" id="foldopen00102" data-start="{" data-end="}">
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a8eee385d21c978e181e6635ea74cd53e">  102</a></span>    <a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a8eee385d21c978e181e6635ea74cd53e">FindEmptySlot</a>()<span class="keyword"> override</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        <span class="keywordflow">for</span> (std::unique_ptr&lt;IInventorySlot&gt;&amp; slot: m_slots)</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        {</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>            <span class="keywordflow">if</span> (slot-&gt;IsEmpty())</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>            {</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>                <span class="keywordflow">return</span> slot-&gt;GetIndex();</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>            }</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        }</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        <span class="keywordflow">return</span> std::nullopt;</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    }</div>
 </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    std::optional&lt;int&gt;</div>
-<div class="foldopen" id="foldopen00098" data-start="{" data-end="}">
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a3162caa2f136cb805871c502fd9a6110">   98</a></span>    <a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a3162caa2f136cb805871c502fd9a6110">FindEmptySlot</a>()<span class="keyword"> override</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        <span class="keywordflow">for</span> (TSlot&amp; slot: m_slots)</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        {</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>            <span class="keywordflow">if</span> (slot.IsEmpty())</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            {</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>                <span class="keywordflow">return</span> slot.GetIndex();</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            }</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        }</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        <span class="keywordflow">return</span> std::nullopt;</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    }</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keywordtype">bool</span></div>
+<div class="foldopen" id="foldopen00116" data-start="{" data-end="}">
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#af49c21ddad1c68539edddddbee03df48">  116</a></span>    <a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#af49c21ddad1c68539edddddbee03df48">HasInventoryEmptySlot</a>()<span class="keyword"> override</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a8eee385d21c978e181e6635ea74cd53e">FindEmptySlot</a>().has_value();</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    }</div>
 </div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordtype">bool</span></div>
-<div class="foldopen" id="foldopen00112" data-start="{" data-end="}">
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#ab74e8069d2a4c3369b8000dbad5bfa2a">  112</a></span>    <a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#ab74e8069d2a4c3369b8000dbad5bfa2a">HasInventoryEmptySlot</a>()<span class="keyword"> override</span></div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a3162caa2f136cb805871c502fd9a6110">FindEmptySlot</a>().has_value();</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    }</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <span class="keywordtype">bool</span></div>
+<div class="foldopen" id="foldopen00122" data-start="{" data-end="}">
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a8b705d8ae5663a9baf392bb757aebfde">  122</a></span>    <a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a8b705d8ae5663a9baf392bb757aebfde">IsSlotOccupied</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> slot_index)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        <span class="keywordflow">return</span> !<a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a2da962da91975e3a6172d486dcca50ea">GetSlot</a>(slot_index).<a class="code hl_function" href="../../d7/d30/classgamekit_1_1systems_1_1inventory_1_1IInventorySlot.html#a47a57c8c08f3a701da8c27ddedd333f5">IsEmpty</a>();</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    }</div>
 </div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keywordtype">bool</span></div>
-<div class="foldopen" id="foldopen00118" data-start="{" data-end="}">
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a77ab18055b462d0d3b0dbafc5afc274a">  118</a></span>    <a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a77ab18055b462d0d3b0dbafc5afc274a">IsSlotOccupied</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> slot_index)<span class="keyword"> override</span></div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        <span class="keywordflow">return</span> !<a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#af1736dd8a9844c5e4e77afd8d5fb17e7">GetSlot</a>(slot_index).IsEmpty();</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    }</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <span class="keywordtype">bool</span></div>
+<div class="foldopen" id="foldopen00128" data-start="{" data-end="}">
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno"><a class="line" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a2b0c52e7a7d558adc3559d31c406ab58">  128</a></span>    <a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a2b0c52e7a7d558adc3559d31c406ab58">IsInventoryFull</a>()<span class="keyword"> override</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        <span class="keywordflow">return</span> !<a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#af49c21ddad1c68539edddddbee03df48">HasInventoryEmptySlot</a>();</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    }</div>
 </div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keywordtype">bool</span></div>
-<div class="foldopen" id="foldopen00124" data-start="{" data-end="}">
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a922abba3ee1d7c8fb5d2a3c0d4eb82e5">  124</a></span>    <a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a922abba3ee1d7c8fb5d2a3c0d4eb82e5">IsInventoryFull</a>()<span class="keyword"> override</span></div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        <span class="keywordflow">return</span> !<a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#ab74e8069d2a4c3369b8000dbad5bfa2a">HasInventoryEmptySlot</a>();</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    }</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <a class="code hl_class" href="../../d7/d30/classgamekit_1_1systems_1_1inventory_1_1IInventorySlot.html">IInventorySlot</a>&amp;</div>
+<div class="foldopen" id="foldopen00134" data-start="{" data-end="}">
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno"><a class="line" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a2da962da91975e3a6172d486dcca50ea">  134</a></span>    <a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a2da962da91975e3a6172d486dcca50ea">GetSlot</a>(<span class="keywordtype">int</span> slot_index)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        assert(<a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a8473fb85b9ae24a6af55c03d643bb94e">IsSlotIndexInBounds</a>(slot_index));</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        <span class="keywordflow">return</span> *m_slots.at(slot_index);</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    }</div>
 </div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    TSlot&amp;</div>
-<div class="foldopen" id="foldopen00130" data-start="{" data-end="}">
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno"><a class="line" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#af1736dd8a9844c5e4e77afd8d5fb17e7">  130</a></span>    <a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#af1736dd8a9844c5e4e77afd8d5fb17e7">GetSlot</a>(<span class="keywordtype">int</span> slot_index)<span class="keyword"> override</span></div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        assert(<a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#abca4b1daf8408cbd87812748a2a9360f">IsSlotIndexInBounds</a>(slot_index));</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        <span class="keywordflow">return</span> m_slots.at(slot_index);</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    }</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    [[nodiscard]] <span class="keyword">const</span> <a class="code hl_class" href="../../d7/d30/classgamekit_1_1systems_1_1inventory_1_1IInventorySlot.html">IInventorySlot</a>&amp;</div>
+<div class="foldopen" id="foldopen00141" data-start="{" data-end="}">
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno"><a class="line" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a51020bedacdb084b85659be9789737c9">  141</a></span>    <a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a51020bedacdb084b85659be9789737c9">GetSlot</a>(<span class="keywordtype">int</span> slot_index)<span class="keyword"> const override</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>        assert(<a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a8473fb85b9ae24a6af55c03d643bb94e">IsSlotIndexInBounds</a>(slot_index));</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        <span class="keywordflow">return</span> *m_slots.at(slot_index);</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    }</div>
 </div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <span class="keyword">const</span> TSlot&amp;</div>
-<div class="foldopen" id="foldopen00137" data-start="{" data-end="}">
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno"><a class="line" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a2dad1646566b646b0ee0fbfbfbb73eda">  137</a></span>    <a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a2dad1646566b646b0ee0fbfbfbb73eda">GetSlot</a>(<span class="keywordtype">int</span> slot_index)<span class="keyword"> const override</span></div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>        assert(<a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#abca4b1daf8408cbd87812748a2a9360f">IsSlotIndexInBounds</a>(slot_index));</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        <span class="keywordflow">return</span> m_slots.at(slot_index);</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    }</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    [[nodiscard]] <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span></div>
+<div class="foldopen" id="foldopen00148" data-start="{" data-end="}">
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno"><a class="line" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a2bec6118a470d92461e19ff6c5f0f2cf">  148</a></span>    <a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a2bec6118a470d92461e19ff6c5f0f2cf">GetCapacity</a>()<span class="keyword"> const override</span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        <span class="keywordflow">return</span> m_slots.size();</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    }</div>
 </div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    [[nodiscard]] <span class="keywordtype">int</span></div>
-<div class="foldopen" id="foldopen00144" data-start="{" data-end="}">
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno"><a class="line" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a4c3ea2b0a4c298247252bc5f68c8c7b4">  144</a></span>    <a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a4c3ea2b0a4c298247252bc5f68c8c7b4">GetCapacity</a>()<span class="keyword"> const override</span></div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        <span class="keywordflow">return</span> m_slots.size();</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    }</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <span class="keywordtype">int</span></div>
+<div class="foldopen" id="foldopen00154" data-start="{" data-end="}">
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno"><a class="line" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#aaf705870813309f750268c9acf9f9595">  154</a></span>    <a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#aaf705870813309f750268c9acf9f9595">GetOccupiedSlotCount</a>()<span class="keyword"> override</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        <span class="keywordtype">int</span> occupied_slot_counter = 0;</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> std::unique_ptr&lt;IInventorySlot&gt;&amp; slot: m_slots)</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        {</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>            <span class="keywordflow">if</span> (!slot-&gt;IsEmpty())</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>                occupied_slot_counter++;</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        }</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        <span class="keywordflow">return</span> occupied_slot_counter;</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    }</div>
 </div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <span class="keywordtype">int</span></div>
-<div class="foldopen" id="foldopen00150" data-start="{" data-end="}">
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno"><a class="line" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#aa87af40868fbc0e40c5f3343e32392bf">  150</a></span>    <a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#aa87af40868fbc0e40c5f3343e32392bf">GetOccupiedSlotCount</a>()<span class="keyword"> override</span></div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        <span class="keywordtype">int</span> occupied_slot_counter = 0;</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> TSlot&amp; slot: m_slots)</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        {</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>            <span class="keywordflow">if</span> (!slot.IsEmpty())</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>                occupied_slot_counter++;</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        }</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        <span class="keywordflow">return</span> occupied_slot_counter;</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    }</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    [[nodiscard]] <span class="keywordtype">bool</span></div>
+<div class="foldopen" id="foldopen00167" data-start="{" data-end="}">
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno"><a class="line" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a8473fb85b9ae24a6af55c03d643bb94e">  167</a></span>    <a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a8473fb85b9ae24a6af55c03d643bb94e">IsSlotIndexInBounds</a>(<span class="keywordtype">int</span> slot_index)<span class="keyword"> const override</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>        <span class="keywordflow">return</span> slot_index &gt;= 0 &amp;&amp; slot_index &lt; <a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a2bec6118a470d92461e19ff6c5f0f2cf">GetCapacity</a>();</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    }</div>
 </div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    [[nodiscard]] <span class="keywordtype">bool</span></div>
-<div class="foldopen" id="foldopen00163" data-start="{" data-end="}">
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno"><a class="line" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#abca4b1daf8408cbd87812748a2a9360f">  163</a></span>    <a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#abca4b1daf8408cbd87812748a2a9360f">IsSlotIndexInBounds</a>(<span class="keywordtype">int</span> slot_index)<span class="keyword"> const override</span></div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        <span class="keywordflow">return</span> slot_index &gt;= 0 &amp;&amp; slot_index &lt; <a class="code hl_function" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a4c3ea2b0a4c298247252bc5f68c8c7b4">GetCapacity</a>();</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    }</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    std::unique_ptr&lt;IInventorySettings&gt; m_settings;</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    std::vector&lt;std::unique_ptr&lt;IInventorySlot&gt;&gt; m_slots;</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>};</div>
 </div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    std::unique_ptr&lt;TSettings&gt; m_settings;</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    std::vector&lt;TSlot&gt; m_slots;</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>};</div>
-</div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>} <span class="comment">// namespace gamekit::systems::inventory</span></div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span><span class="preprocessor">#endif </span><span class="comment">// GAMEKIT_INCLUDE_GAMEKIT_SYSTEMS_INVENTORY_BASE_INVENTORY_H</span></div>
-<div class="ttc" id="aclassgamekit_1_1systems_1_1inventory_1_1BaseInventory_html"><div class="ttname"><a href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html">gamekit::systems::inventory::BaseInventory</a></div><div class="ttdoc">Base template class for an inventory system.</div><div class="ttdef"><b>Definition</b> base_inventory.h:38</div></div>
-<div class="ttc" id="aclassgamekit_1_1systems_1_1inventory_1_1BaseInventory_html_a0457dc512b9b69138b5bfbdd8fbd28a6"><div class="ttname"><a href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a0457dc512b9b69138b5bfbdd8fbd28a6">gamekit::systems::inventory::BaseInventory::GetSlots</a></div><div class="ttdeci">const std::vector&lt; TSlot &gt; &amp; GetSlots() const override</div><div class="ttdoc">Gets all inventory slots.</div><div class="ttdef"><b>Definition</b> base_inventory.h:68</div></div>
-<div class="ttc" id="aclassgamekit_1_1systems_1_1inventory_1_1BaseInventory_html_a154f2e5b1705da49ac44658521552fb8"><div class="ttname"><a href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a154f2e5b1705da49ac44658521552fb8">gamekit::systems::inventory::BaseInventory::Add</a></div><div class="ttdeci">std::optional&lt; std::vector&lt; int &gt; &gt; Add(std::unique_ptr&lt; TData &gt; data) override</div><div class="ttdoc">Adds an item to the inventory.</div><div class="ttdef"><b>Definition</b> base_inventory.h:74</div></div>
-<div class="ttc" id="aclassgamekit_1_1systems_1_1inventory_1_1BaseInventory_html_a2b31dba6fdab22638aa1411daabb8085"><div class="ttname"><a href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a2b31dba6fdab22638aa1411daabb8085">gamekit::systems::inventory::BaseInventory::Remove</a></div><div class="ttdeci">bool Remove(const int slot_index) override</div><div class="ttdoc">Removes an item from a slot.</div><div class="ttdef"><b>Definition</b> base_inventory.h:90</div></div>
-<div class="ttc" id="aclassgamekit_1_1systems_1_1inventory_1_1BaseInventory_html_a2dad1646566b646b0ee0fbfbfbb73eda"><div class="ttname"><a href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a2dad1646566b646b0ee0fbfbfbb73eda">gamekit::systems::inventory::BaseInventory::GetSlot</a></div><div class="ttdeci">const TSlot &amp; GetSlot(int slot_index) const override</div><div class="ttdoc">Accesses a slot by index (const version).</div><div class="ttdef"><b>Definition</b> base_inventory.h:137</div></div>
-<div class="ttc" id="aclassgamekit_1_1systems_1_1inventory_1_1BaseInventory_html_a3162caa2f136cb805871c502fd9a6110"><div class="ttname"><a href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a3162caa2f136cb805871c502fd9a6110">gamekit::systems::inventory::BaseInventory::FindEmptySlot</a></div><div class="ttdeci">std::optional&lt; int &gt; FindEmptySlot() override</div><div class="ttdoc">Finds an empty slot.</div><div class="ttdef"><b>Definition</b> base_inventory.h:98</div></div>
-<div class="ttc" id="aclassgamekit_1_1systems_1_1inventory_1_1BaseInventory_html_a4c3ea2b0a4c298247252bc5f68c8c7b4"><div class="ttname"><a href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a4c3ea2b0a4c298247252bc5f68c8c7b4">gamekit::systems::inventory::BaseInventory::GetCapacity</a></div><div class="ttdeci">int GetCapacity() const override</div><div class="ttdoc">Gets maximum number of slots.</div><div class="ttdef"><b>Definition</b> base_inventory.h:144</div></div>
-<div class="ttc" id="aclassgamekit_1_1systems_1_1inventory_1_1BaseInventory_html_a77ab18055b462d0d3b0dbafc5afc274a"><div class="ttname"><a href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a77ab18055b462d0d3b0dbafc5afc274a">gamekit::systems::inventory::BaseInventory::IsSlotOccupied</a></div><div class="ttdeci">bool IsSlotOccupied(const int slot_index) override</div><div class="ttdoc">Checks if a slot is occupied.</div><div class="ttdef"><b>Definition</b> base_inventory.h:118</div></div>
-<div class="ttc" id="aclassgamekit_1_1systems_1_1inventory_1_1BaseInventory_html_a881c9a4886cf9a9716e4bb846f8f561e"><div class="ttname"><a href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a881c9a4886cf9a9716e4bb846f8f561e">gamekit::systems::inventory::BaseInventory::Initialize</a></div><div class="ttdeci">bool Initialize(std::optional&lt; int &gt; initial_capacity) override</div><div class="ttdoc">Initializes the inventory with optional capacity.</div><div class="ttdef"><b>Definition</b> base_inventory.h:48</div></div>
-<div class="ttc" id="aclassgamekit_1_1systems_1_1inventory_1_1BaseInventory_html_a922abba3ee1d7c8fb5d2a3c0d4eb82e5"><div class="ttname"><a href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a922abba3ee1d7c8fb5d2a3c0d4eb82e5">gamekit::systems::inventory::BaseInventory::IsInventoryFull</a></div><div class="ttdeci">bool IsInventoryFull() override</div><div class="ttdoc">Checks if the inventory is full.</div><div class="ttdef"><b>Definition</b> base_inventory.h:124</div></div>
-<div class="ttc" id="aclassgamekit_1_1systems_1_1inventory_1_1BaseInventory_html_aa87af40868fbc0e40c5f3343e32392bf"><div class="ttname"><a href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#aa87af40868fbc0e40c5f3343e32392bf">gamekit::systems::inventory::BaseInventory::GetOccupiedSlotCount</a></div><div class="ttdeci">int GetOccupiedSlotCount() override</div><div class="ttdoc">Gets number of occupied slots.</div><div class="ttdef"><b>Definition</b> base_inventory.h:150</div></div>
-<div class="ttc" id="aclassgamekit_1_1systems_1_1inventory_1_1BaseInventory_html_ab440b3877eac40135af69f7816ff263c"><div class="ttname"><a href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#ab440b3877eac40135af69f7816ff263c">gamekit::systems::inventory::BaseInventory::BaseInventory</a></div><div class="ttdeci">BaseInventory(std::unique_ptr&lt; TSettings &gt; settings)</div><div class="ttdoc">Constructs a BaseInventory with given settings.</div><div class="ttdef"><b>Definition</b> base_inventory.h:45</div></div>
-<div class="ttc" id="aclassgamekit_1_1systems_1_1inventory_1_1BaseInventory_html_ab74e8069d2a4c3369b8000dbad5bfa2a"><div class="ttname"><a href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#ab74e8069d2a4c3369b8000dbad5bfa2a">gamekit::systems::inventory::BaseInventory::HasInventoryEmptySlot</a></div><div class="ttdeci">bool HasInventoryEmptySlot() override</div><div class="ttdoc">Checks if there is at least one empty slot.</div><div class="ttdef"><b>Definition</b> base_inventory.h:112</div></div>
-<div class="ttc" id="aclassgamekit_1_1systems_1_1inventory_1_1BaseInventory_html_abca4b1daf8408cbd87812748a2a9360f"><div class="ttname"><a href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#abca4b1daf8408cbd87812748a2a9360f">gamekit::systems::inventory::BaseInventory::IsSlotIndexInBounds</a></div><div class="ttdeci">bool IsSlotIndexInBounds(int slot_index) const override</div><div class="ttdoc">Checks the slot_index is in bounds.</div><div class="ttdef"><b>Definition</b> base_inventory.h:163</div></div>
-<div class="ttc" id="aclassgamekit_1_1systems_1_1inventory_1_1BaseInventory_html_acb447b91394e17ad8bee8f8cc25ff771"><div class="ttname"><a href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#acb447b91394e17ad8bee8f8cc25ff771">gamekit::systems::inventory::BaseInventory::GetSettings</a></div><div class="ttdeci">const TSettings &amp; GetSettings() const override</div><div class="ttdoc">Gets the inventory settings.</div><div class="ttdef"><b>Definition</b> base_inventory.h:62</div></div>
-<div class="ttc" id="aclassgamekit_1_1systems_1_1inventory_1_1BaseInventory_html_af1736dd8a9844c5e4e77afd8d5fb17e7"><div class="ttname"><a href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#af1736dd8a9844c5e4e77afd8d5fb17e7">gamekit::systems::inventory::BaseInventory::GetSlot</a></div><div class="ttdeci">TSlot &amp; GetSlot(int slot_index) override</div><div class="ttdoc">Accesses a slot by index.</div><div class="ttdef"><b>Definition</b> base_inventory.h:130</div></div>
-<div class="ttc" id="aclassgamekit_1_1systems_1_1inventory_1_1IInventory_html"><div class="ttname"><a href="../../d2/dd2/classgamekit_1_1systems_1_1inventory_1_1IInventory.html">gamekit::systems::inventory::IInventory</a></div><div class="ttdoc">Interface for a generic inventory system.</div><div class="ttdef"><b>Definition</b> iinventory.h:37</div></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>} <span class="comment">// namespace gamekit::systems::inventory</span></div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="preprocessor">#endif </span><span class="comment">// GAMEKIT_INCLUDE_GAMEKIT_SYSTEMS_INVENTORY_BASE_INVENTORY_H</span></div>
+<div class="ttc" id="aclassgamekit_1_1systems_1_1inventory_1_1BaseInventory_html"><div class="ttname"><a href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html">gamekit::systems::inventory::BaseInventory</a></div><div class="ttdoc">Base template class for an inventory system.</div><div class="ttdef"><b>Definition</b> base_inventory.h:35</div></div>
+<div class="ttc" id="aclassgamekit_1_1systems_1_1inventory_1_1BaseInventory_html_a17c0ad3dec6a8c6d33e80d921ead5d26"><div class="ttname"><a href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a17c0ad3dec6a8c6d33e80d921ead5d26">gamekit::systems::inventory::BaseInventory::Initialize</a></div><div class="ttdeci">bool Initialize(std::optional&lt; int &gt; initial_capacity) override</div><div class="ttdoc">Initializes the inventory with optional capacity.</div><div class="ttdef"><b>Definition</b> base_inventory.h:45</div></div>
+<div class="ttc" id="aclassgamekit_1_1systems_1_1inventory_1_1BaseInventory_html_a1b3aaa6a8dfff9f26d3497c2792c3a01"><div class="ttname"><a href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a1b3aaa6a8dfff9f26d3497c2792c3a01">gamekit::systems::inventory::BaseInventory::BaseInventory</a></div><div class="ttdeci">BaseInventory(std::unique_ptr&lt; IInventorySettings &gt; settings)</div><div class="ttdoc">Constructs a BaseInventory with given settings.</div><div class="ttdef"><b>Definition</b> base_inventory.h:42</div></div>
+<div class="ttc" id="aclassgamekit_1_1systems_1_1inventory_1_1BaseInventory_html_a1f9e8d4c158b2a0569d876d4fc288736"><div class="ttname"><a href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a1f9e8d4c158b2a0569d876d4fc288736">gamekit::systems::inventory::BaseInventory::GetSlots</a></div><div class="ttdeci">std::vector&lt; IInventorySlot * &gt; GetSlots() const override</div><div class="ttdoc">Gets all inventory slots.</div><div class="ttdef"><b>Definition</b> base_inventory.h:65</div></div>
+<div class="ttc" id="aclassgamekit_1_1systems_1_1inventory_1_1BaseInventory_html_a2b0c52e7a7d558adc3559d31c406ab58"><div class="ttname"><a href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a2b0c52e7a7d558adc3559d31c406ab58">gamekit::systems::inventory::BaseInventory::IsInventoryFull</a></div><div class="ttdeci">bool IsInventoryFull() override</div><div class="ttdoc">Checks if the inventory is full.</div><div class="ttdef"><b>Definition</b> base_inventory.h:128</div></div>
+<div class="ttc" id="aclassgamekit_1_1systems_1_1inventory_1_1BaseInventory_html_a2bec6118a470d92461e19ff6c5f0f2cf"><div class="ttname"><a href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a2bec6118a470d92461e19ff6c5f0f2cf">gamekit::systems::inventory::BaseInventory::GetCapacity</a></div><div class="ttdeci">unsigned long GetCapacity() const override</div><div class="ttdoc">Gets maximum number of slots.</div><div class="ttdef"><b>Definition</b> base_inventory.h:148</div></div>
+<div class="ttc" id="aclassgamekit_1_1systems_1_1inventory_1_1BaseInventory_html_a2da962da91975e3a6172d486dcca50ea"><div class="ttname"><a href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a2da962da91975e3a6172d486dcca50ea">gamekit::systems::inventory::BaseInventory::GetSlot</a></div><div class="ttdeci">IInventorySlot &amp; GetSlot(int slot_index) override</div><div class="ttdoc">Accesses a slot by index.</div><div class="ttdef"><b>Definition</b> base_inventory.h:134</div></div>
+<div class="ttc" id="aclassgamekit_1_1systems_1_1inventory_1_1BaseInventory_html_a4a2f90b699a833c2116c4fc9dc38a505"><div class="ttname"><a href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a4a2f90b699a833c2116c4fc9dc38a505">gamekit::systems::inventory::BaseInventory::GetSettings</a></div><div class="ttdeci">const IInventorySettings &amp; GetSettings() const override</div><div class="ttdoc">Gets the inventory settings.</div><div class="ttdef"><b>Definition</b> base_inventory.h:59</div></div>
+<div class="ttc" id="aclassgamekit_1_1systems_1_1inventory_1_1BaseInventory_html_a51020bedacdb084b85659be9789737c9"><div class="ttname"><a href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a51020bedacdb084b85659be9789737c9">gamekit::systems::inventory::BaseInventory::GetSlot</a></div><div class="ttdeci">const IInventorySlot &amp; GetSlot(int slot_index) const override</div><div class="ttdoc">Accesses a slot by index (const version).</div><div class="ttdef"><b>Definition</b> base_inventory.h:141</div></div>
+<div class="ttc" id="aclassgamekit_1_1systems_1_1inventory_1_1BaseInventory_html_a68be092372885df97f89ee74f678ffe0"><div class="ttname"><a href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a68be092372885df97f89ee74f678ffe0">gamekit::systems::inventory::BaseInventory::Add</a></div><div class="ttdeci">std::optional&lt; std::vector&lt; int &gt; &gt; Add(std::unique_ptr&lt; core::IKitObject &gt; data) override</div><div class="ttdoc">Adds an item to the inventory.</div><div class="ttdef"><b>Definition</b> base_inventory.h:78</div></div>
+<div class="ttc" id="aclassgamekit_1_1systems_1_1inventory_1_1BaseInventory_html_a8473fb85b9ae24a6af55c03d643bb94e"><div class="ttname"><a href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a8473fb85b9ae24a6af55c03d643bb94e">gamekit::systems::inventory::BaseInventory::IsSlotIndexInBounds</a></div><div class="ttdeci">bool IsSlotIndexInBounds(int slot_index) const override</div><div class="ttdoc">Checks the slot_index is in bounds.</div><div class="ttdef"><b>Definition</b> base_inventory.h:167</div></div>
+<div class="ttc" id="aclassgamekit_1_1systems_1_1inventory_1_1BaseInventory_html_a8b705d8ae5663a9baf392bb757aebfde"><div class="ttname"><a href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a8b705d8ae5663a9baf392bb757aebfde">gamekit::systems::inventory::BaseInventory::IsSlotOccupied</a></div><div class="ttdeci">bool IsSlotOccupied(const int slot_index) override</div><div class="ttdoc">Checks if a slot is occupied.</div><div class="ttdef"><b>Definition</b> base_inventory.h:122</div></div>
+<div class="ttc" id="aclassgamekit_1_1systems_1_1inventory_1_1BaseInventory_html_a8eee385d21c978e181e6635ea74cd53e"><div class="ttname"><a href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a8eee385d21c978e181e6635ea74cd53e">gamekit::systems::inventory::BaseInventory::FindEmptySlot</a></div><div class="ttdeci">std::optional&lt; int &gt; FindEmptySlot() override</div><div class="ttdoc">Finds an empty slot.</div><div class="ttdef"><b>Definition</b> base_inventory.h:102</div></div>
+<div class="ttc" id="aclassgamekit_1_1systems_1_1inventory_1_1BaseInventory_html_aaf705870813309f750268c9acf9f9595"><div class="ttname"><a href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#aaf705870813309f750268c9acf9f9595">gamekit::systems::inventory::BaseInventory::GetOccupiedSlotCount</a></div><div class="ttdeci">int GetOccupiedSlotCount() override</div><div class="ttdoc">Gets number of occupied slots.</div><div class="ttdef"><b>Definition</b> base_inventory.h:154</div></div>
+<div class="ttc" id="aclassgamekit_1_1systems_1_1inventory_1_1BaseInventory_html_ac5be887b66341de42a219fc90e252f92"><div class="ttname"><a href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#ac5be887b66341de42a219fc90e252f92">gamekit::systems::inventory::BaseInventory::Remove</a></div><div class="ttdeci">bool Remove(const int slot_index) override</div><div class="ttdoc">Removes an item from a slot.</div><div class="ttdef"><b>Definition</b> base_inventory.h:94</div></div>
+<div class="ttc" id="aclassgamekit_1_1systems_1_1inventory_1_1BaseInventory_html_af49c21ddad1c68539edddddbee03df48"><div class="ttname"><a href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#af49c21ddad1c68539edddddbee03df48">gamekit::systems::inventory::BaseInventory::HasInventoryEmptySlot</a></div><div class="ttdeci">bool HasInventoryEmptySlot() override</div><div class="ttdoc">Checks if there is at least one empty slot.</div><div class="ttdef"><b>Definition</b> base_inventory.h:116</div></div>
+<div class="ttc" id="aclassgamekit_1_1systems_1_1inventory_1_1IInventorySettings_html"><div class="ttname"><a href="../../df/d94/classgamekit_1_1systems_1_1inventory_1_1IInventorySettings.html">gamekit::systems::inventory::IInventorySettings</a></div><div class="ttdoc">Interface for inventory configuration settings.</div><div class="ttdef"><b>Definition</b> iinventory_settings.h:19</div></div>
+<div class="ttc" id="aclassgamekit_1_1systems_1_1inventory_1_1IInventorySlot_html"><div class="ttname"><a href="../../d7/d30/classgamekit_1_1systems_1_1inventory_1_1IInventorySlot.html">gamekit::systems::inventory::IInventorySlot</a></div><div class="ttdoc">Interface for a single inventory slot.</div><div class="ttdef"><b>Definition</b> iinventory_slot.h:24</div></div>
+<div class="ttc" id="aclassgamekit_1_1systems_1_1inventory_1_1IInventorySlot_html_a47a57c8c08f3a701da8c27ddedd333f5"><div class="ttname"><a href="../../d7/d30/classgamekit_1_1systems_1_1inventory_1_1IInventorySlot.html#a47a57c8c08f3a701da8c27ddedd333f5">gamekit::systems::inventory::IInventorySlot::IsEmpty</a></div><div class="ttdeci">virtual bool IsEmpty() const =0</div><div class="ttdoc">Checks if the slot is empty.</div></div>
+<div class="ttc" id="aclassgamekit_1_1systems_1_1inventory_1_1IInventorySlot_html_afe6b780056dc1999c09d44b0b0401a2b"><div class="ttname"><a href="../../d7/d30/classgamekit_1_1systems_1_1inventory_1_1IInventorySlot.html#afe6b780056dc1999c09d44b0b0401a2b">gamekit::systems::inventory::IInventorySlot::SetData</a></div><div class="ttdeci">virtual void SetData(std::unique_ptr&lt; core::IKitObject &gt; data)=0</div><div class="ttdoc">Sets the slot data.</div></div>
+<div class="ttc" id="aclassgamekit_1_1systems_1_1inventory_1_1IInventory_html"><div class="ttname"><a href="../../d2/dd2/classgamekit_1_1systems_1_1inventory_1_1IInventory.html">gamekit::systems::inventory::IInventory</a></div><div class="ttdoc">Interface for a generic inventory system.</div><div class="ttdef"><b>Definition</b> iinventory.h:29</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

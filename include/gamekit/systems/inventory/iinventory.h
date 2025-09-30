@@ -11,7 +11,7 @@
 
 #include "gamekit/copyright.h"
 
-#include "gamekit/core/igameobject.h"
+#include "gamekit/core/ikitobject.h"
 #include "gamekit/systems/inventory/iinventory_settings.h"
 #include "gamekit/systems/inventory/iinventory_slot.h"
 
@@ -24,21 +24,9 @@ namespace gamekit::systems::inventory
  * Provides core functions to manage an inventory of
  * game objects.
  *
- * @tparam TData Type of inventory data. Must derive from @ref IGameObject.
- * @tparam TSettings Type of inventory settings. Must derive from @ref IInventorySettings.
- * @tparam TSlot Type of inventory slot. Must derive from @ref IInventorySlot<TData>.
- *
- * @see IGameObject
- * @see IInventorySettings
- * @see IInventorySlot
  */
-template<typename TData, typename TSettings, typename TSlot>
 class IInventory
 {
-	static_assert(std::is_base_of_v<core::IGameObject, TData>, "TData must derive from InventoryData");
-	static_assert(std::is_base_of_v<IInventorySettings, TSettings>, "TSettings must derive from InventorySettings");
-	static_assert(std::is_base_of_v<IInventorySlot<TData>, TSlot>, "TSlot must derive from InventorySlot");
-
 public:
 	virtual ~IInventory() = default;
 
@@ -54,14 +42,14 @@ public:
 	 * @brief Gets the inventory settings.
 	 * @return Constant reference to the settings object.
 	 */
-	virtual const TSettings&
+	[[nodiscard]] virtual const IInventorySettings&
 	GetSettings() const = 0;
 
 	/**
 	 * @brief Gets all inventory slots.
 	 * @return Constant reference to vector of slots.
 	 */
-	virtual const std::vector<TSlot>&
+	[[nodiscard]] virtual std::vector<IInventorySlot*>
 	GetSlots() const = 0;
 
 	/**
@@ -70,7 +58,7 @@ public:
 	 * @return Optional Vector if item was added successfully, then returns indices of filled slots.
 	 */
 	virtual std::optional<std::vector<int>>
-	Add(std::unique_ptr<TData> data) = 0;
+	Add(std::unique_ptr<core::IKitObject> data) = 0;
 
 	/**
 	 * @brief Removes an item from a slot.
@@ -114,7 +102,7 @@ public:
 	 * @param slot_index Index of the slot.
 	 * @return Reference to the slot.
 	 */
-	virtual TSlot&
+	virtual IInventorySlot&
 	GetSlot(int slot_index) = 0;
 
 	/**
@@ -122,14 +110,14 @@ public:
 	 * @param slot_index Index of the slot.
 	 * @return Constant reference to the slot.
 	 */
-	virtual const TSlot&
+	[[nodiscard]] virtual const IInventorySlot&
 	GetSlot(int slot_index) const = 0;
 
 	/**
 	 * @brief Gets maximum number of slots.
 	 * @return Capacity of the inventory.
 	 */
-	[[nodiscard]] virtual int
+	[[nodiscard]] virtual unsigned long
 	GetCapacity() const = 0;
 
 	/**

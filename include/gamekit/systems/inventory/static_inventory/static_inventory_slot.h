@@ -20,17 +20,16 @@ namespace gamekit::systems::inventory::static_inventory
  * Represents a single slot in a static (fixed-size) inventory.
  * Inherits from BaseInventorySlot.
  *
- * @tparam TData Type of data stored in the slot.
  */
-template<typename TData>
-class StaticInventorySlot : public BaseInventorySlot<TData>
+class StaticInventorySlot : public BaseInventorySlot
 {
 public:
 	/**
 	 * @brief Constructs a StaticInventorySlot with a given index.
 	 * @param index The slot's index in the inventory.
+	 *
 	 */
-	explicit StaticInventorySlot(const int index) : BaseInventorySlot<TData>(index) {}
+	explicit StaticInventorySlot(const int index) : BaseInventorySlot(index) {}
 
 	[[nodiscard]] std::string
 	ToString() const override

@@ -2,8 +2,8 @@
 // IWYU pragma: friend gamekit/.*
 // IWYU pragma: friend gamekit_api/.*
 
-#ifndef GAMEKIT_INCLUDE_GAMEKIT_CORE_IGAMEOBJECT_H
-#define GAMEKIT_INCLUDE_GAMEKIT_CORE_IGAMEOBJECT_H
+#ifndef GAMEKIT_INCLUDE_GAMEKIT_CORE_IKITOBJECT_H
+#define GAMEKIT_INCLUDE_GAMEKIT_CORE_IKITOBJECT_H
 
 #include "gamekit/copyright.h"
 
@@ -16,10 +16,10 @@ namespace gamekit::core
  * All objects within the library are expected to implement this interface.
  * Provides a standard way to identify and interact with game objects.
  */
-class IGameObject
+class IKitObject
 {
 public:
-	virtual ~IGameObject() = default;
+	virtual ~IKitObject() = default;
 
 	/**
 	 * @brief Gets the unique identifier of the game object.
@@ -31,4 +31,4 @@ public:
 
 } // namespace gamekit::core
 
-#endif // GAMEKIT_INCLUDE_GAMEKIT_CORE_IGAMEOBJECT_H
+#endif // GAMEKIT_INCLUDE_GAMEKIT_CORE_IKITOBJECT_H

@@ -8,9 +8,10 @@
 #include <memory>
 #include <sstream>
 #include <string>
+#include <utility>
 
 #include "gamekit/copyright.h"
-
+#include "gamekit/core/core.h"
 #include "gamekit/systems/inventory/iinventory_slot.h"
 
 namespace gamekit::systems::inventory
@@ -20,13 +21,11 @@ namespace gamekit::systems::inventory
  * @brief Base inventory slot class template.
  *
  * Represents a single slot in an inventory. Each slot has an index and can
- * hold data of type TData. Provides basic slot functionalities such as
+ * hold data of type IKitObject. Provides basic slot functionalities such as
  * checking if the slot is empty and setting/getting the stored data.
  *
- * @tparam TData Type of data stored in the slot.
  */
-template<typename TData>
-class BaseInventorySlot : public IInventorySlot<TData>
+class BaseInventorySlot : public IInventorySlot
 {
 
 public:
@@ -34,9 +33,8 @@ public:
 	 * @brief Base inventory slot class template.
 	 *
 	 * Represents a single slot in an inventory. Each slot has an index and can
-	 * hold data of type TData.
+	 * hold data of type IKitObject.
 	 *
-	 * @tparam TData Type of data stored in the slot.
 	 */
 	explicit BaseInventorySlot(const int index) : m_index(index) {}
 
@@ -46,20 +44,20 @@ public:
 		return m_index;
 	}
 
-	TData&
+	core::IKitObject&
 	GetData() override
 	{
 		return *m_data;
 	}
 
-	const TData&
+	[[nodiscard]] const core::IKitObject&
 	GetData() const override
 	{
 		return *m_data;
 	}
 
 	void
-	SetData(std::unique_ptr<TData> data) override
+	SetData(std::unique_ptr<core::IKitObject> data) override
 	{
 		m_data = std::move(data);
 	}
@@ -80,7 +78,7 @@ public:
 
 protected:
 	int m_index;
-	std::unique_ptr<TData> m_data;
+	std::unique_ptr<core::IKitObject> m_data;
 };
 } // namespace gamekit::systems::inventory
 

@@ -7,7 +7,7 @@
 
 #include "gamekit/copyright.h"
 
-#include "gamekit/core/igameobject.h" // IWYU pragma: export
+#include "gamekit/core/ikitobject.h" // IWYU pragma: export
 
 namespace gamekit::core
 {

@@ -13,6 +13,8 @@
 
 #include "gamekit/copyright.h"
 
+#include "gamekit/core/core.h"
+
 #include "gamekit/systems/inventory/iinventory.h" // IWYU pragma: export
 #include "gamekit/systems/inventory/iinventory_settings.h" // IWYU pragma: export
 #include "gamekit/systems/inventory/iinventory_slot.h" // IWYU pragma: export
@@ -28,13 +30,8 @@ namespace gamekit::systems::inventory
  *
  * Provides standard inventory functionalities such as initialization,
  * adding and removing items, slot queries, and capacity management.
- *
- * @tparam TData Type of data stored in each inventory slot.
- * @tparam TSettings Type of inventory settings class (must inherit from IInventorySettings).
- * @tparam TSlot Type of inventory slot class (must implement IInventorySlot<TData> interface).
  */
-template<typename TData, typename TSettings, typename TSlot>
-class BaseInventory : public IInventory<TData, TSettings, TSlot>
+class BaseInventory : public IInventory
 {
 
 public:
@@ -42,7 +39,7 @@ public:
 	 * @brief Constructs a BaseInventory with given settings.
 	 * @param settings Unique pointer to the inventory settings.
 	 */
-	explicit BaseInventory(std::unique_ptr<TSettings> settings) : m_settings(std::move(settings)) {}
+	explicit BaseInventory(std::unique_ptr<IInventorySettings> settings) : m_settings(std::move(settings)) {}
 
 	bool
 	Initialize(std::optional<int> initial_capacity) override
@@ -52,26 +49,33 @@ public:
 
 		for (int i = 0; i < capacity; i++)
 		{
-			m_slots.emplace_back(i);
+			m_slots.emplace_back(std::make_unique<BaseInventorySlot>(i));
 		}
 
 		return true;
 	}
 
-	[[nodiscard]] const TSettings&
+	[[nodiscard]] const IInventorySettings&
 	GetSettings() const override
 	{
 		return *m_settings;
 	}
 
-	const std::vector<TSlot>&
+	[[nodiscard]] std::vector<IInventorySlot*>
 	GetSlots() const override
 	{
-		return m_slots;
+		std::vector<IInventorySlot*> slots;
+		slots.reserve(m_slots.size());
+		for (const std::unique_ptr<IInventorySlot>& slot: m_slots)
+		{
+			slots.push_back(slot.get());
+		}
+
+		return slots;
 	}
 
 	std::optional<std::vector<int>>
-	Add(std::unique_ptr<TData> data) override
+	Add(std::unique_ptr<core::IKitObject> data) override
 	{
 		const std::optional<int> found_empty_slot_index = FindEmptySlot();
 		if (!found_empty_slot_index.has_value())
@@ -80,7 +84,7 @@ public:
 			return std::nullopt;
 		}
 
-		TSlot& empty_slot = GetSlot(found_empty_slot_index.value());
+		IInventorySlot& empty_slot = GetSlot(found_empty_slot_index.value());
 		empty_slot.SetData(std::move(data));
 
 		return std::vector{found_empty_slot_index.value()};
@@ -89,7 +93,7 @@ public:
 	bool
 	Remove(const int slot_index) override
 	{
-		TSlot& slot = GetSlot(slot_index);
+		IInventorySlot& slot = GetSlot(slot_index);
 		slot.SetData(nullptr);
 		return true;
 	}
@@ -97,11 +101,11 @@ public:
 	std::optional<int>
 	FindEmptySlot() override
 	{
-		for (TSlot& slot: m_slots)
+		for (std::unique_ptr<IInventorySlot>& slot: m_slots)
 		{
-			if (slot.IsEmpty())
+			if (slot->IsEmpty())
 			{
-				return slot.GetIndex();
+				return slot->GetIndex();
 			}
 		}
 
@@ -126,21 +130,21 @@ public:
 		return !HasInventoryEmptySlot();
 	}
 
-	TSlot&
+	IInventorySlot&
 	GetSlot(int slot_index) override
 	{
 		assert(IsSlotIndexInBounds(slot_index));
-		return m_slots.at(slot_index);
+		return *m_slots.at(slot_index);
 	}
 
-	const TSlot&
+	[[nodiscard]] const IInventorySlot&
 	GetSlot(int slot_index) const override
 	{
 		assert(IsSlotIndexInBounds(slot_index));
-		return m_slots.at(slot_index);
+		return *m_slots.at(slot_index);
 	}
 
-	[[nodiscard]] int
+	[[nodiscard]] unsigned long
 	GetCapacity() const override
 	{
 		return m_slots.size();
@@ -150,9 +154,9 @@ public:
 	GetOccupiedSlotCount() override
 	{
 		int occupied_slot_counter = 0;
-		for (const TSlot& slot: m_slots)
+		for (const std::unique_ptr<IInventorySlot>& slot: m_slots)
 		{
-			if (!slot.IsEmpty())
+			if (!slot->IsEmpty())
 				occupied_slot_counter++;
 		}
 
@@ -166,8 +170,8 @@ public:
 	}
 
 private:
-	std::unique_ptr<TSettings> m_settings;
-	std::vector<TSlot> m_slots;
+	std::unique_ptr<IInventorySettings> m_settings;
+	std::vector<std::unique_ptr<IInventorySlot>> m_slots;
 };
 
 } // namespace gamekit::systems::inventory

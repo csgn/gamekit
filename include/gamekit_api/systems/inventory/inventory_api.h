@@ -8,9 +8,18 @@
 #include "gamekit/copyright.h"
 
 #include "gamekit_api/gamekit_api_common.h" // IWYU pragma: export
+//
 #include "gamekit_api/systems/inventory/base_inventory_api.h" // IWYU pragma: export
+#include "gamekit_api/systems/inventory/base_inventory_settings_api.h" // IWYU pragma: export
+#include "gamekit_api/systems/inventory/base_inventory_slot_api.h" // IWYU pragma: export
+//
 #include "gamekit_api/systems/inventory/dynamic_inventory/dynamic_inventory_api.h" // IWYU pragma: export
+#include "gamekit_api/systems/inventory/dynamic_inventory/dynamic_inventory_settings_api.h" // IWYU pragma: export
+#include "gamekit_api/systems/inventory/dynamic_inventory/dynamic_inventory_slot_api.h" // IWYU pragma: export
+//
 #include "gamekit_api/systems/inventory/static_inventory/static_inventory_api.h" // IWYU pragma: export
+#include "gamekit_api/systems/inventory/static_inventory/static_inventory_settings_api.h" // IWYU pragma: export
+#include "gamekit_api/systems/inventory/static_inventory/static_inventory_slot_api.h" // IWYU pragma: export
 
 
 namespace gamekit_api::inventory
