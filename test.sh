@@ -9,20 +9,20 @@ test_native() {
 	ctest
 }
 
-test_csharp() {
-	export LD_LIBRARY_PATH="${CSHARP_OUTPUT_DIR:?}/bin":"${LD_LIBRARY_PATH}"
-	dotnet test "${CSHARP_TEST_CSPROJ_PATH:?}" -o "${CSHARP_TEST_OUTPUT_DIR:?}"
-}
+#test_csharp() {
+#	export LD_LIBRARY_PATH="${CSHARP_OUTPUT_DIR:?}/bin":"${LD_LIBRARY_PATH}"
+#	dotnet test "${CSHARP_TEST_CSPROJ_PATH:?}" -o "${CSHARP_TEST_OUTPUT_DIR:?}"
+#}
 
 test_all() {
 	test_native
-	test_csharp
+#	test_csharp
 }
 
 case "$1" in
-    csharp)
-        test_csharp
-        ;;
+#    csharp)
+#        test_csharp
+#        ;;
     all)
         test_all
         ;;

@@ -123,42 +123,45 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a17c0ad3dec6a8c6d33e80d921ead5d26" id="r_a17c0ad3dec6a8c6d33e80d921ead5d26"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a17c0ad3dec6a8c6d33e80d921ead5d26">Initialize</a> (std::optional&lt; int &gt; initial_capacity) override</td></tr>
 <tr class="memdesc:a17c0ad3dec6a8c6d33e80d921ead5d26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the inventory with optional capacity.  <br /></td></tr>
 <tr class="separator:a17c0ad3dec6a8c6d33e80d921ead5d26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe1761b3fedea1acb9e562de0d0ca34e" id="r_afe1761b3fedea1acb9e562de0d0ca34e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d94/classgamekit_1_1systems_1_1inventory_1_1IInventorySettings.html">IInventorySettings</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe1761b3fedea1acb9e562de0d0ca34e">GetSettings</a> () override</td></tr>
+<tr class="memdesc:afe1761b3fedea1acb9e562de0d0ca34e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the inventory settings.  <br /></td></tr>
+<tr class="separator:afe1761b3fedea1acb9e562de0d0ca34e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a2f90b699a833c2116c4fc9dc38a505" id="r_a4a2f90b699a833c2116c4fc9dc38a505"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../df/d94/classgamekit_1_1systems_1_1inventory_1_1IInventorySettings.html">IInventorySettings</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4a2f90b699a833c2116c4fc9dc38a505">GetSettings</a> () const override</td></tr>
 <tr class="memdesc:a4a2f90b699a833c2116c4fc9dc38a505"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the inventory settings.  <br /></td></tr>
 <tr class="separator:a4a2f90b699a833c2116c4fc9dc38a505"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f9e8d4c158b2a0569d876d4fc288736" id="r_a1f9e8d4c158b2a0569d876d4fc288736"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../d7/d30/classgamekit_1_1systems_1_1inventory_1_1IInventorySlot.html">IInventorySlot</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1f9e8d4c158b2a0569d876d4fc288736">GetSlots</a> () const override</td></tr>
-<tr class="memdesc:a1f9e8d4c158b2a0569d876d4fc288736"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets all inventory slots.  <br /></td></tr>
-<tr class="separator:a1f9e8d4c158b2a0569d876d4fc288736"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68755b8bf8c1a8fa8461c3d5e910265b" id="r_a68755b8bf8c1a8fa8461c3d5e910265b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../d7/d30/classgamekit_1_1systems_1_1inventory_1_1IInventorySlot.html">IInventorySlot</a> const * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a68755b8bf8c1a8fa8461c3d5e910265b">GetSlots</a> () const override</td></tr>
+<tr class="memdesc:a68755b8bf8c1a8fa8461c3d5e910265b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets all inventory slots.  <br /></td></tr>
+<tr class="separator:a68755b8bf8c1a8fa8461c3d5e910265b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68be092372885df97f89ee74f678ffe0" id="r_a68be092372885df97f89ee74f678ffe0"><td class="memItemLeft" align="right" valign="top">std::optional&lt; std::vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a68be092372885df97f89ee74f678ffe0">Add</a> (std::unique_ptr&lt; <a class="el" href="../../d1/d31/classgamekit_1_1core_1_1IKitObject.html">core::IKitObject</a> &gt; data) override</td></tr>
 <tr class="memdesc:a68be092372885df97f89ee74f678ffe0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an item to the inventory.  <br /></td></tr>
 <tr class="separator:a68be092372885df97f89ee74f678ffe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5be887b66341de42a219fc90e252f92" id="r_ac5be887b66341de42a219fc90e252f92"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac5be887b66341de42a219fc90e252f92">Remove</a> (const int slot_index) override</td></tr>
 <tr class="memdesc:ac5be887b66341de42a219fc90e252f92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes an item from a slot.  <br /></td></tr>
 <tr class="separator:ac5be887b66341de42a219fc90e252f92"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8eee385d21c978e181e6635ea74cd53e" id="r_a8eee385d21c978e181e6635ea74cd53e"><td class="memItemLeft" align="right" valign="top">std::optional&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8eee385d21c978e181e6635ea74cd53e">FindEmptySlot</a> () override</td></tr>
-<tr class="memdesc:a8eee385d21c978e181e6635ea74cd53e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds an empty slot.  <br /></td></tr>
-<tr class="separator:a8eee385d21c978e181e6635ea74cd53e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af49c21ddad1c68539edddddbee03df48" id="r_af49c21ddad1c68539edddddbee03df48"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af49c21ddad1c68539edddddbee03df48">HasInventoryEmptySlot</a> () override</td></tr>
-<tr class="memdesc:af49c21ddad1c68539edddddbee03df48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if there is at least one empty slot.  <br /></td></tr>
-<tr class="separator:af49c21ddad1c68539edddddbee03df48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b705d8ae5663a9baf392bb757aebfde" id="r_a8b705d8ae5663a9baf392bb757aebfde"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8b705d8ae5663a9baf392bb757aebfde">IsSlotOccupied</a> (const int slot_index) override</td></tr>
-<tr class="memdesc:a8b705d8ae5663a9baf392bb757aebfde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a slot is occupied.  <br /></td></tr>
-<tr class="separator:a8b705d8ae5663a9baf392bb757aebfde"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b0c52e7a7d558adc3559d31c406ab58" id="r_a2b0c52e7a7d558adc3559d31c406ab58"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2b0c52e7a7d558adc3559d31c406ab58">IsInventoryFull</a> () override</td></tr>
-<tr class="memdesc:a2b0c52e7a7d558adc3559d31c406ab58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the inventory is full.  <br /></td></tr>
-<tr class="separator:a2b0c52e7a7d558adc3559d31c406ab58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68b30d415bbb26f88affee82118a26dd" id="r_a68b30d415bbb26f88affee82118a26dd"><td class="memItemLeft" align="right" valign="top">std::optional&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a68b30d415bbb26f88affee82118a26dd">FindEmptySlot</a> () const override</td></tr>
+<tr class="memdesc:a68b30d415bbb26f88affee82118a26dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds an empty slot.  <br /></td></tr>
+<tr class="separator:a68b30d415bbb26f88affee82118a26dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59d3baec5b1783b0a15094587246b953" id="r_a59d3baec5b1783b0a15094587246b953"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a59d3baec5b1783b0a15094587246b953">HasInventoryEmptySlot</a> () const override</td></tr>
+<tr class="memdesc:a59d3baec5b1783b0a15094587246b953"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if there is at least one empty slot.  <br /></td></tr>
+<tr class="separator:a59d3baec5b1783b0a15094587246b953"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada819486e432b498c22a88fcd9f5c0c3" id="r_ada819486e432b498c22a88fcd9f5c0c3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ada819486e432b498c22a88fcd9f5c0c3">IsSlotOccupied</a> (const int slot_index) const override</td></tr>
+<tr class="memdesc:ada819486e432b498c22a88fcd9f5c0c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a slot is occupied.  <br /></td></tr>
+<tr class="separator:ada819486e432b498c22a88fcd9f5c0c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a7482c53dd748dd69258e6f4618a7bd" id="r_a5a7482c53dd748dd69258e6f4618a7bd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5a7482c53dd748dd69258e6f4618a7bd">IsInventoryFull</a> () const override</td></tr>
+<tr class="memdesc:a5a7482c53dd748dd69258e6f4618a7bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the inventory is full.  <br /></td></tr>
+<tr class="separator:a5a7482c53dd748dd69258e6f4618a7bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2da962da91975e3a6172d486dcca50ea" id="r_a2da962da91975e3a6172d486dcca50ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d30/classgamekit_1_1systems_1_1inventory_1_1IInventorySlot.html">IInventorySlot</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2da962da91975e3a6172d486dcca50ea">GetSlot</a> (int slot_index) override</td></tr>
 <tr class="memdesc:a2da962da91975e3a6172d486dcca50ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesses a slot by index.  <br /></td></tr>
 <tr class="separator:a2da962da91975e3a6172d486dcca50ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51020bedacdb084b85659be9789737c9" id="r_a51020bedacdb084b85659be9789737c9"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d7/d30/classgamekit_1_1systems_1_1inventory_1_1IInventorySlot.html">IInventorySlot</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a51020bedacdb084b85659be9789737c9">GetSlot</a> (int slot_index) const override</td></tr>
-<tr class="memdesc:a51020bedacdb084b85659be9789737c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesses a slot by index (const version).  <br /></td></tr>
-<tr class="separator:a51020bedacdb084b85659be9789737c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdee69602d86fad6efb12372dfc7618f" id="r_afdee69602d86fad6efb12372dfc7618f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d30/classgamekit_1_1systems_1_1inventory_1_1IInventorySlot.html">IInventorySlot</a> const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afdee69602d86fad6efb12372dfc7618f">GetSlot</a> (int slot_index) const override</td></tr>
+<tr class="memdesc:afdee69602d86fad6efb12372dfc7618f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesses a slot by index (const version).  <br /></td></tr>
+<tr class="separator:afdee69602d86fad6efb12372dfc7618f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2bec6118a470d92461e19ff6c5f0f2cf" id="r_a2bec6118a470d92461e19ff6c5f0f2cf"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2bec6118a470d92461e19ff6c5f0f2cf">GetCapacity</a> () const override</td></tr>
 <tr class="memdesc:a2bec6118a470d92461e19ff6c5f0f2cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets maximum number of slots.  <br /></td></tr>
 <tr class="separator:a2bec6118a470d92461e19ff6c5f0f2cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf705870813309f750268c9acf9f9595" id="r_aaf705870813309f750268c9acf9f9595"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaf705870813309f750268c9acf9f9595">GetOccupiedSlotCount</a> () override</td></tr>
-<tr class="memdesc:aaf705870813309f750268c9acf9f9595"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets number of occupied slots.  <br /></td></tr>
-<tr class="separator:aaf705870813309f750268c9acf9f9595"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2804a3f7ae8d2e8cc346c6f71d4ec6e8" id="r_a2804a3f7ae8d2e8cc346c6f71d4ec6e8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2804a3f7ae8d2e8cc346c6f71d4ec6e8">GetOccupiedSlotCount</a> () const override</td></tr>
+<tr class="memdesc:a2804a3f7ae8d2e8cc346c6f71d4ec6e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets number of occupied slots.  <br /></td></tr>
+<tr class="separator:a2804a3f7ae8d2e8cc346c6f71d4ec6e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8473fb85b9ae24a6af55c03d643bb94e" id="r_a8473fb85b9ae24a6af55c03d643bb94e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8473fb85b9ae24a6af55c03d643bb94e">IsSlotIndexInBounds</a> (int slot_index) const override</td></tr>
 <tr class="memdesc:a8473fb85b9ae24a6af55c03d643bb94e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks the slot_index is in bounds.  <br /></td></tr>
 <tr class="separator:a8473fb85b9ae24a6af55c03d643bb94e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -240,7 +243,7 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory_a68be092372885df97f89ee74f678ffe0_cgraph.png" border="0" usemap="#ad9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory_a68be092372885df97f89ee74f678ffe0_cgraph" alt=""/></div>
 <map name="ad9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory_a68be092372885df97f89ee74f678ffe0_cgraph" id="ad9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory_a68be092372885df97f89ee74f678ffe0_cgraph">
 <area shape="rect" title="Adds an item to the inventory." alt="" coords="5,72,192,115"/>
-<area shape="rect" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a8eee385d21c978e181e6635ea74cd53e" title="Finds an empty slot." alt="" coords="240,5,447,48"/>
+<area shape="rect" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a68b30d415bbb26f88affee82118a26dd" title="Finds an empty slot." alt="" coords="240,5,447,48"/>
 <area shape="poly" title=" " alt="" coords="179,69,247,50,248,55,180,74"/>
 <area shape="rect" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a2da962da91975e3a6172d486dcca50ea" title="Accesses a slot by index." alt="" coords="250,72,437,115"/>
 <area shape="poly" title=" " alt="" coords="192,91,234,91,234,96,192,96"/>
@@ -255,8 +258,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a8eee385d21c978e181e6635ea74cd53e" name="a8eee385d21c978e181e6635ea74cd53e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8eee385d21c978e181e6635ea74cd53e">&#9670;&#160;</a></span>FindEmptySlot()</h2>
+<a id="a68b30d415bbb26f88affee82118a26dd" name="a68b30d415bbb26f88affee82118a26dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68b30d415bbb26f88affee82118a26dd">&#9670;&#160;</a></span>FindEmptySlot()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -268,7 +271,7 @@ Here is the call graph for this function:</div>
           <td class="memname">std::optional&lt; int &gt; gamekit::systems::inventory::BaseInventory::FindEmptySlot </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -281,7 +284,7 @@ Here is the call graph for this function:</div>
 <p>Finds an empty slot. </p>
 <dl class="section return"><dt>Returns</dt><dd>Optional index of the first empty slot. </dd></dl>
 
-<p>Implements <a class="el" href="../../d2/dd2/classgamekit_1_1systems_1_1inventory_1_1IInventory.html#ac97ccbf4b59bd4e6e52033628e57ab1c">gamekit::systems::inventory::IInventory</a>.</p>
+<p>Implements <a class="el" href="../../d2/dd2/classgamekit_1_1systems_1_1inventory_1_1IInventory.html#ad3f677789e905301acc35a02a4c35ed2">gamekit::systems::inventory::IInventory</a>.</p>
 
 </div>
 </div>
@@ -315,8 +318,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="aaf705870813309f750268c9acf9f9595" name="aaf705870813309f750268c9acf9f9595"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf705870813309f750268c9acf9f9595">&#9670;&#160;</a></span>GetOccupiedSlotCount()</h2>
+<a id="a2804a3f7ae8d2e8cc346c6f71d4ec6e8" name="a2804a3f7ae8d2e8cc346c6f71d4ec6e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2804a3f7ae8d2e8cc346c6f71d4ec6e8">&#9670;&#160;</a></span>GetOccupiedSlotCount()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -328,7 +331,7 @@ Here is the call graph for this function:</div>
           <td class="memname">int gamekit::systems::inventory::BaseInventory::GetOccupiedSlotCount </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -341,12 +344,12 @@ Here is the call graph for this function:</div>
 <p>Gets number of occupied slots. </p>
 <dl class="section return"><dt>Returns</dt><dd>Current size of the inventory. </dd></dl>
 
-<p>Implements <a class="el" href="../../d2/dd2/classgamekit_1_1systems_1_1inventory_1_1IInventory.html#abe704a50fbb17146f58ed18f98bf8012">gamekit::systems::inventory::IInventory</a>.</p>
+<p>Implements <a class="el" href="../../d2/dd2/classgamekit_1_1systems_1_1inventory_1_1IInventory.html#acf428ca767a8cc74006d92544e88d768">gamekit::systems::inventory::IInventory</a>.</p>
 
 </div>
 </div>
 <a id="a4a2f90b699a833c2116c4fc9dc38a505" name="a4a2f90b699a833c2116c4fc9dc38a505"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4a2f90b699a833c2116c4fc9dc38a505">&#9670;&#160;</a></span>GetSettings()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a2f90b699a833c2116c4fc9dc38a505">&#9670;&#160;</a></span>GetSettings() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -371,12 +374,12 @@ Here is the call graph for this function:</div>
 <p>Gets the inventory settings. </p>
 <dl class="section return"><dt>Returns</dt><dd>Constant reference to the settings object. </dd></dl>
 
-<p>Implements <a class="el" href="../../d2/dd2/classgamekit_1_1systems_1_1inventory_1_1IInventory.html#ad53aa9641d75881deae98bba2e631326">gamekit::systems::inventory::IInventory</a>.</p>
+<p>Implements <a class="el" href="../../d2/dd2/classgamekit_1_1systems_1_1inventory_1_1IInventory.html#a6a456fd1f89359bb518631ea638032e4">gamekit::systems::inventory::IInventory</a>.</p>
 
 </div>
 </div>
-<a id="a51020bedacdb084b85659be9789737c9" name="a51020bedacdb084b85659be9789737c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a51020bedacdb084b85659be9789737c9">&#9670;&#160;</a></span>GetSlot() <span class="overload">[1/2]</span></h2>
+<a id="afe1761b3fedea1acb9e562de0d0ca34e" name="afe1761b3fedea1acb9e562de0d0ca34e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe1761b3fedea1acb9e562de0d0ca34e">&#9670;&#160;</a></span>GetSettings() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -385,7 +388,37 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="../../d7/d30/classgamekit_1_1systems_1_1inventory_1_1IInventorySlot.html">IInventorySlot</a> &amp; gamekit::systems::inventory::BaseInventory::GetSlot </td>
+          <td class="memname"><a class="el" href="../../df/d94/classgamekit_1_1systems_1_1inventory_1_1IInventorySettings.html">IInventorySettings</a> &amp; gamekit::systems::inventory::BaseInventory::GetSettings </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the inventory settings. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the settings object. </dd></dl>
+
+<p>Implements <a class="el" href="../../d2/dd2/classgamekit_1_1systems_1_1inventory_1_1IInventory.html#a79dc60a968af922ed9f2a48370d483a3">gamekit::systems::inventory::IInventory</a>.</p>
+
+</div>
+</div>
+<a id="afdee69602d86fad6efb12372dfc7618f" name="afdee69602d86fad6efb12372dfc7618f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afdee69602d86fad6efb12372dfc7618f">&#9670;&#160;</a></span>GetSlot() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/d30/classgamekit_1_1systems_1_1inventory_1_1IInventorySlot.html">IInventorySlot</a> const  &amp; gamekit::systems::inventory::BaseInventory::GetSlot </td>
           <td>(</td>
           <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>slot_index</em></span></td><td>)</td>
           <td> const</td>
@@ -407,12 +440,12 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Constant reference to the slot. </dd></dl>
 
-<p>Implements <a class="el" href="../../d2/dd2/classgamekit_1_1systems_1_1inventory_1_1IInventory.html#af2c9d60365e84fe71505a7dd9d112402">gamekit::systems::inventory::IInventory</a>.</p>
+<p>Implements <a class="el" href="../../d2/dd2/classgamekit_1_1systems_1_1inventory_1_1IInventory.html#a0d6ae031714f7fd884caf7229f4db092">gamekit::systems::inventory::IInventory</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory_a51020bedacdb084b85659be9789737c9_cgraph.png" border="0" usemap="#ad9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory_a51020bedacdb084b85659be9789737c9_cgraph" alt=""/></div>
-<map name="ad9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory_a51020bedacdb084b85659be9789737c9_cgraph" id="ad9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory_a51020bedacdb084b85659be9789737c9_cgraph">
+<div class="center"><img src="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory_afdee69602d86fad6efb12372dfc7618f_cgraph.png" border="0" usemap="#ad9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory_afdee69602d86fad6efb12372dfc7618f_cgraph" alt=""/></div>
+<map name="ad9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory_afdee69602d86fad6efb12372dfc7618f_cgraph" id="ad9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory_afdee69602d86fad6efb12372dfc7618f_cgraph">
 <area shape="rect" title="Accesses a slot by index (const version)." alt="" coords="5,5,192,48"/>
 <area shape="rect" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a8473fb85b9ae24a6af55c03d643bb94e" title="Checks the slot_index is in bounds." alt="" coords="240,5,482,48"/>
 <area shape="poly" title=" " alt="" coords="192,24,224,24,224,29,192,29"/>
@@ -471,8 +504,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a1f9e8d4c158b2a0569d876d4fc288736" name="a1f9e8d4c158b2a0569d876d4fc288736"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1f9e8d4c158b2a0569d876d4fc288736">&#9670;&#160;</a></span>GetSlots()</h2>
+<a id="a68755b8bf8c1a8fa8461c3d5e910265b" name="a68755b8bf8c1a8fa8461c3d5e910265b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68755b8bf8c1a8fa8461c3d5e910265b">&#9670;&#160;</a></span>GetSlots()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -481,7 +514,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; <a class="el" href="../../d7/d30/classgamekit_1_1systems_1_1inventory_1_1IInventorySlot.html">IInventorySlot</a> * &gt; gamekit::systems::inventory::BaseInventory::GetSlots </td>
+          <td class="memname">std::vector&lt; <a class="el" href="../../d7/d30/classgamekit_1_1systems_1_1inventory_1_1IInventorySlot.html">IInventorySlot</a> const  * &gt; gamekit::systems::inventory::BaseInventory::GetSlots </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td> const</td>
@@ -497,12 +530,12 @@ Here is the call graph for this function:</div>
 <p>Gets all inventory slots. </p>
 <dl class="section return"><dt>Returns</dt><dd>Constant reference to vector of slots. </dd></dl>
 
-<p>Implements <a class="el" href="../../d2/dd2/classgamekit_1_1systems_1_1inventory_1_1IInventory.html#a713ce17ad7988e15e104c4170e5936bd">gamekit::systems::inventory::IInventory</a>.</p>
+<p>Implements <a class="el" href="../../d2/dd2/classgamekit_1_1systems_1_1inventory_1_1IInventory.html#acac78d93792bfc6ad199d881c02ad7c7">gamekit::systems::inventory::IInventory</a>.</p>
 
 </div>
 </div>
-<a id="af49c21ddad1c68539edddddbee03df48" name="af49c21ddad1c68539edddddbee03df48"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af49c21ddad1c68539edddddbee03df48">&#9670;&#160;</a></span>HasInventoryEmptySlot()</h2>
+<a id="a59d3baec5b1783b0a15094587246b953" name="a59d3baec5b1783b0a15094587246b953"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59d3baec5b1783b0a15094587246b953">&#9670;&#160;</a></span>HasInventoryEmptySlot()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -514,7 +547,7 @@ Here is the call graph for this function:</div>
           <td class="memname">bool gamekit::systems::inventory::BaseInventory::HasInventoryEmptySlot </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -527,14 +560,14 @@ Here is the call graph for this function:</div>
 <p>Checks if there is at least one empty slot. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if any slot is empty. </dd></dl>
 
-<p>Implements <a class="el" href="../../d2/dd2/classgamekit_1_1systems_1_1inventory_1_1IInventory.html#a1958a71f65356c2d0f631535bac200eb">gamekit::systems::inventory::IInventory</a>.</p>
+<p>Implements <a class="el" href="../../d2/dd2/classgamekit_1_1systems_1_1inventory_1_1IInventory.html#a34f2c009b1ddd75818e1cc917a3aaf3f">gamekit::systems::inventory::IInventory</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory_af49c21ddad1c68539edddddbee03df48_cgraph.png" border="0" usemap="#ad9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory_af49c21ddad1c68539edddddbee03df48_cgraph" alt=""/></div>
-<map name="ad9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory_af49c21ddad1c68539edddddbee03df48_cgraph" id="ad9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory_af49c21ddad1c68539edddddbee03df48_cgraph">
+<div class="center"><img src="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory_a59d3baec5b1783b0a15094587246b953_cgraph.png" border="0" usemap="#ad9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory_a59d3baec5b1783b0a15094587246b953_cgraph" alt=""/></div>
+<map name="ad9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory_a59d3baec5b1783b0a15094587246b953_cgraph" id="ad9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory_a59d3baec5b1783b0a15094587246b953_cgraph">
 <area shape="rect" title="Checks if there is at least one empty slot." alt="" coords="5,5,266,48"/>
-<area shape="rect" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a8eee385d21c978e181e6635ea74cd53e" title="Finds an empty slot." alt="" coords="314,5,521,48"/>
+<area shape="rect" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a68b30d415bbb26f88affee82118a26dd" title="Finds an empty slot." alt="" coords="314,5,521,48"/>
 <area shape="poly" title=" " alt="" coords="266,24,298,24,298,29,266,29"/>
 </map>
 </div>
@@ -577,8 +610,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a2b0c52e7a7d558adc3559d31c406ab58" name="a2b0c52e7a7d558adc3559d31c406ab58"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2b0c52e7a7d558adc3559d31c406ab58">&#9670;&#160;</a></span>IsInventoryFull()</h2>
+<a id="a5a7482c53dd748dd69258e6f4618a7bd" name="a5a7482c53dd748dd69258e6f4618a7bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a7482c53dd748dd69258e6f4618a7bd">&#9670;&#160;</a></span>IsInventoryFull()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -590,7 +623,7 @@ Here is the call graph for this function:</div>
           <td class="memname">bool gamekit::systems::inventory::BaseInventory::IsInventoryFull </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -603,16 +636,16 @@ Here is the call graph for this function:</div>
 <p>Checks if the inventory is full. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if no empty slots are available. </dd></dl>
 
-<p>Implements <a class="el" href="../../d2/dd2/classgamekit_1_1systems_1_1inventory_1_1IInventory.html#ad4132c6ed92fb974c3c341a6b5b06652">gamekit::systems::inventory::IInventory</a>.</p>
+<p>Implements <a class="el" href="../../d2/dd2/classgamekit_1_1systems_1_1inventory_1_1IInventory.html#ac1e9557036ec37a70d4ed0200b1bba4b">gamekit::systems::inventory::IInventory</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory_a2b0c52e7a7d558adc3559d31c406ab58_cgraph.png" border="0" usemap="#ad9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory_a2b0c52e7a7d558adc3559d31c406ab58_cgraph" alt=""/></div>
-<map name="ad9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory_a2b0c52e7a7d558adc3559d31c406ab58_cgraph" id="ad9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory_a2b0c52e7a7d558adc3559d31c406ab58_cgraph">
+<div class="center"><img src="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory_a5a7482c53dd748dd69258e6f4618a7bd_cgraph.png" border="0" usemap="#ad9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory_a5a7482c53dd748dd69258e6f4618a7bd_cgraph" alt=""/></div>
+<map name="ad9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory_a5a7482c53dd748dd69258e6f4618a7bd_cgraph" id="ad9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory_a5a7482c53dd748dd69258e6f4618a7bd_cgraph">
 <area shape="rect" title="Checks if the inventory is full." alt="" coords="5,5,213,48"/>
-<area shape="rect" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#af49c21ddad1c68539edddddbee03df48" title="Checks if there is at least one empty slot." alt="" coords="261,5,521,48"/>
+<area shape="rect" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a59d3baec5b1783b0a15094587246b953" title="Checks if there is at least one empty slot." alt="" coords="261,5,521,48"/>
 <area shape="poly" title=" " alt="" coords="213,24,245,24,245,29,213,29"/>
-<area shape="rect" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a8eee385d21c978e181e6635ea74cd53e" title="Finds an empty slot." alt="" coords="569,5,776,48"/>
+<area shape="rect" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a68b30d415bbb26f88affee82118a26dd" title="Finds an empty slot." alt="" coords="569,5,776,48"/>
 <area shape="poly" title=" " alt="" coords="522,24,553,24,553,29,522,29"/>
 </map>
 </div>
@@ -665,8 +698,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a8b705d8ae5663a9baf392bb757aebfde" name="a8b705d8ae5663a9baf392bb757aebfde"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8b705d8ae5663a9baf392bb757aebfde">&#9670;&#160;</a></span>IsSlotOccupied()</h2>
+<a id="ada819486e432b498c22a88fcd9f5c0c3" name="ada819486e432b498c22a88fcd9f5c0c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada819486e432b498c22a88fcd9f5c0c3">&#9670;&#160;</a></span>IsSlotOccupied()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -678,7 +711,7 @@ Here is the call graph for this function:</div>
           <td class="memname">bool gamekit::systems::inventory::BaseInventory::IsSlotOccupied </td>
           <td>(</td>
           <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>slot_index</em></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -697,12 +730,12 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if slot is occupied. </dd></dl>
 
-<p>Implements <a class="el" href="../../d2/dd2/classgamekit_1_1systems_1_1inventory_1_1IInventory.html#a086a4bd353be224ab558086a248d18a0">gamekit::systems::inventory::IInventory</a>.</p>
+<p>Implements <a class="el" href="../../d2/dd2/classgamekit_1_1systems_1_1inventory_1_1IInventory.html#a6339ae3d986553d9fbb67f61fee52a34">gamekit::systems::inventory::IInventory</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory_a8b705d8ae5663a9baf392bb757aebfde_cgraph.png" border="0" usemap="#ad9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory_a8b705d8ae5663a9baf392bb757aebfde_cgraph" alt=""/></div>
-<map name="ad9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory_a8b705d8ae5663a9baf392bb757aebfde_cgraph" id="ad9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory_a8b705d8ae5663a9baf392bb757aebfde_cgraph">
+<div class="center"><img src="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory_ada819486e432b498c22a88fcd9f5c0c3_cgraph.png" border="0" usemap="#ad9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory_ada819486e432b498c22a88fcd9f5c0c3_cgraph" alt=""/></div>
+<map name="ad9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory_ada819486e432b498c22a88fcd9f5c0c3_cgraph" id="ad9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory_ada819486e432b498c22a88fcd9f5c0c3_cgraph">
 <area shape="rect" title="Checks if a slot is occupied." alt="" coords="5,39,216,81"/>
 <area shape="rect" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a2da962da91975e3a6172d486dcca50ea" title="Accesses a slot by index." alt="" coords="264,5,450,48"/>
 <area shape="poly" title=" " alt="" coords="216,43,248,39,249,44,217,48"/>

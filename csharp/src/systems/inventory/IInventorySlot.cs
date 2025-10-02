@@ -1,7 +1,0 @@
-namespace Gamekit.Systems.Inventory
-{
-    public interface IInventorySlot
-    {
-
-    }
-}

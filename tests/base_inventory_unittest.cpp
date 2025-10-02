@@ -72,7 +72,7 @@ TEST(BaseInventoryTest, GetSlots)
 
 	// Act
 	const bool result = inventory.Initialize(nullopt);
-	const vector<IInventorySlot*> slots = inventory.GetSlots();
+	vector<IInventorySlot const*> const slots = inventory.GetSlots();
 
 	// Assert
 	ASSERT_TRUE(result);

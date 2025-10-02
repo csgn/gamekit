@@ -49,14 +49,14 @@ public:
 	 * @brief Gets the inventory settings.
 	 * @return Constant reference to the settings object.
 	 */
-	[[nodiscard]] virtual const IInventorySettings&
+	[[nodiscard]] virtual IInventorySettings const&
 	GetSettings() const = 0;
 
 	/**
 	 * @brief Gets all inventory slots.
 	 * @return Constant reference to vector of slots.
 	 */
-	[[nodiscard]] virtual std::vector<IInventorySlot*>
+	[[nodiscard]] virtual std::vector<IInventorySlot const*>
 	GetSlots() const = 0;
 
 	/**
@@ -79,37 +79,37 @@ public:
 	 * @brief Finds an empty slot.
 	 * @return Optional index of the first empty slot.
 	 */
-	virtual std::optional<int>
-	FindEmptySlot() = 0;
+	[[nodiscard]] virtual std::optional<int>
+	FindEmptySlot() const = 0;
 
 	/**
 	 * @brief Checks if there is at least one empty slot.
 	 * @return True if any slot is empty.
 	 */
-	virtual bool
-	HasInventoryEmptySlot() = 0;
+	[[nodiscard]] virtual bool
+	HasInventoryEmptySlot() const = 0;
 
 	/**
 	 * @brief Checks if a slot is occupied.
 	 * @param slot_index Index of the slot.
 	 * @return True if slot is occupied.
 	 */
-	virtual bool
-	IsSlotOccupied(int slot_index) = 0;
+	[[nodiscard]] virtual bool
+	IsSlotOccupied(int slot_index) const = 0;
 
 	/**
 	 * @brief Checks if the inventory is full.
 	 * @return True if no empty slots are available.
 	 */
-	virtual bool
-	IsInventoryFull() = 0;
+	[[nodiscard]] virtual bool
+	IsInventoryFull() const = 0;
 
 	/**
 	 * @brief Accesses a slot by index.
 	 * @param slot_index Index of the slot.
 	 * @return Reference to the slot.
 	 */
-	virtual IInventorySlot&
+	[[nodiscard]] virtual IInventorySlot&
 	GetSlot(int slot_index) = 0;
 
 	/**
@@ -117,7 +117,7 @@ public:
 	 * @param slot_index Index of the slot.
 	 * @return Constant reference to the slot.
 	 */
-	[[nodiscard]] virtual const IInventorySlot&
+	[[nodiscard]] virtual IInventorySlot const&
 	GetSlot(int slot_index) const = 0;
 
 	/**
@@ -131,8 +131,8 @@ public:
 	 * @brief Gets number of occupied slots.
 	 * @return Current size of the inventory.
 	 */
-	virtual int
-	GetOccupiedSlotCount() = 0;
+	[[nodiscard]] virtual int
+	GetOccupiedSlotCount() const = 0;
 
 	/**
 	 * @brief Checks the slot_index is in bounds.

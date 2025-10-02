@@ -110,42 +110,45 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af9fab69a888d6188e8a353395740c71d" id="r_af9fab69a888d6188e8a353395740c71d"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9fab69a888d6188e8a353395740c71d">Initialize</a> (std::optional&lt; int &gt; initial_capacity)=0</td></tr>
 <tr class="memdesc:af9fab69a888d6188e8a353395740c71d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the inventory with optional capacity.  <br /></td></tr>
 <tr class="separator:af9fab69a888d6188e8a353395740c71d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad53aa9641d75881deae98bba2e631326" id="r_ad53aa9641d75881deae98bba2e631326"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="../../df/d94/classgamekit_1_1systems_1_1inventory_1_1IInventorySettings.html">IInventorySettings</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad53aa9641d75881deae98bba2e631326">GetSettings</a> () const =0</td></tr>
-<tr class="memdesc:ad53aa9641d75881deae98bba2e631326"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the inventory settings.  <br /></td></tr>
-<tr class="separator:ad53aa9641d75881deae98bba2e631326"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a713ce17ad7988e15e104c4170e5936bd" id="r_a713ce17ad7988e15e104c4170e5936bd"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; <a class="el" href="../../d7/d30/classgamekit_1_1systems_1_1inventory_1_1IInventorySlot.html">IInventorySlot</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a713ce17ad7988e15e104c4170e5936bd">GetSlots</a> () const =0</td></tr>
-<tr class="memdesc:a713ce17ad7988e15e104c4170e5936bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets all inventory slots.  <br /></td></tr>
-<tr class="separator:a713ce17ad7988e15e104c4170e5936bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79dc60a968af922ed9f2a48370d483a3" id="r_a79dc60a968af922ed9f2a48370d483a3"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="../../df/d94/classgamekit_1_1systems_1_1inventory_1_1IInventorySettings.html">IInventorySettings</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a79dc60a968af922ed9f2a48370d483a3">GetSettings</a> ()=0</td></tr>
+<tr class="memdesc:a79dc60a968af922ed9f2a48370d483a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the inventory settings.  <br /></td></tr>
+<tr class="separator:a79dc60a968af922ed9f2a48370d483a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a456fd1f89359bb518631ea638032e4" id="r_a6a456fd1f89359bb518631ea638032e4"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="../../df/d94/classgamekit_1_1systems_1_1inventory_1_1IInventorySettings.html">IInventorySettings</a> const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a456fd1f89359bb518631ea638032e4">GetSettings</a> () const =0</td></tr>
+<tr class="memdesc:a6a456fd1f89359bb518631ea638032e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the inventory settings.  <br /></td></tr>
+<tr class="separator:a6a456fd1f89359bb518631ea638032e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acac78d93792bfc6ad199d881c02ad7c7" id="r_acac78d93792bfc6ad199d881c02ad7c7"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; <a class="el" href="../../d7/d30/classgamekit_1_1systems_1_1inventory_1_1IInventorySlot.html">IInventorySlot</a> const * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acac78d93792bfc6ad199d881c02ad7c7">GetSlots</a> () const =0</td></tr>
+<tr class="memdesc:acac78d93792bfc6ad199d881c02ad7c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets all inventory slots.  <br /></td></tr>
+<tr class="separator:acac78d93792bfc6ad199d881c02ad7c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae418f900e71fe013f993b6f2d250e414" id="r_ae418f900e71fe013f993b6f2d250e414"><td class="memItemLeft" align="right" valign="top">virtual std::optional&lt; std::vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae418f900e71fe013f993b6f2d250e414">Add</a> (std::unique_ptr&lt; <a class="el" href="../../d1/d31/classgamekit_1_1core_1_1IKitObject.html">core::IKitObject</a> &gt; data)=0</td></tr>
 <tr class="memdesc:ae418f900e71fe013f993b6f2d250e414"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an item to the inventory.  <br /></td></tr>
 <tr class="separator:ae418f900e71fe013f993b6f2d250e414"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7adf958f7e2d14c1af48d1c48951294" id="r_ad7adf958f7e2d14c1af48d1c48951294"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad7adf958f7e2d14c1af48d1c48951294">Remove</a> (int slot_index)=0</td></tr>
 <tr class="memdesc:ad7adf958f7e2d14c1af48d1c48951294"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes an item from a slot.  <br /></td></tr>
 <tr class="separator:ad7adf958f7e2d14c1af48d1c48951294"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac97ccbf4b59bd4e6e52033628e57ab1c" id="r_ac97ccbf4b59bd4e6e52033628e57ab1c"><td class="memItemLeft" align="right" valign="top">virtual std::optional&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac97ccbf4b59bd4e6e52033628e57ab1c">FindEmptySlot</a> ()=0</td></tr>
-<tr class="memdesc:ac97ccbf4b59bd4e6e52033628e57ab1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds an empty slot.  <br /></td></tr>
-<tr class="separator:ac97ccbf4b59bd4e6e52033628e57ab1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1958a71f65356c2d0f631535bac200eb" id="r_a1958a71f65356c2d0f631535bac200eb"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1958a71f65356c2d0f631535bac200eb">HasInventoryEmptySlot</a> ()=0</td></tr>
-<tr class="memdesc:a1958a71f65356c2d0f631535bac200eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if there is at least one empty slot.  <br /></td></tr>
-<tr class="separator:a1958a71f65356c2d0f631535bac200eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a086a4bd353be224ab558086a248d18a0" id="r_a086a4bd353be224ab558086a248d18a0"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a086a4bd353be224ab558086a248d18a0">IsSlotOccupied</a> (int slot_index)=0</td></tr>
-<tr class="memdesc:a086a4bd353be224ab558086a248d18a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a slot is occupied.  <br /></td></tr>
-<tr class="separator:a086a4bd353be224ab558086a248d18a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4132c6ed92fb974c3c341a6b5b06652" id="r_ad4132c6ed92fb974c3c341a6b5b06652"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad4132c6ed92fb974c3c341a6b5b06652">IsInventoryFull</a> ()=0</td></tr>
-<tr class="memdesc:ad4132c6ed92fb974c3c341a6b5b06652"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the inventory is full.  <br /></td></tr>
-<tr class="separator:ad4132c6ed92fb974c3c341a6b5b06652"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3f677789e905301acc35a02a4c35ed2" id="r_ad3f677789e905301acc35a02a4c35ed2"><td class="memItemLeft" align="right" valign="top">virtual std::optional&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad3f677789e905301acc35a02a4c35ed2">FindEmptySlot</a> () const =0</td></tr>
+<tr class="memdesc:ad3f677789e905301acc35a02a4c35ed2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds an empty slot.  <br /></td></tr>
+<tr class="separator:ad3f677789e905301acc35a02a4c35ed2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34f2c009b1ddd75818e1cc917a3aaf3f" id="r_a34f2c009b1ddd75818e1cc917a3aaf3f"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a34f2c009b1ddd75818e1cc917a3aaf3f">HasInventoryEmptySlot</a> () const =0</td></tr>
+<tr class="memdesc:a34f2c009b1ddd75818e1cc917a3aaf3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if there is at least one empty slot.  <br /></td></tr>
+<tr class="separator:a34f2c009b1ddd75818e1cc917a3aaf3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6339ae3d986553d9fbb67f61fee52a34" id="r_a6339ae3d986553d9fbb67f61fee52a34"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6339ae3d986553d9fbb67f61fee52a34">IsSlotOccupied</a> (int slot_index) const =0</td></tr>
+<tr class="memdesc:a6339ae3d986553d9fbb67f61fee52a34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a slot is occupied.  <br /></td></tr>
+<tr class="separator:a6339ae3d986553d9fbb67f61fee52a34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1e9557036ec37a70d4ed0200b1bba4b" id="r_ac1e9557036ec37a70d4ed0200b1bba4b"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac1e9557036ec37a70d4ed0200b1bba4b">IsInventoryFull</a> () const =0</td></tr>
+<tr class="memdesc:ac1e9557036ec37a70d4ed0200b1bba4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the inventory is full.  <br /></td></tr>
+<tr class="separator:ac1e9557036ec37a70d4ed0200b1bba4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3379b21c6ff3c6723f301fed3163e0b" id="r_ae3379b21c6ff3c6723f301fed3163e0b"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="../../d7/d30/classgamekit_1_1systems_1_1inventory_1_1IInventorySlot.html">IInventorySlot</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae3379b21c6ff3c6723f301fed3163e0b">GetSlot</a> (int slot_index)=0</td></tr>
 <tr class="memdesc:ae3379b21c6ff3c6723f301fed3163e0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesses a slot by index.  <br /></td></tr>
 <tr class="separator:ae3379b21c6ff3c6723f301fed3163e0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2c9d60365e84fe71505a7dd9d112402" id="r_af2c9d60365e84fe71505a7dd9d112402"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="../../d7/d30/classgamekit_1_1systems_1_1inventory_1_1IInventorySlot.html">IInventorySlot</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af2c9d60365e84fe71505a7dd9d112402">GetSlot</a> (int slot_index) const =0</td></tr>
-<tr class="memdesc:af2c9d60365e84fe71505a7dd9d112402"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesses a slot by index (const version).  <br /></td></tr>
-<tr class="separator:af2c9d60365e84fe71505a7dd9d112402"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d6ae031714f7fd884caf7229f4db092" id="r_a0d6ae031714f7fd884caf7229f4db092"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="../../d7/d30/classgamekit_1_1systems_1_1inventory_1_1IInventorySlot.html">IInventorySlot</a> const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0d6ae031714f7fd884caf7229f4db092">GetSlot</a> (int slot_index) const =0</td></tr>
+<tr class="memdesc:a0d6ae031714f7fd884caf7229f4db092"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesses a slot by index (const version).  <br /></td></tr>
+<tr class="separator:a0d6ae031714f7fd884caf7229f4db092"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaaff6946c3dc3692fc8060660312784e" id="r_aaaff6946c3dc3692fc8060660312784e"><td class="memItemLeft" align="right" valign="top">virtual unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaaff6946c3dc3692fc8060660312784e">GetCapacity</a> () const =0</td></tr>
 <tr class="memdesc:aaaff6946c3dc3692fc8060660312784e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets maximum number of slots.  <br /></td></tr>
 <tr class="separator:aaaff6946c3dc3692fc8060660312784e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe704a50fbb17146f58ed18f98bf8012" id="r_abe704a50fbb17146f58ed18f98bf8012"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abe704a50fbb17146f58ed18f98bf8012">GetOccupiedSlotCount</a> ()=0</td></tr>
-<tr class="memdesc:abe704a50fbb17146f58ed18f98bf8012"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets number of occupied slots.  <br /></td></tr>
-<tr class="separator:abe704a50fbb17146f58ed18f98bf8012"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf428ca767a8cc74006d92544e88d768" id="r_acf428ca767a8cc74006d92544e88d768"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acf428ca767a8cc74006d92544e88d768">GetOccupiedSlotCount</a> () const =0</td></tr>
+<tr class="memdesc:acf428ca767a8cc74006d92544e88d768"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets number of occupied slots.  <br /></td></tr>
+<tr class="separator:acf428ca767a8cc74006d92544e88d768"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a03f648f595d2809eac598e8efadc78c6" id="r_a03f648f595d2809eac598e8efadc78c6"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a03f648f595d2809eac598e8efadc78c6">IsSlotIndexInBounds</a> (int slot_index) const =0</td></tr>
 <tr class="memdesc:a03f648f595d2809eac598e8efadc78c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks the slot_index is in bounds.  <br /></td></tr>
 <tr class="separator:a03f648f595d2809eac598e8efadc78c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -190,8 +193,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ac97ccbf4b59bd4e6e52033628e57ab1c" name="ac97ccbf4b59bd4e6e52033628e57ab1c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac97ccbf4b59bd4e6e52033628e57ab1c">&#9670;&#160;</a></span>FindEmptySlot()</h2>
+<a id="ad3f677789e905301acc35a02a4c35ed2" name="ad3f677789e905301acc35a02a4c35ed2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3f677789e905301acc35a02a4c35ed2">&#9670;&#160;</a></span>FindEmptySlot()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -203,7 +206,7 @@ Public Member Functions</h2></td></tr>
           <td class="memname">virtual std::optional&lt; int &gt; gamekit::systems::inventory::IInventory::FindEmptySlot </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -216,7 +219,7 @@ Public Member Functions</h2></td></tr>
 <p>Finds an empty slot. </p>
 <dl class="section return"><dt>Returns</dt><dd>Optional index of the first empty slot. </dd></dl>
 
-<p>Implemented in <a class="el" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a8eee385d21c978e181e6635ea74cd53e">gamekit::systems::inventory::BaseInventory</a>.</p>
+<p>Implemented in <a class="el" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a68b30d415bbb26f88affee82118a26dd">gamekit::systems::inventory::BaseInventory</a>.</p>
 
 </div>
 </div>
@@ -250,8 +253,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="abe704a50fbb17146f58ed18f98bf8012" name="abe704a50fbb17146f58ed18f98bf8012"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abe704a50fbb17146f58ed18f98bf8012">&#9670;&#160;</a></span>GetOccupiedSlotCount()</h2>
+<a id="acf428ca767a8cc74006d92544e88d768" name="acf428ca767a8cc74006d92544e88d768"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf428ca767a8cc74006d92544e88d768">&#9670;&#160;</a></span>GetOccupiedSlotCount()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -263,7 +266,7 @@ Public Member Functions</h2></td></tr>
           <td class="memname">virtual int gamekit::systems::inventory::IInventory::GetOccupiedSlotCount </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -276,12 +279,12 @@ Public Member Functions</h2></td></tr>
 <p>Gets number of occupied slots. </p>
 <dl class="section return"><dt>Returns</dt><dd>Current size of the inventory. </dd></dl>
 
-<p>Implemented in <a class="el" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#aaf705870813309f750268c9acf9f9595">gamekit::systems::inventory::BaseInventory</a>.</p>
+<p>Implemented in <a class="el" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a2804a3f7ae8d2e8cc346c6f71d4ec6e8">gamekit::systems::inventory::BaseInventory</a>.</p>
 
 </div>
 </div>
-<a id="ad53aa9641d75881deae98bba2e631326" name="ad53aa9641d75881deae98bba2e631326"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad53aa9641d75881deae98bba2e631326">&#9670;&#160;</a></span>GetSettings()</h2>
+<a id="a6a456fd1f89359bb518631ea638032e4" name="a6a456fd1f89359bb518631ea638032e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a456fd1f89359bb518631ea638032e4">&#9670;&#160;</a></span>GetSettings() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -290,7 +293,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual const <a class="el" href="../../df/d94/classgamekit_1_1systems_1_1inventory_1_1IInventorySettings.html">IInventorySettings</a> &amp; gamekit::systems::inventory::IInventory::GetSettings </td>
+          <td class="memname">virtual <a class="el" href="../../df/d94/classgamekit_1_1systems_1_1inventory_1_1IInventorySettings.html">IInventorySettings</a> const  &amp; gamekit::systems::inventory::IInventory::GetSettings </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td> const</td>
@@ -310,8 +313,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="af2c9d60365e84fe71505a7dd9d112402" name="af2c9d60365e84fe71505a7dd9d112402"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af2c9d60365e84fe71505a7dd9d112402">&#9670;&#160;</a></span>GetSlot() <span class="overload">[1/2]</span></h2>
+<a id="a79dc60a968af922ed9f2a48370d483a3" name="a79dc60a968af922ed9f2a48370d483a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79dc60a968af922ed9f2a48370d483a3">&#9670;&#160;</a></span>GetSettings() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -320,7 +323,37 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual const <a class="el" href="../../d7/d30/classgamekit_1_1systems_1_1inventory_1_1IInventorySlot.html">IInventorySlot</a> &amp; gamekit::systems::inventory::IInventory::GetSlot </td>
+          <td class="memname">virtual <a class="el" href="../../df/d94/classgamekit_1_1systems_1_1inventory_1_1IInventorySettings.html">IInventorySettings</a> &amp; gamekit::systems::inventory::IInventory::GetSettings </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the inventory settings. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the settings object. </dd></dl>
+
+<p>Implemented in <a class="el" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#afe1761b3fedea1acb9e562de0d0ca34e">gamekit::systems::inventory::BaseInventory</a>.</p>
+
+</div>
+</div>
+<a id="a0d6ae031714f7fd884caf7229f4db092" name="a0d6ae031714f7fd884caf7229f4db092"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d6ae031714f7fd884caf7229f4db092">&#9670;&#160;</a></span>GetSlot() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="../../d7/d30/classgamekit_1_1systems_1_1inventory_1_1IInventorySlot.html">IInventorySlot</a> const  &amp; gamekit::systems::inventory::IInventory::GetSlot </td>
           <td>(</td>
           <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>slot_index</em></span></td><td>)</td>
           <td> const</td>
@@ -342,7 +375,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Constant reference to the slot. </dd></dl>
 
-<p>Implemented in <a class="el" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a51020bedacdb084b85659be9789737c9">gamekit::systems::inventory::BaseInventory</a>.</p>
+<p>Implemented in <a class="el" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#afdee69602d86fad6efb12372dfc7618f">gamekit::systems::inventory::BaseInventory</a>.</p>
 
 </div>
 </div>
@@ -382,8 +415,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a713ce17ad7988e15e104c4170e5936bd" name="a713ce17ad7988e15e104c4170e5936bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a713ce17ad7988e15e104c4170e5936bd">&#9670;&#160;</a></span>GetSlots()</h2>
+<a id="acac78d93792bfc6ad199d881c02ad7c7" name="acac78d93792bfc6ad199d881c02ad7c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acac78d93792bfc6ad199d881c02ad7c7">&#9670;&#160;</a></span>GetSlots()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -392,7 +425,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual std::vector&lt; <a class="el" href="../../d7/d30/classgamekit_1_1systems_1_1inventory_1_1IInventorySlot.html">IInventorySlot</a> * &gt; gamekit::systems::inventory::IInventory::GetSlots </td>
+          <td class="memname">virtual std::vector&lt; <a class="el" href="../../d7/d30/classgamekit_1_1systems_1_1inventory_1_1IInventorySlot.html">IInventorySlot</a> const  * &gt; gamekit::systems::inventory::IInventory::GetSlots </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td> const</td>
@@ -408,12 +441,12 @@ Public Member Functions</h2></td></tr>
 <p>Gets all inventory slots. </p>
 <dl class="section return"><dt>Returns</dt><dd>Constant reference to vector of slots. </dd></dl>
 
-<p>Implemented in <a class="el" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a1f9e8d4c158b2a0569d876d4fc288736">gamekit::systems::inventory::BaseInventory</a>.</p>
+<p>Implemented in <a class="el" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a68755b8bf8c1a8fa8461c3d5e910265b">gamekit::systems::inventory::BaseInventory</a>.</p>
 
 </div>
 </div>
-<a id="a1958a71f65356c2d0f631535bac200eb" name="a1958a71f65356c2d0f631535bac200eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1958a71f65356c2d0f631535bac200eb">&#9670;&#160;</a></span>HasInventoryEmptySlot()</h2>
+<a id="a34f2c009b1ddd75818e1cc917a3aaf3f" name="a34f2c009b1ddd75818e1cc917a3aaf3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34f2c009b1ddd75818e1cc917a3aaf3f">&#9670;&#160;</a></span>HasInventoryEmptySlot()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -425,7 +458,7 @@ Public Member Functions</h2></td></tr>
           <td class="memname">virtual bool gamekit::systems::inventory::IInventory::HasInventoryEmptySlot </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -438,7 +471,7 @@ Public Member Functions</h2></td></tr>
 <p>Checks if there is at least one empty slot. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if any slot is empty. </dd></dl>
 
-<p>Implemented in <a class="el" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#af49c21ddad1c68539edddddbee03df48">gamekit::systems::inventory::BaseInventory</a>.</p>
+<p>Implemented in <a class="el" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a59d3baec5b1783b0a15094587246b953">gamekit::systems::inventory::BaseInventory</a>.</p>
 
 </div>
 </div>
@@ -478,8 +511,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ad4132c6ed92fb974c3c341a6b5b06652" name="ad4132c6ed92fb974c3c341a6b5b06652"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad4132c6ed92fb974c3c341a6b5b06652">&#9670;&#160;</a></span>IsInventoryFull()</h2>
+<a id="ac1e9557036ec37a70d4ed0200b1bba4b" name="ac1e9557036ec37a70d4ed0200b1bba4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1e9557036ec37a70d4ed0200b1bba4b">&#9670;&#160;</a></span>IsInventoryFull()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -491,7 +524,7 @@ Public Member Functions</h2></td></tr>
           <td class="memname">virtual bool gamekit::systems::inventory::IInventory::IsInventoryFull </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -504,7 +537,7 @@ Public Member Functions</h2></td></tr>
 <p>Checks if the inventory is full. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if no empty slots are available. </dd></dl>
 
-<p>Implemented in <a class="el" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a2b0c52e7a7d558adc3559d31c406ab58">gamekit::systems::inventory::BaseInventory</a>.</p>
+<p>Implemented in <a class="el" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a5a7482c53dd748dd69258e6f4618a7bd">gamekit::systems::inventory::BaseInventory</a>.</p>
 
 </div>
 </div>
@@ -544,8 +577,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a086a4bd353be224ab558086a248d18a0" name="a086a4bd353be224ab558086a248d18a0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a086a4bd353be224ab558086a248d18a0">&#9670;&#160;</a></span>IsSlotOccupied()</h2>
+<a id="a6339ae3d986553d9fbb67f61fee52a34" name="a6339ae3d986553d9fbb67f61fee52a34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6339ae3d986553d9fbb67f61fee52a34">&#9670;&#160;</a></span>IsSlotOccupied()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -557,7 +590,7 @@ Public Member Functions</h2></td></tr>
           <td class="memname">virtual bool gamekit::systems::inventory::IInventory::IsSlotOccupied </td>
           <td>(</td>
           <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>slot_index</em></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -576,7 +609,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if slot is occupied. </dd></dl>
 
-<p>Implemented in <a class="el" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#a8b705d8ae5663a9baf392bb757aebfde">gamekit::systems::inventory::BaseInventory</a>.</p>
+<p>Implemented in <a class="el" href="../../d9/d31/classgamekit_1_1systems_1_1inventory_1_1BaseInventory.html#ada819486e432b498c22a88fcd9f5c0c3">gamekit::systems::inventory::BaseInventory</a>.</p>
 
 </div>
 </div>

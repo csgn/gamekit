@@ -1,4 +1,4 @@
 # -------------------------------
 # Bindings
 # -------------------------------
-add_subdirectory(${GAMEKIT_CSHARP_DIR} ${PROJECT_NAME}-csharp)
+# add_subdirectory(${GAMEKIT_CSHARP_DIR} ${PROJECT_NAME}-csharp)

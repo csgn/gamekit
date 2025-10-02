@@ -70,12 +70,13 @@ public:
 		return *m_settings;
 	}
 
-	[[nodiscard]] std::vector<IInventorySlot*>
+	[[nodiscard]] std::vector<IInventorySlot const*>
 	GetSlots() const override
 	{
-		std::vector<IInventorySlot*> slots;
+		std::vector<IInventorySlot const*> slots;
 		slots.reserve(m_slots.size());
-		for (const std::unique_ptr<IInventorySlot>& slot: m_slots)
+
+		for (const auto& slot: m_slots)
 		{
 			slots.push_back(slot.get());
 		}
@@ -107,10 +108,10 @@ public:
 		return true;
 	}
 
-	std::optional<int>
-	FindEmptySlot() override
+	[[nodiscard]] std::optional<int>
+	FindEmptySlot() const override
 	{
-		for (std::unique_ptr<IInventorySlot>& slot: m_slots)
+		for (std::unique_ptr<IInventorySlot> const& slot: m_slots)
 		{
 			if (slot->IsEmpty())
 			{
@@ -121,20 +122,20 @@ public:
 		return std::nullopt;
 	}
 
-	bool
-	HasInventoryEmptySlot() override
+	[[nodiscard]] bool
+	HasInventoryEmptySlot() const override
 	{
 		return FindEmptySlot().has_value();
 	}
 
-	bool
-	IsSlotOccupied(const int slot_index) override
+	[[nodiscard]] bool
+	IsSlotOccupied(const int slot_index) const override
 	{
 		return !GetSlot(slot_index).IsEmpty();
 	}
 
-	bool
-	IsInventoryFull() override
+	[[nodiscard]] bool
+	IsInventoryFull() const override
 	{
 		return !HasInventoryEmptySlot();
 	}
@@ -146,7 +147,7 @@ public:
 		return *m_slots.at(slot_index);
 	}
 
-	[[nodiscard]] const IInventorySlot&
+	[[nodiscard]] IInventorySlot const&
 	GetSlot(int slot_index) const override
 	{
 		assert(IsSlotIndexInBounds(slot_index));
@@ -159,8 +160,8 @@ public:
 		return m_slots.size();
 	}
 
-	int
-	GetOccupiedSlotCount() override
+	[[nodiscard]] int
+	GetOccupiedSlotCount() const override
 	{
 		int occupied_slot_counter = 0;
 		for (const std::unique_ptr<IInventorySlot>& slot: m_slots)
