@@ -1,5 +1,17 @@
 ﻿set(SOURCES
-	gamekit.cpp
+	gamekit/gamekit.cpp
+
+	gamekit/systems/inventory/base_inventory.cpp
+	gamekit/systems/inventory/base_inventory_settings.cpp
+	gamekit/systems/inventory/base_inventory_slot.cpp
+
+	gamekit/systems/inventory/dynamic_inventory/dynamic_inventory.cpp
+	gamekit/systems/inventory/dynamic_inventory/dynamic_inventory_settings.cpp
+	gamekit/systems/inventory/dynamic_inventory/dynamic_inventory_slot.cpp
+
+	gamekit/systems/inventory/static_inventory/static_inventory.cpp
+	gamekit/systems/inventory/static_inventory/static_inventory_settings.cpp
+	gamekit/systems/inventory/static_inventory/static_inventory_slot.cpp
 )
 
 message(STATUS "Sources: ${SOURCES}")

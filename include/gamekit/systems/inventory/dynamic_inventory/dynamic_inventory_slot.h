@@ -31,12 +31,7 @@ public:
 	explicit DynamicInventorySlot(const int index) : BaseInventorySlot(index) {}
 
 	[[nodiscard]] std::string
-	ToString() const override
-	{
-		std::stringstream ss;
-		ss << "DynamicInventorySlot(" << this->m_index << ", " << (this->IsEmpty() ? "Empty" : "...") << ")";
-		return ss.str();
-	}
+	ToString() const override;
 };
 } // namespace gamekit::systems::inventory::dynamic_inventory
 

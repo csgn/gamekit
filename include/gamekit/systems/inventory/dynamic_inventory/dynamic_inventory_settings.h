@@ -43,61 +43,43 @@ public:
 	 * @return True if the inventory can expand, false otherwise.
 	 */
 	[[nodiscard]] bool
-	GetIsExpandable() const
-	{
-		return m_is_expandable;
-	}
+	GetIsExpandable() const;
 
 	/**
 	 * @brief Returns the number of slots added on each expansion.
 	 * @return Number of slots per expansion.
 	 */
 	[[nodiscard]] int
-	GetSlotsPerExpansion() const
-	{
-		return m_slots_per_expansion;
-	}
+	GetSlotsPerExpansion() const;
 
 	/**
 	 * @brief Returns whether the inventory auto-expands when full.
 	 * @return True if auto-expansion is enabled, false otherwise.
 	 */
 	[[nodiscard]] bool
-	GetIsAutoExpand() const
-	{
-		return m_is_auto_expand;
-	}
+	GetIsAutoExpand() const;
 
 	/**
 	 * @brief Sets whether the inventory is expandable.
 	 * @param is_expandable True to make inventory expandable, false otherwise.
 	 */
 	void
-	SetExpandable(bool is_expandable)
-	{
-		m_is_expandable = is_expandable;
-	}
+	SetExpandable(bool is_expandable);
 
 	/**
 	 * @brief Sets the number of slots to add on each expansion.
 	 * @param slots_per_expansion Number of slots to add per expansion.
 	 */
 	void
-	SetSlotsPerExpansion(int slots_per_expansion)
-	{
-		m_slots_per_expansion = slots_per_expansion;
-	}
+	SetSlotsPerExpansion(int slots_per_expansion);
 
 	/**
 	 * @brief Sets whether the inventory should auto-expand when full.
 	 * @param is_auto_expand True to enable auto-expansion, false to disable.
 	 */
 	void
-	SetIsAutoExpand(bool is_auto_expand)
-	{
-		m_is_auto_expand = is_auto_expand;
-	}
-
+	SetIsAutoExpand(bool is_auto_expand);
+	
 protected:
 	bool m_is_expandable; /**< Whether the inventory can expand. */
 	int m_slots_per_expansion; /**< Number of slots added per expansion. */

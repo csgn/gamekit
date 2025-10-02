@@ -11,7 +11,7 @@
 #include <utility>
 
 #include "gamekit/copyright.h"
-#include "gamekit/core/core.h"
+#include "gamekit/core/ikitobject.h"
 #include "gamekit/systems/inventory/iinventory_slot.h"
 
 namespace gamekit::systems::inventory
@@ -39,42 +39,22 @@ public:
 	explicit BaseInventorySlot(const int index) : m_index(index) {}
 
 	[[nodiscard]] int
-	GetIndex() const override
-	{
-		return m_index;
-	}
+	GetIndex() const override;
 
 	core::IKitObject&
-	GetData() override
-	{
-		return *m_data;
-	}
+	GetData() override;
 
 	[[nodiscard]] const core::IKitObject&
-	GetData() const override
-	{
-		return *m_data;
-	}
+	GetData() const override;
 
 	void
-	SetData(std::unique_ptr<core::IKitObject> data) override
-	{
-		m_data = std::move(data);
-	}
+	SetData(std::unique_ptr<core::IKitObject> data) override;
 
 	[[nodiscard]] bool
-	IsEmpty() const override
-	{
-		return m_data == nullptr;
-	}
+	IsEmpty() const override;
 
 	[[nodiscard]] std::string
-	ToString() const override
-	{
-		std::stringstream ss;
-		ss << "BaseInventorySlot(" << m_index << ", " << (IsEmpty() ? "Empty" : "...") << ")";
-		return ss.str();
-	}
+	ToString() const override;
 
 protected:
 	int m_index;
