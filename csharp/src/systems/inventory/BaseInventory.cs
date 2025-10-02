@@ -89,7 +89,7 @@ namespace Gamekit.Systems.Inventory
         public BaseInventorySettings GetSettings()
         {
             var settingsHandle = BaseInventoryNativeMethods.GamekitAPI_BaseInventory_GetSettings(_handle);
-            return new BaseInventorySettings(settingsHandle);
+            return new BaseInventorySettings(settingsHandle.WithOwnership(false));
         }
     }
 }
