@@ -20,8 +20,7 @@ using gamekit::systems::inventory::dynamic_inventory::DynamicInventory;
 namespace gamekit_api::systems::inventory::dynamic_inventory
 {
 
-GAMEKIT_API IInventory* CALL_TYPE
-GamekitAPI_DynamicInventory_New(IInventorySettings* settings);
+
 
 }
 

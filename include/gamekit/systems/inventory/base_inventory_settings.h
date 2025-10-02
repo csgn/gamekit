@@ -5,8 +5,9 @@
 #ifndef GAMEKIT_INCLUDE_GAMEKIT_SYSTEMS_INVENTORY_BASE_INVENTORY_SETTINGS_H
 #define GAMEKIT_INCLUDE_GAMEKIT_SYSTEMS_INVENTORY_BASE_INVENTORY_SETTINGS_H
 
-#include "gamekit/copyright.h"
+#include <iostream>
 
+#include "gamekit/copyright.h"
 #include "gamekit/systems/inventory/iinventory_settings.h"
 
 namespace gamekit::systems::inventory
@@ -31,6 +32,8 @@ public:
 		m_max_capacity(max_capacity), m_initial_capacity(initial_capacity)
 	{
 	}
+
+	~BaseInventorySettings() override { std::cout << "BaseInventorySettings destroyed\n"; }
 
 	/**
 	 * @brief Returns the maximum allowed inventory capacity.

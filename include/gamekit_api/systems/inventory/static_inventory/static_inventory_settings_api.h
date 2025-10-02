@@ -18,23 +18,6 @@ using gamekit::systems::inventory::static_inventory::StaticInventorySettings;
 namespace gamekit_api::systems::inventory::static_inventory
 {
 
-GAMEKIT_API StaticInventorySettings* CALL_TYPE
-GamekitAPI_StaticInventorySettings_New(int max_capacity, int initial_capacity);
-
-GAMEKIT_API void CALL_TYPE
-GamekitAPI_StaticInventorySettings_Delete(IInventorySettings* inventory_settings);
-
-GAMEKIT_API int CALL_TYPE
-GamekitAPI_StaticInventorySettings_GetMaxCapacity(IInventorySettings* inventory_settings);
-
-GAMEKIT_API int CALL_TYPE
-GamekitAPI_StaticInventorySettings_GetInitialCapacity(IInventorySettings* inventory_settings);
-
-GAMEKIT_API void CALL_TYPE
-GamekitAPI_StaticInventorySettings_SetMaxCapacity(IInventorySettings* inventory_settings, int max_capacity);
-
-GAMEKIT_API void CALL_TYPE
-GamekitAPI_StaticInventorySettings_SetInitialCapacity(IInventorySettings* inventory_settings, int initial_capacity);
 
 } // namespace gamekit_api::systems::inventory::static_inventory
 

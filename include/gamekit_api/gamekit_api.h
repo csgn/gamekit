@@ -3,11 +3,14 @@
 
 #include "gamekit/copyright.h"
 
+#include "gamekit_api/gamekit_api_handles.h" // IWYU pragma: export
 #include "gamekit_api/gamekit_api_common.h" // IWYU pragma: export
+#include "gamekit_api/core/core_api.h" // IWYU pragma: export
 #include "gamekit_api/systems/inventory/inventory_api.h" // IWYU pragma: export
 
 namespace gamekit_api
 {
+
 
 } // namespace gamekit_api
 

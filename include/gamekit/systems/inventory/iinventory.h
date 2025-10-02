@@ -40,6 +40,13 @@ public:
 
 	/**
 	 * @brief Gets the inventory settings.
+	 * @return Reference to the settings object.
+	 */
+	[[nodiscard]] virtual IInventorySettings&
+	GetSettings() = 0;
+
+	/**
+	 * @brief Gets the inventory settings.
 	 * @return Constant reference to the settings object.
 	 */
 	[[nodiscard]] virtual const IInventorySettings&

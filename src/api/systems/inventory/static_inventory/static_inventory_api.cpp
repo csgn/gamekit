@@ -6,10 +6,6 @@
 namespace gamekit_api::systems::inventory::static_inventory
 {
 
-GAMEKIT_API IInventory* CALL_TYPE
-GamekitAPI_StaticInventory_New(IInventorySettings* settings)
-{
-	return new StaticInventory(std::unique_ptr<IInventorySettings>(settings));
-}
+
 
 } // namespace gamekit_api::systems::inventory::static_inventory

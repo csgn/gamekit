@@ -18,11 +18,6 @@ using gamekit::systems::inventory::static_inventory::StaticInventorySlot;
 namespace gamekit_api::systems::inventory::static_inventory
 {
 
-GAMEKIT_API IInventorySlot* CALL_TYPE
-GamekitAPI_StaticInventorySlot_New(int index);
-
-GAMEKIT_API int CALL_TYPE
-GamekitAPI_StaticInventorySlot_GetIndex(IInventorySlot* inventory_slot);
 
 } // namespace gamekit_api::systems::inventory::static_inventory
 

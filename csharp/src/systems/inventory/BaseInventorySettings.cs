@@ -1,58 +1,103 @@
+using Microsoft.Win32.SafeHandles;
 using System.Runtime.InteropServices;
 
 namespace Gamekit.Systems.Inventory
 {
-    public class BaseInventorySettings : NativeObject, IInventorySettings
+    internal class BaseInventorySettingsHandle : NativeHandle
+    {
+        private BaseInventorySettingsHandle() : base(true) { }
+
+        internal BaseInventorySettingsHandle(BaseInventorySettingsHandle nativeHandle, bool ownsHandle) : base(nativeHandle, ownsHandle)
+        {
+
+        }
+
+        override protected bool ReleaseHandle()
+        {
+            BaseInventorySettingsNativeMethods.GamekitAPI_BaseInventorySettings_Delete(handle);
+            return true;
+        }
+
+        internal override BaseInventorySettingsHandle WithOwnership(bool ownsHandle)
+        {
+            return new BaseInventorySettingsHandle(this, ownsHandle);
+        }
+    }
+
+    internal static class BaseInventorySettingsNativeMethods
     {
         [DllImport(Platform.LibraryName, EntryPoint = "GamekitAPI_BaseInventorySettings_New", CallingConvention = Platform.CC)]
-        internal static extern IntPtr GamekitAPI_BaseInventorySettings_New(int maxCapacity, int initialCapacity);
+        internal static extern BaseInventorySettingsHandle GamekitAPI_BaseInventorySettings_New(int maxCapacity, int initialCapacity);
 
         [DllImport(Platform.LibraryName, EntryPoint = "GamekitAPI_BaseInventorySettings_Delete", CallingConvention = Platform.CC)]
-        internal static extern void GamekitAPI_BaseInventorySettings_Delete(IntPtr baseInventorySettings);
+        internal static extern void GamekitAPI_BaseInventorySettings_Delete(IntPtr handle);
 
         [DllImport(Platform.LibraryName, EntryPoint = "GamekitAPI_BaseInventorySettings_GetMaxCapacity", CallingConvention = Platform.CC)]
-        internal static extern int GamekitAPI_BaseInventorySettings_GetMaxCapacity(IntPtr baseInventorySettings);
+        internal static extern int GamekitAPI_BaseInventorySettings_GetMaxCapacity(BaseInventorySettingsHandle handle);
 
         [DllImport(Platform.LibraryName, EntryPoint = "GamekitAPI_BaseInventorySettings_GetInitialCapacity", CallingConvention = Platform.CC)]
-        internal static extern int GamekitAPI_BaseInventorySettings_GetInitialCapacity(IntPtr baseInventorySettings);
+        internal static extern int GamekitAPI_BaseInventorySettings_GetInitialCapacity(BaseInventorySettingsHandle handle);
 
         [DllImport(Platform.LibraryName, EntryPoint = "GamekitAPI_BaseInventorySettings_SetMaxCapacity", CallingConvention = Platform.CC)]
-        internal static extern void GamekitAPI_BaseInventorySettings_SetMaxCapacity(IntPtr baseInventorySettings, int maxCapacity);
+        internal static extern void GamekitAPI_BaseInventorySettings_SetMaxCapacity(BaseInventorySettingsHandle handle, int maxCapacity);
 
         [DllImport(Platform.LibraryName, EntryPoint = "GamekitAPI_BaseInventorySettings_SetInitialCapacity", CallingConvention = Platform.CC)]
-        internal static extern void GamekitAPI_BaseInventorySettings_SetInitialCapacity(IntPtr baseInventorySettings, int initialCapacity);
+        internal static extern void GamekitAPI_BaseInventorySettings_SetInitialCapacity(BaseInventorySettingsHandle handle, int initialCapacity);
+    }
 
-        public BaseInventorySettings() { }
+    public class BaseInventorySettings : IInventorySettings, IHandleContainer<BaseInventorySettingsHandle>
+    {
+        internal BaseInventorySettingsHandle _handle;
 
-        protected BaseInventorySettings(IntPtr ptr) : base(ptr) { }
-
-        public BaseInventorySettings(int maxCapacity, int initialCapacity) : this(GamekitAPI_BaseInventorySettings_New(maxCapacity, initialCapacity))
+        internal BaseInventorySettings(BaseInventorySettingsHandle handle)
         {
+            _handle = handle;
         }
 
-        protected override void FreePtr()
+        public BaseInventorySettings(int maxCapacity, int initialCapacity)
         {
-            GamekitAPI_BaseInventorySettings_Delete(_mPtr);
+            _handle = BaseInventorySettingsNativeMethods.GamekitAPI_BaseInventorySettings_New(maxCapacity, initialCapacity);
         }
 
-        public virtual int GetMaxCapacity()
+        BaseInventorySettingsHandle IHandleContainer<BaseInventorySettingsHandle>.Handle => _handle;
+
+        void IHandleContainer<BaseInventorySettingsHandle>.ChangeOwnership(bool ownsHandle)
         {
-            return GamekitAPI_BaseInventorySettings_GetMaxCapacity(_mPtr);
+            _handle = _handle.WithOwnership(ownsHandle);
         }
 
-        public virtual int GetInitialCapacity()
+        public void Dispose()
         {
-            return GamekitAPI_BaseInventorySettings_GetInitialCapacity(_mPtr);
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
-        public virtual void SetMaxCapacity(int maxCapacity)
+        protected virtual void Dispose(bool disposing)
         {
-            GamekitAPI_BaseInventorySettings_SetMaxCapacity(_mPtr, maxCapacity);
+            if (!_handle.IsNull() && !_handle.IsInvalid)
+            {
+                _handle.Dispose();
+            }
         }
 
-        public virtual void SetInitialCapacity(int initialCapacity)
+        public int GetMaxCapacity()
         {
-            GamekitAPI_BaseInventorySettings_SetInitialCapacity(_mPtr, initialCapacity);
+            return BaseInventorySettingsNativeMethods.GamekitAPI_BaseInventorySettings_GetMaxCapacity(_handle);
+        }
+
+        public int GetInitialCapacity()
+        {
+            return BaseInventorySettingsNativeMethods.GamekitAPI_BaseInventorySettings_GetInitialCapacity(_handle);
+        }
+
+        public void SetMaxCapacity(int maxCapacity)
+        {
+            BaseInventorySettingsNativeMethods.GamekitAPI_BaseInventorySettings_SetMaxCapacity(_handle, maxCapacity);
+        }
+
+        public void SetInitialCapacity(int initialCapacity)
+        {
+            BaseInventorySettingsNativeMethods.GamekitAPI_BaseInventorySettings_SetInitialCapacity(_handle, initialCapacity);
         }
     }
 }

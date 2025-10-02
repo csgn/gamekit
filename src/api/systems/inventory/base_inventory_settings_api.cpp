@@ -1,43 +1,45 @@
 #include "gamekit/copyright.h"
+
+#include "gamekit_api/gamekit_api_handles.h"
 #include "gamekit_api/systems/inventory/base_inventory_settings_api.h"
 
 namespace gamekit_api::systems::inventory
 {
 
-GAMEKIT_API BaseInventorySettings* CALL_TYPE
+GAMEKIT_API HInventorySettings* CALL_TYPE
 GamekitAPI_BaseInventorySettings_New(const int max_capacity, const int initial_capacity)
 {
-	return new BaseInventorySettings(max_capacity, initial_capacity);
+	return reinterpret_cast<HInventorySettings*>(new BaseInventorySettings(max_capacity, initial_capacity));
 }
 
 GAMEKIT_API void CALL_TYPE
-GamekitAPI_BaseInventorySettings_Delete(IInventorySettings* inventory_settings)
+GamekitAPI_BaseInventorySettings_Delete(HInventorySettings* inventory_settings)
 {
-	delete inventory_settings;
+	delete reinterpret_cast<IInventorySettings*>(inventory_settings);
 }
 
 GAMEKIT_API int CALL_TYPE
-GamekitAPI_BaseInventorySettings_GetMaxCapacity(IInventorySettings* inventory_settings)
+GamekitAPI_BaseInventorySettings_GetMaxCapacity(HInventorySettings* inventory_settings)
 {
-	return inventory_settings->GetMaxCapacity();
+	return reinterpret_cast<IInventorySettings*>(inventory_settings)->GetMaxCapacity();
 }
 
 GAMEKIT_API int CALL_TYPE
-GamekitAPI_BaseInventorySettings_GetInitialCapacity(IInventorySettings* inventory_settings)
+GamekitAPI_BaseInventorySettings_GetInitialCapacity(HInventorySettings* inventory_settings)
 {
-	return inventory_settings->GetInitialCapacity();
+	return reinterpret_cast<IInventorySettings*>(inventory_settings)->GetInitialCapacity();
 }
 
 GAMEKIT_API void CALL_TYPE
-GamekitAPI_BaseInventorySettings_SetMaxCapacity(IInventorySettings* inventory_settings, int max_capacity)
+GamekitAPI_BaseInventorySettings_SetMaxCapacity(HInventorySettings* inventory_settings, int max_capacity)
 {
-	inventory_settings->SetMaxCapacity(max_capacity);
+	return reinterpret_cast<IInventorySettings*>(inventory_settings)->SetMaxCapacity(max_capacity);
 }
 
 GAMEKIT_API void CALL_TYPE
-GamekitAPI_BaseInventorySettings_SetInitialCapacity(IInventorySettings* inventory_settings, int initial_capacity)
+GamekitAPI_BaseInventorySettings_SetInitialCapacity(HInventorySettings* inventory_settings, int initial_capacity)
 {
-	inventory_settings->SetInitialCapacity(initial_capacity);
+	return reinterpret_cast<IInventorySettings*>(inventory_settings)->SetInitialCapacity(initial_capacity);
 }
 
 } // namespace gamekit_api::systems::inventory

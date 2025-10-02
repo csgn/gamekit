@@ -20,8 +20,6 @@ using gamekit::systems::inventory::static_inventory::StaticInventory;
 namespace gamekit_api::systems::inventory::static_inventory
 {
 
-GAMEKIT_API IInventory* CALL_TYPE
-GamekitAPI_StaticInventory_New(IInventorySettings* settings);
 
 } // namespace gamekit_api::systems::inventory::static_inventory
 

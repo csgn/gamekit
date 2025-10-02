@@ -6,6 +6,7 @@
 #define GAMEKIT_INCLUDE_GAMEKIT_SYSTEMS_INVENTORY_BASE_INVENTORY_H
 
 #include <cassert>
+#include <iostream>
 #include <memory>
 #include <optional>
 #include <utility>
@@ -41,6 +42,8 @@ public:
 	 */
 	explicit BaseInventory(std::unique_ptr<IInventorySettings> settings) : m_settings(std::move(settings)) {}
 
+	~BaseInventory() override { std::cout << "BaseInventory destroyed\n"; }
+
 	bool
 	Initialize(std::optional<int> initial_capacity) override
 	{
@@ -53,6 +56,12 @@ public:
 		}
 
 		return true;
+	}
+
+	[[nodiscard]] IInventorySettings&
+	GetSettings() override
+	{
+		return *m_settings;
 	}
 
 	[[nodiscard]] const IInventorySettings&

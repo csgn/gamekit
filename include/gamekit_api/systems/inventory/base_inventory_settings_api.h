@@ -10,6 +10,7 @@
 #include "gamekit/systems/inventory/iinventory_settings.h" // IWYU pragma: export
 #include "gamekit/systems/inventory/base_inventory_settings.h" // IWYU pragma: export
 
+#include "gamekit_api/gamekit_api_handles.h" // IYWU pragma: export
 #include "gamekit_api/gamekit_api_common.h" // IWYU pragma: export
 
 using gamekit::systems::inventory::IInventorySettings;
@@ -18,23 +19,23 @@ using gamekit::systems::inventory::BaseInventorySettings;
 namespace gamekit_api::systems::inventory
 {
 
-GAMEKIT_API BaseInventorySettings* CALL_TYPE
+GAMEKIT_API HInventorySettings* CALL_TYPE
 GamekitAPI_BaseInventorySettings_New(int max_capacity, int initial_capacity);
 
 GAMEKIT_API void CALL_TYPE
-GamekitAPI_BaseInventorySettings_Delete(IInventorySettings* inventory_settings);
+GamekitAPI_BaseInventorySettings_Delete(HInventorySettings* inventory_settings);
 
 GAMEKIT_API int CALL_TYPE
-GamekitAPI_BaseInventorySettings_GetMaxCapacity(IInventorySettings* inventory_settings);
+GamekitAPI_BaseInventorySettings_GetMaxCapacity(HInventorySettings* inventory_settings);
 
 GAMEKIT_API int CALL_TYPE
-GamekitAPI_BaseInventorySettings_GetInitialCapacity(IInventorySettings* inventory_settings);
+GamekitAPI_BaseInventorySettings_GetInitialCapacity(HInventorySettings* inventory_settings);
 
 GAMEKIT_API void CALL_TYPE
-GamekitAPI_BaseInventorySettings_SetMaxCapacity(IInventorySettings* inventory_settings, int max_capacity);
+GamekitAPI_BaseInventorySettings_SetMaxCapacity(HInventorySettings* inventory_settings, int max_capacity);
 
 GAMEKIT_API void CALL_TYPE
-GamekitAPI_BaseInventorySettings_SetInitialCapacity(IInventorySettings* inventory_settings, int initial_capacity);
+GamekitAPI_BaseInventorySettings_SetInitialCapacity(HInventorySettings* inventory_settings, int initial_capacity);
 
 } // namespace gamekit_api::systems::inventory
 
