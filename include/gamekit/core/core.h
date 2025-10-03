@@ -8,6 +8,8 @@
 #include "gamekit/copyright.h"
 
 #include "gamekit/core/ikitobject.h" // IWYU pragma: export
+#include "gamekit/core/ec/ec.h" // IWYU pragma: export
+#include "gamekit/core/math/math.h" // IWYU pragma: export
 
 namespace gamekit::core
 {

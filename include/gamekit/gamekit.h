@@ -4,14 +4,15 @@
 #include "gamekit/copyright.h"
 
 #include "gamekit/core/core.h" // IWYU pragma: export
-#include "gamekit/systems/inventory/inventory.h" // IWYU pragma: export
+#include "gamekit/gameplay/inventory/inventory.h" // IWYU pragma: export
+#include "gamekit/gameplay/interaction/interaction.h" // IYWU pragma: export
 
 /**
  * @mainpage GameKit Library
  *
  * @section intro_sec Introduction
  * This project is a C++ kit library designed to help developers
- * quickly prototype games without rewriting core gameplay systems from scratch.
+ * quickly prototype games without rewriting core gameplay gameplay from scratch.
  */
 namespace gamekit
 {
