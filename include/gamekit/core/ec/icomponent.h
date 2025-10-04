@@ -30,7 +30,7 @@ public:
 	GetRoot() const
 	{
 		static_assert(std::is_base_of_v<IEntity, T>, "T must derive from IEntity");
-		return dynamic_cast<T const*>(m_root);
+		return static_cast<T const*>(m_root);
 	}
 
 private:
