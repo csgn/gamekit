@@ -4,8 +4,7 @@
 #include "gamekit/copyright.h"
 
 #include "gamekit/core/core.h" // IWYU pragma: export
-#include "gamekit/gameplay/inventory/inventory.h" // IWYU pragma: export
-#include "gamekit/gameplay/interaction/interaction.h" // IYWU pragma: export
+#include "gamekit/gameplay/gameplay.h" // IWYU pragma: export
 
 /**
  * @mainpage GameKit Library
