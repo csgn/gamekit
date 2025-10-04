@@ -21,12 +21,13 @@ class IEntity
 public:
 	virtual ~IEntity() = default;
 
-	template<typename T>
+	template<typename T, typename... Args>
 	void
-	AttachComponent(std::unique_ptr<T> component)
+	AttachComponent(Args&&... args)
 	{
 		static_assert(std::is_base_of_v<IComponent, T>, "T must derive from IComponent");
 
+		auto component = std::make_unique<T>(std::forward<Args>(args)...);
 		component->AttachRoot(this);
 		m_components[std::type_index(typeid(T))] = std::move(component);
 	}
@@ -44,11 +45,20 @@ public:
 	}
 
 	template<typename T>
+	bool
+	HasComponent() const
+	{
+		static_assert(std::is_base_of_v<IComponent, T>, "T must derive from IComponent");
+		return m_components.find(std::type_index(typeid(T))) != m_components.end();
+	}
+
+	template<typename T, typename... Args>
 	void
-	AttachBehaviour(std::unique_ptr<T> behaviour)
+	AttachBehaviour(Args&&... args)
 	{
 		static_assert(std::is_base_of_v<IBehaviour, T>, "T must derive from IBehaviour");
 
+		auto behaviour = std::make_unique<T>(std::forward<Args>(args)...);
 		behaviour->AttachRoot(this);
 		m_behaviours[std::type_index(typeid(T))] = std::move(behaviour);
 	}
@@ -63,6 +73,14 @@ public:
 			return static_cast<T*>(it->second.get());
 
 		return nullptr;
+	}
+
+	template<typename T>
+	bool
+	HasBehaviour() const
+	{
+		static_assert(std::is_base_of_v<IBehaviour, T>, "T must derive from IBehaviour");
+		return m_behaviours.find(std::type_index(typeid(T))) != m_behaviours.end();
 	}
 
 private:
